@@ -1,0 +1,3836 @@
+# Copyright (C) 2025 Discount Team
+# This file is distributed under the http://www.gnu.org/licenses/gpl-2.0.html.
+msgid ""
+msgstr ""
+"Project-Id-Version: Discount Rules and Dynamic Pricing for WooCommerce 9.2.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/easy-woocommerce-discounts-pro\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-12-08T13:28:06+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: easy-woocommerce-discounts\n"
+
+#. Plugin Name of the plugin
+#: easy-woocommerce-discounts.php
+msgid "Discount Rules and Dynamic Pricing for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: easy-woocommerce-discounts.php
+msgid "https://www.asanaplugins.com/product/woocommerce-dynamic-pricing-and-discounts-plugin/?utm_source=easy-woocommerce-discounts-free&utm_campaign=easy-woocommerce-discounts&utm_medium=link"
+msgstr ""
+
+#. Description of the plugin
+#: easy-woocommerce-discounts.php
+msgid "All purpose WooCommerce discounts, pricing, shipping and promotion tool."
+msgstr ""
+
+#. Author of the plugin
+#: easy-woocommerce-discounts.php
+msgid "Discount Team"
+msgstr ""
+
+#. Author URI of the plugin
+#: easy-woocommerce-discounts.php
+msgid "http://www.asanaplugins.com/"
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:56
+msgid "Condition type required"
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:64
+msgid "Some errors occurred in saving condition."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:234
+#, php-format
+msgid "Condition %s successfully."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:244
+msgid "Errors occurred in saving condition."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:268
+msgid "Condition id required to deleting it."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:276
+msgid "Some errors occurred in deleting condition."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:298
+msgid "Condition deleted successfully."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:309
+msgid "Errors occurred in deleting condition."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:332
+msgid "ID is required to updating condition."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:336
+msgid "Type is required to updating condition."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:340
+msgid "Data is required to updating condition."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:348
+msgid "Some errors occurred in updating condition."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:403
+msgid "Condition updated successfully."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:414
+msgid "Errors occurred in updating condition."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:437
+msgid "Conditions required for ordering"
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:441
+msgid "Type required for ordering."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:449
+msgid "Some errors occurred in ordering conditions."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:465
+msgid "Conditions ordered successfully."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:476
+msgid "Conditions did not ordered successfully."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:500
+msgid "Condition id required to duplicate it."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:504
+msgid "Type required for duplicating."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:512
+msgid "Some errors occurred in duplicating condition."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:525
+msgid "Errors occurred in duplicating condition."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:537
+msgid "Condition duplicated successfully."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:559
+msgid "Data is required to get live price."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:609
+msgid "Error occurred in getting live price."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:632
+msgid "Search term is required to select data."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:636
+msgid "Type is required to select data."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:644
+msgid "Some errors occurred in selecting data."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:714
+msgid "Options are required to get select data."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:718
+msgid "Type is required to get select data."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:726
+msgid "Some errors occurred in getting select data."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:787
+msgid "Bundle"
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:800
+msgid "Addons"
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:851
+msgid "Coupon name is required."
+msgstr ""
+
+#: admin/class-wccs-admin-ajax.php:859
+msgid "Some errors occurred in getting coupon code."
+msgstr ""
+
+#: admin/class-wccs-admin-html-element.php:41
+#, php-format
+msgid "The callback function used for the <strong>%s</strong> setting is missing."
+msgstr ""
+
+#: admin/class-wccs-admin-menu.php:80
+#: admin/class-wccs-admin-menu.php:89
+msgid "WooCommerce Dynamic Pricing & Discounts"
+msgstr ""
+
+#: admin/class-wccs-admin-menu.php:81
+msgid "Woo Pricing & Discounts"
+msgstr ""
+
+#: admin/class-wccs-admin-menu.php:90
+msgid "Settings"
+msgstr ""
+
+#: admin/class-wccs-admin-notices.php:98
+msgid "Action failed. Please refresh the page and retry."
+msgstr ""
+
+#: admin/class-wccs-admin-notices.php:102
+#: includes/class-wc-conditions.php:173
+#: includes/class-wc-conditions.php:185
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: admin/class-wccs-admin-order-hooks.php:38
+#: includes/class-wccs-settings-manager.php:80
+#: includes/class-wccs-settings-manager.php:756
+#: public/class-wccs-public-total-discounts-hooks.php:20
+#: public/class-wccs-public-total-discounts-hooks.php:60
+#: admin/js/conditions/index.js:32155
+msgid "Total Discounts"
+msgstr ""
+
+#: admin/class-wccs-admin-select-data-provider.php:115
+msgid "Cart discount"
+msgstr ""
+
+#: admin/class-wccs-admin.php:199
+msgid "settings"
+msgstr ""
+
+#: admin/class-wccs-admin.php:201
+#, php-format
+msgid "To receive automatic updates, license activation is required. Please visit %s to activate your plugin."
+msgstr ""
+
+#: admin/menus/class-wccs-admin-settings-menu.php:199
+msgid "Settings updated."
+msgstr ""
+
+#: admin/partials/admin_notices/update.php:14
+#: admin/partials/admin_notices/updating.php:14
+msgid "Easy WooCommerce Discounts Pro data update"
+msgstr ""
+
+#: admin/partials/admin_notices/update.php:14
+msgid "We need to update database to the latest version."
+msgstr ""
+
+#: admin/partials/admin_notices/update.php:15
+#: admin/partials/menu/update-required.php:15
+msgid "Run the updater"
+msgstr ""
+
+#: admin/partials/admin_notices/update.php:19
+msgid "It is strongly recommended that you backup your database before proceeding. Are you sure you wish to run the updater now?"
+msgstr ""
+
+#: admin/partials/admin_notices/updated.php:8
+msgid "Dismiss"
+msgstr ""
+
+#: admin/partials/admin_notices/updated.php:10
+msgid "Easy WooCommerce Discounts Pro data update complete. Thank you for updating to the latest version!"
+msgstr ""
+
+#: admin/partials/admin_notices/updating-prices.php:8
+msgid "Cancel updating prices"
+msgstr ""
+
+#: admin/partials/admin_notices/updating-prices.php:10
+msgid "Products price updating is running in the background. Depending on the amount of products in your store this may take a while."
+msgstr ""
+
+#: admin/partials/admin_notices/updating.php:14
+msgid "Your database is being updated in the background."
+msgstr ""
+
+#: admin/partials/admin_notices/updating.php:14
+msgid "Taking a while? Click here to run it now."
+msgstr ""
+
+#: admin/partials/menu/update-required.php:14
+msgid "Please update the plugin database then reload the page!"
+msgstr ""
+
+#: includes/api/class-wccs-rest-analytics.php:141
+#: admin/js/conditions/index.js:17387
+msgid "Please provide a search query."
+msgstr ""
+
+#: includes/api/class-wccs-rest-analytics.php:166
+msgid "Please provide a valid date range."
+msgstr ""
+
+#: includes/api/class-wccs-rest-analytics.php:174
+msgid "End date cannot be earlier than start date."
+msgstr ""
+
+#: includes/api/class-wccs-rest-analytics.php:194
+msgid "from yesterday"
+msgstr ""
+
+#: includes/api/class-wccs-rest-analytics.php:200
+msgid "from last week"
+msgstr ""
+
+#: includes/api/class-wccs-rest-analytics.php:207
+msgid "from previous month"
+msgstr ""
+
+#: includes/api/class-wccs-rest-analytics.php:214
+msgid "from previous year"
+msgstr ""
+
+#: includes/api/class-wccs-rest-analytics.php:220
+msgid "from previous period"
+msgstr ""
+
+#: includes/api/class-wccs-rest-base-controller.php:29
+msgid "Sorry, you cannot list resources."
+msgstr ""
+
+#: includes/api/class-wccs-rest-base-controller.php:45
+msgid "Sorry, you cannot view this resource."
+msgstr ""
+
+#: includes/api/class-wccs-rest-base-controller.php:59
+msgid "Sorry, you cannot create an item."
+msgstr ""
+
+#: includes/api/class-wccs-rest-base-controller.php:73
+msgid "Sorry, you cannot update the item."
+msgstr ""
+
+#: includes/api/class-wccs-rest-base-controller.php:87
+msgid "Sorry, you are not allowed to delete this resource."
+msgstr ""
+
+#: includes/api/class-wccs-rest-base-controller.php:101
+msgid "Sorry, you are not allowed to duplicate this resource."
+msgstr ""
+
+#: includes/api/class-wccs-rest-base-controller.php:115
+msgid "Sorry, you are not allowed to reorder items."
+msgstr ""
+
+#: includes/api/class-wccs-rest-review.php:26
+#: admin/js/review/index.js:197
+msgid "Action is required."
+msgstr ""
+
+#: includes/api/class-wccs-rest-review.php:39
+msgid "Action not found."
+msgstr ""
+
+#: includes/class-wccs-activator.php:392
+#, php-format
+msgid "New discount addons added to the plugin, please visit the %s for more information."
+msgstr ""
+
+#: includes/class-wccs-activator.php:393
+#: includes/class-wccs-activator.php:402
+msgid "Addons Page"
+msgstr ""
+
+#: includes/class-wccs-activator.php:401
+#, php-format
+msgid "URL Coupons for WooCommerce addon added to the plugin, please visit the %s for more information."
+msgstr ""
+
+#: includes/class-wccs-background-batch-price-updater.php:94
+#: includes/class-wccs-background-batch-price-updater.php:96
+msgid "Cancelled product price update job."
+msgstr ""
+
+#: includes/class-wccs-background-price-updater.php:46
+#: includes/class-wccs-background-price-updater.php:50
+#, php-format
+msgid "Unable to dispatch WooCommerce Conditions price updater: %s"
+msgstr ""
+
+#: includes/class-wccs-background-price-updater.php:130
+#: includes/class-wccs-background-price-updater.php:132
+msgid "Completed product price update job."
+msgstr ""
+
+#: includes/class-wccs-checkout-fee.php:227
+#: includes/class-wccs-settings-manager.php:499
+#: admin/js/conditions/index.js:12600
+#: admin/js/conditions/index.js:12680
+#: admin/js/conditions/index.js:12692
+#: admin/js/conditions/index.js:15126
+#: admin/js/conditions/index.js:16358
+msgid "Fee"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:26
+msgid "General"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:27
+msgid "Promotion"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:28
+msgid "Localization"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:29
+msgid "Performance"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:30
+msgid "Enable Updates"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:71
+msgid "Cart Discount"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:72
+msgid "Product Pricing"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:73
+msgid "Checkout Fee"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:74
+#: includes/class-wccs-shipping-method.php:78
+msgid "Shipping"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:77
+msgid "Quantity Table"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:78
+msgid "Live Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:79
+msgid "Messages"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:81
+msgid "Countdown Timer"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:82
+#: includes/class-wccs-settings-manager.php:963
+#: includes/class-wccs-settings-manager.php:983
+#: public/class-wccs-public-pricing-hooks.php:357
+msgid "Discount Page"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:85
+#: includes/class-wccs-settings-manager.php:88
+#: includes/class-wccs-settings-manager.php:91
+msgid "Main"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:118
+#: includes/class-wccs-settings-manager.php:295
+#: includes/class-wccs-settings-manager.php:313
+msgid "Discount Apply Method"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:122
+#: includes/class-wccs-settings-manager.php:299
+msgid "Apply first matched rule discount"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:123
+#: includes/class-wccs-settings-manager.php:300
+#: includes/class-wccs-settings-manager.php:314
+msgid "Apply maximum discount"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:124
+#: includes/class-wccs-settings-manager.php:301
+#: includes/class-wccs-settings-manager.php:315
+msgid "Apply minimum discount"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:125
+#: includes/class-wccs-settings-manager.php:302
+msgid "Apply sum of discounts"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:130
+msgid "Apply with individual use coupons"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:131
+msgid "Apply cart discounts with cart individual use coupons."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:135
+#: includes/class-wccs-settings-manager.php:146
+#: includes/class-wccs-settings-manager.php:202
+#: includes/class-wccs-settings-manager.php:320
+#: includes/class-wccs-settings-manager.php:375
+#: includes/class-wccs-settings-manager.php:404
+#: includes/class-wccs-settings-manager.php:415
+#: includes/class-wccs-settings-manager.php:426
+#: includes/class-wccs-settings-manager.php:512
+#: includes/class-wccs-settings-manager.php:523
+#: includes/class-wccs-settings-manager.php:541
+#: includes/class-wccs-settings-manager.php:622
+#: includes/class-wccs-settings-manager.php:633
+#: includes/class-wccs-settings-manager.php:701
+#: includes/class-wccs-settings-manager.php:747
+#: includes/class-wccs-settings-manager.php:787
+#: includes/class-wccs-settings-manager.php:1000
+#: includes/class-wccs-settings-manager.php:1044
+#: includes/class-wccs-settings-manager.php:1055
+#: includes/class-wccs-settings-manager.php:1066
+#: includes/class-wccs-settings-manager.php:1077
+#: includes/class-wccs-settings-manager.php:1088
+#: includes/class-wccs-settings-manager.php:1099
+#: includes/class-wccs-settings-manager.php:1110
+#: admin/js/conditions/index.js:6206
+#: admin/js/conditions/index.js:7898
+#: admin/js/conditions/index.js:32920
+msgid "Yes"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:136
+#: includes/class-wccs-settings-manager.php:147
+#: includes/class-wccs-settings-manager.php:203
+#: includes/class-wccs-settings-manager.php:321
+#: includes/class-wccs-settings-manager.php:376
+#: includes/class-wccs-settings-manager.php:405
+#: includes/class-wccs-settings-manager.php:416
+#: includes/class-wccs-settings-manager.php:427
+#: includes/class-wccs-settings-manager.php:513
+#: includes/class-wccs-settings-manager.php:524
+#: includes/class-wccs-settings-manager.php:542
+#: includes/class-wccs-settings-manager.php:623
+#: includes/class-wccs-settings-manager.php:634
+#: includes/class-wccs-settings-manager.php:702
+#: includes/class-wccs-settings-manager.php:748
+#: includes/class-wccs-settings-manager.php:788
+#: includes/class-wccs-settings-manager.php:812
+#: includes/class-wccs-settings-manager.php:1001
+#: includes/class-wccs-settings-manager.php:1045
+#: includes/class-wccs-settings-manager.php:1056
+#: includes/class-wccs-settings-manager.php:1067
+#: includes/class-wccs-settings-manager.php:1078
+#: includes/class-wccs-settings-manager.php:1089
+#: includes/class-wccs-settings-manager.php:1100
+#: includes/class-wccs-settings-manager.php:1111
+#: admin/js/conditions/index.js:6206
+#: admin/js/conditions/index.js:7898
+msgid "No"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:141
+msgid "Apply with regular coupons"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:142
+msgid "Apply cart discounts with cart regular coupons."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:152
+#: includes/class-wccs-settings-manager.php:349
+msgid "Discount Limit Type"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:157
+#: includes/class-wccs-settings-manager.php:354
+#: includes/class-wccs-settings-manager.php:453
+#: includes/class-wccs-settings-manager.php:846
+msgid "No Limit"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:159
+#: includes/class-wccs-settings-manager.php:356
+msgid "No discount limit"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:163
+msgid "Total Discount Limit"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:165
+#: includes/class-wccs-settings-manager.php:166
+#, php-format
+msgid "Total discount limit %s"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:173
+#: includes/class-wccs-settings-manager.php:381
+msgid "Discount Limit"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:180
+msgid "Display Multiple Discounts"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:184
+msgid "Display all discounts separately"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:185
+msgid "Combine to one total discount"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:190
+msgid "Coupon Label"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:191
+msgid "Name of the discount showed in the cart totals block as a discount title when using the combine mode for display multiple discounts."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:193
+#: includes/class-wccs-settings-manager.php:258
+#: includes/class-wccs-settings-manager.php:1018
+#: includes/class-wccs-settings-manager.php:1020
+#: public/class-wccs-public-cart-discount-hooks.php:284
+#: public/class-wccs-public-product-pricing.php:582
+#: admin/js/conditions/index.js:10540
+#: admin/js/conditions/index.js:10560
+#: admin/js/conditions/index.js:12591
+#: admin/js/conditions/index.js:12636
+#: admin/js/conditions/index.js:12671
+#: admin/js/conditions/index.js:12683
+#: admin/js/conditions/index.js:33104
+#: admin/js/conditions/index.js:33116
+msgid "Discount"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:197
+msgid "Remove Zero"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:198
+msgid "Remove zero value from the zero amount coupons."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:212
+msgid "Change Display Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:216
+msgid "Do not change"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:217
+msgid "Change price - simple and bulk prices"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:218
+msgid "Change price - simple prices"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:219
+msgid "Change price - simple prices without strikethrough price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:224
+msgid "Show Sale Badge"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:230
+msgid "Show sale badge on simple pricing products."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:234
+msgid "Show sale badge on bulk pricing products."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:238
+msgid "Show sale badge on tiered pricing products."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:242
+msgid "Show sale badge on purchase pricing products."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:246
+msgid "Show sale badge on products group pricing products."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:252
+msgid "Sale Badge Type"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:253
+#, php-format
+msgid "Sale: Displays \"Sale\" inside the badge.%1$s Discount: Displays discount value inside the badge.%1$s Note: It will only applies to simple pricing rules."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:257
+msgid "Sale"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:263
+msgid "Sale Badge Position On Archive Page"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:264
+msgid "Sale badge position for bulk, tiered, purchase, products group rules in the archive page."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:268
+msgid "Before product thumbnail"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:269
+msgid "After product thumbnail"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:270
+#: includes/class-wccs-settings-manager.php:287
+msgid "Before product title"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:271
+#: includes/class-wccs-settings-manager.php:288
+msgid "After product title"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:272
+msgid "Before product rating"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:273
+msgid "After product rating"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:274
+#: includes/class-wccs-settings-manager.php:289
+msgid "Before product price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:275
+#: includes/class-wccs-settings-manager.php:290
+msgid "After product price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:280
+msgid "Sale Badge Position On Product Page"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:281
+msgid "Sale badge position for bulk, tiered, purchase, products group rules in the product page."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:285
+msgid "Before product images"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:286
+msgid "After product images"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:307
+msgid "Consider Product Sale Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:309
+#, php-format
+msgid ""
+"If product is on sale with a WooCommerce onsale price consider it when the %1$s is %2$s or %3$s.%4$s\n"
+"\t\t\t\t\t\t\t\t\t\t\te.g: If the product discounted price by the plugin is 20$ and product onsale price in WooCommerce is 10$\n"
+"\t\t\t\t\t\t\t\t\t\t\tand the %1$s is %2$s the price will be 10$ because it is the maximum discount."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:326
+msgid "Product Base Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:327
+#, php-format
+msgid "The base price of the product that discounts should apply to it.%1$s Product Price: Discounts will apply to the product regular or sale price.%1$s Cart Item Price: Discounts will apply to the cart item price. Useful when a custom pricing plugin is enabled on your site."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:331
+msgid "Product price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:332
+msgid "Cart item price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:337
+msgid "On-Sale Products Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:338
+msgid "Base price that used for on-sale products in pricing rules to applying discount on that price."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:342
+msgid "Regular price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:343
+msgid "On-sale price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:360
+msgid "Price Discount Limit"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:362
+#: includes/class-wccs-settings-manager.php:363
+#, php-format
+msgid "Price discount limit %s"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:370
+msgid "Round Adjustment"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:371
+#, php-format
+msgid "If set to yes it will round product adjusted price.%1$s exp: Subtotal of 2 quantities of a product with price %2$s and %3$s discount will be %4$s when round is enabled otherwise it will be %5$s"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:388
+msgid "Update Cart On Shipping Change"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:389
+msgid "Enable this option to update cart in the cart page when you used one of Shipping Method, Shipping Country, Shipping State, Shipping Postcode or Shipping Zone in your product pricing rules."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:393
+#: includes/class-wccs-settings-manager.php:507
+#: includes/class-wccs-settings-manager.php:585
+#: includes/class-wccs-settings-manager.php:607
+#: includes/class-wccs-settings-manager.php:995
+msgid "Enabled"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:394
+#: includes/class-wccs-settings-manager.php:586
+#: includes/class-wccs-settings-manager.php:608
+msgid "Disabled"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:399
+msgid "Automatically add free products to cart"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:400
+#, php-format
+msgid "Automatically add free products to the cart for \"purchase X receive Y\" rules.%1$s To use this feature just add one product or one variation to the \"Discounted products\" of \"purchase X receive Y\" rule.%1$s Check out %2$s."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:410
+#: admin/js/conditions/index.js:12558
+msgid "Set Min Quantity"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:411
+msgid "Setting min quantity of a product based on applied bulk or tiered pricing rule min value."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:421
+msgid "Show Free Gift Emoji"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:422
+msgid "Show a free gift emoji for free gift products in the cart and checkout."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:436
+msgid "Checkout Fee Apply Method"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:440
+msgid "Apply first matched rule fee"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:441
+msgid "Apply maximum fee"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:442
+msgid "Apply minimum fee"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:443
+msgid "Apply all of fees"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:448
+msgid "Checkout Fee Limit Type"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:455
+msgid "No fee limit"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:459
+msgid "Total Fee Limit"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:461
+#: includes/class-wccs-settings-manager.php:462
+#, php-format
+msgid "Total fee limit %s"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:469
+msgid "Checkout Fee Limit"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:476
+msgid "Checkout Fee Tax Class"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:480
+msgid "Is not taxable"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:481
+msgid "Checkout fee tax class based on cart items"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:486
+msgid "Display Multiple Fees"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:490
+msgid "Display all fees separately"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:491
+msgid "Combine to one total fee"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:496
+msgid "Checkout Fee Label"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:497
+msgid "Name of the fee showed in the cart totals block as a checkout fee title when using the combine mode for display multiple fees."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:508
+msgid "Enables WooCommerce Dynamic Shipping."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:518
+msgid "Hide On Free Shipping"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:519
+msgid "When a free shipping method is available hide other shipping methods."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:537
+msgid "Display Quantity Table"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:547
+msgid "Title of Quantity Table"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:549
+#: public/class-wccs-public-product-pricing.php:580
+msgid "Discount per Quantity"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:553
+msgid "Quantity Table Position"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:557
+#: includes/class-wccs-settings-manager.php:654
+#: includes/class-wccs-settings-manager.php:711
+#: includes/class-wccs-settings-manager.php:821
+msgid "Before \"Add to cart\" button"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:558
+#: includes/class-wccs-settings-manager.php:655
+#: includes/class-wccs-settings-manager.php:712
+#: includes/class-wccs-settings-manager.php:822
+msgid "After \"Add to cart\" button"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:559
+#: includes/class-wccs-settings-manager.php:656
+#: includes/class-wccs-settings-manager.php:713
+#: includes/class-wccs-settings-manager.php:823
+msgid "Before \"Add to cart\" form"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:560
+#: includes/class-wccs-settings-manager.php:657
+#: includes/class-wccs-settings-manager.php:714
+#: includes/class-wccs-settings-manager.php:824
+msgid "After \"Add to cart\" form"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:561
+#: includes/class-wccs-settings-manager.php:658
+#: includes/class-wccs-settings-manager.php:715
+#: includes/class-wccs-settings-manager.php:825
+msgid "Before product excerpt"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:562
+#: includes/class-wccs-settings-manager.php:659
+#: includes/class-wccs-settings-manager.php:716
+#: includes/class-wccs-settings-manager.php:826
+msgid "After product excerpt"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:563
+#: includes/class-wccs-settings-manager.php:660
+#: includes/class-wccs-settings-manager.php:717
+#: includes/class-wccs-settings-manager.php:827
+msgid "After product meta"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:564
+#: includes/class-wccs-settings-manager.php:661
+#: includes/class-wccs-settings-manager.php:718
+#: includes/class-wccs-settings-manager.php:766
+#: includes/class-wccs-settings-manager.php:777
+#: includes/class-wccs-settings-manager.php:828
+#: admin/js/conditions/index.js:16334
+msgid "None"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:570
+msgid "Quantity Table Layout"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:574
+msgid "Horizontal"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:575
+msgid "Vertical"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:580
+msgid "Stock Management"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:581
+msgid "Do not display quantity table when the product available stock quantity is less or equal to 1."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:591
+msgid "Change Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:592
+msgid "The client side may be faster, but the server side is more accurate, especially when considering the quantities within the cart."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:596
+msgid "Client side"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:597
+msgid "Server side"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:602
+msgid "Variation Price Update"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:603
+msgid "When enabled, the product price will automatically update to reflect the selected variation's price when a variation is chosen on the product page."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:617
+msgid "Display Live Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:618
+msgid "If enabled displays product discounted price in the product page."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:628
+msgid "Display Live Total Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:629
+#, php-format
+msgid "If enabled displays product discounted total price in the product page.%1$s Note: It calculates total price based on %2$slive price * quantity%3$s."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:639
+msgid "Display Type"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:640
+#, php-format
+msgid "Discount Available: Displays live price when a discount available for the product.%1$s Always: Displays live price always."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:644
+msgid "Discount Available"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:645
+#: includes/class-wccs-settings-manager.php:956
+msgid "Always"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:650
+msgid "Live Price Position"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:667
+msgid "Live Pricing Label"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:668
+msgid "Label of the live price."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:670
+#: public/class-wccs-public.php:192
+msgid "Your Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:674
+msgid "Live Total Price Label"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:675
+msgid "Label of the live total price."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:677
+#: public/class-wccs-public.php:193
+msgid "Total Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:681
+msgid "Live Price Calculation"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:682
+#, php-format
+msgid "Calculate in the cart price: considers product quantities that are already in the cart when calculating live price value.%1$s Calculate current quantity price: Does not consider product quantities that are already in the cart when calculating live price value."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:686
+msgid "Calculate in the cart price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:687
+msgid "Calculate current quantity price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:696
+msgid "Display Message"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:697
+msgid "Display pricing rule message in the product page."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:707
+msgid "Message Position"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:724
+#: admin/js/conditions/index.js:12576
+msgid "Message Background Color"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:725
+msgid "Default background color of messages in the message box."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:731
+#: admin/js/conditions/index.js:12582
+msgid "Message Color"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:732
+msgid "Default color of messages in the message box."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:742
+msgid "Display Total Discounts"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:743
+msgid "If enabled displays total discounts that the user get for the current order in the cart and checkout pages."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:753
+msgid "Total Discounts Label"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:754
+msgid "Label of the total discounts."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:760
+msgid "Position In Cart"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:764
+#: includes/class-wccs-settings-manager.php:775
+msgid "Before order total"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:765
+#: includes/class-wccs-settings-manager.php:776
+msgid "After order total"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:771
+msgid "Position In Checkout"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:782
+msgid "Include Cart Discounts And Coupons"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:783
+msgid "If enabled cart discounts and cart coupons amount will be included in the total discounts."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:797
+msgid "Display Countdown Timer"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:799
+#, php-format
+msgid "If enabled displays Countdown Timer in the product page.%1$sWhen a discount available: If the product has a pricing rule with a date-time condition then show the countdown timer based on <strong>Threshold Time Value</strong>.%1$sWhen a discount can apply: If the product has a pricing rule with a date-time condition then check all of that rule conditions and if all conditions are true then show the countdown timer based on <strong>Threshold Time Value</strong>."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:810
+msgid "Yes - When a discount available"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:811
+msgid "Yes - When a discount can apply"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:817
+msgid "Countdown Timer Position"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:834
+msgid "Threshold Time Value"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:835
+#, php-format
+msgid "Display Countdown Timer when its close to the end time of the rule.%1$s e.g: If its value is 1 and \"Threshold Time Type\" is \"Day\" Countdown Timer will display before 1day to the end time of the rule."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:841
+msgid "Threshold Time Type"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:842
+#, php-format
+msgid "e.g: If its value is \"Day\" and \"Threshold Time Value\" is \"1\" Countdown Timer will display before 1day to the end time of the rule.%1$s Note: Please note that when its value is \"No Limit\" Countdown Timer will display always if pricing rule has date/time condition."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:847
+msgid "Minute"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:848
+msgid "Hour"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:849
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:7872
+msgid "Day"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:850
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:7872
+msgid "Week"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:851
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:7872
+msgid "Month"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:856
+msgid "Title"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:857
+msgid "Title of Countdown Timer."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:859
+#: public/partials/product-pricing/countdown-timer.php:7
+msgid "Limited-time offer! Sale ends in"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:863
+#: includes/class-wccs-settings-manager.php:866
+#: public/class-wccs-public.php:194
+#: admin/js/conditions/index.js:7398
+msgid "Days"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:864
+msgid "Days label in Countdown Timer heading."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:870
+#: includes/class-wccs-settings-manager.php:873
+#: public/class-wccs-public.php:195
+msgid "Hours"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:871
+msgid "Hours label in Countdown Timer heading."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:877
+#: includes/class-wccs-settings-manager.php:880
+#: public/class-wccs-public.php:196
+msgid "Minutes"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:878
+msgid "Minutes label in Countdown Timer heading."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:884
+#: includes/class-wccs-settings-manager.php:887
+#: public/class-wccs-public.php:197
+msgid "Seconds"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:885
+msgid "Seconds label in Countdown Timer heading."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:891
+msgid "Title Font Size"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:892
+msgid "Countdown Timer title font-size."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:898
+msgid "Title color"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:899
+msgid "Countdown Timer title color."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:905
+msgid "Heading color"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:906
+msgid "Days, Hours, Minutes, Seconds text color."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:912
+msgid "Rotor top color"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:913
+msgid "Color of rotor top."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:919
+msgid "Rotor top background color"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:920
+msgid "Background color of rotor top."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:926
+msgid "Rotor bottom color"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:927
+msgid "Color of rotor bottom."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:933
+msgid "Rotor bottom background color"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:934
+msgid "Background color of rotor bottom."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:940
+msgid "Hinge color"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:941
+msgid "Hinge color of rotor."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:951
+msgid "Show Discount Page"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:952
+msgid "Showing discount page in cart and checkout pages as a notice to user."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:957
+msgid "Discounts available"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:958
+msgid "Never"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:964
+msgid "Discount page that shows discounted products."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:971
+msgid "Discount Page Message"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:972
+msgid "This message will show in the cart page."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:973
+#, php-format
+msgid "Example Message : Visit our %s to view new discounted products based on your cart."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:974
+#, php-format
+msgid "%s is a placeholder for discount page url and should be exists in the message."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:976
+#: public/class-wccs-public-pricing-hooks.php:356
+#, php-format
+msgid "Visit our %1$s to view new discounted products based on your cart."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:980
+msgid "Discount Page Title"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:981
+#, php-format
+msgid "This title will replace with %s placeholder in discount page message."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:996
+#, php-format
+msgid "Enable it to use local texts or labels.%1$s Note: Disable it on a multilingual site and just translate texts that appears in front-end of your site which are exists in the langulage file of the plugin."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1006
+#: includes/class-wccs-settings-manager.php:1008
+#: public/class-wccs-public-product-pricing.php:581
+#: admin/js/conditions/index.js:12600
+#: admin/js/conditions/index.js:12677
+#: admin/js/conditions/index.js:12689
+#: admin/js/conditions/index.js:33110
+msgid "Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1012
+#: includes/class-wccs-settings-manager.php:1014
+#: public/class-wccs-public-product-pricing.php:583
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:33094
+msgid "Quantity"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1031
+msgid "Update Products Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1032
+msgid "Cache products price based on simple pricing rules to improve performance in the front-end."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1039
+msgid "Auto Update Products Price"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1040
+msgid "Automatically update products price in the background when a new rule added or the plugin settings updated or WooCommerce settings updated or a product added or updated."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1050
+msgid "Enable Analytics"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1051
+msgid "Enable/Disable Analytics"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1061
+msgid "Cache Prices"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1062
+#, php-format
+msgid "Enable/Disable price caching.%s <strong>Note:</strong> Disabling this feature can potentially reduce your website's loading speed."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1072
+msgid "Cache Quantity Table"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1073
+msgid "Enable/Disable quantity table caching."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1083
+msgid "Cache Messages"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1084
+msgid "Enable/Disable pricing messages caching."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1094
+msgid "Cache Onsale Badge"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1095
+msgid "Enable/Disable onsale badge caching."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1105
+msgid "Disable Calculate Cart Totals"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1106
+#, php-format
+msgid "Disable calculate cart totals option to fix compatibility issues with some plugins.%1$s %2$sOnly use it when necessary because it can cause issues for mini-cart prices and pricing rules that are using subtotal conditions.%3$s"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1116
+msgid "Search Items Limit"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1117
+#, php-format
+msgid "Limit search result of search inputs in the admin.%1$s Set it to %2$s-1%3$s for no limit."
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1130
+msgid "License/Purchase Key"
+msgstr ""
+
+#: includes/class-wccs-settings-manager.php:1131
+msgid "Enter your license key to enable and receive automatic updates."
+msgstr ""
+
+#: includes/class-wccs-shipping-method.php:23
+#: includes/class-wccs-shipping-method.php:24
+msgid "Dynamic Shipping"
+msgstr ""
+
+#: includes/class-wccs-store-api.php:94
+msgid "Discount data"
+msgstr ""
+
+#: public/class-wccs-public-auto-add-to-cart.php:141
+#, php-format
+msgid "Sorry, &quot;%1$s&quot; could not be added to the cart because it is not purchasable."
+msgstr ""
+
+#: public/class-wccs-public-auto-add-to-cart.php:153
+#, php-format
+msgid "Sorry, &quot;%1$s&quot; could not be added to the cart because it is out of stock."
+msgstr ""
+
+#: public/class-wccs-public-auto-add-to-cart.php:187
+#, php-format
+msgid "Sorry, &quot;%1$s&quot; could not be added to the cart because there is not enough stock."
+msgstr ""
+
+#: public/class-wccs-public-auto-add-to-cart.php:291
+#, php-format
+msgid "Product &quot;%s&quot; is not purchasable."
+msgstr ""
+
+#. translators: %s: product name
+#: public/class-wccs-public-auto-add-to-cart.php:297
+#, php-format
+msgid "&quot;%s&quot; can't be auto added to the cart because it is out of stock."
+msgstr ""
+
+#. translators: 1: product name 2: quantity 3: quantity in stock
+#: public/class-wccs-public-auto-add-to-cart.php:314
+#, php-format
+msgid "Cannot add %2$s quantities of &quot;%1$s&quot; to the cart because there is not enough stock (%3$s remaining)."
+msgstr ""
+
+#: admin/js/conditions/index.js:5435
+#: admin/js/conditions/index.js:6267
+msgid "There was an error on getting items."
+msgstr ""
+
+#: admin/js/conditions/index.js:5552
+#: admin/js/conditions/index.js:6129
+#: admin/js/conditions/index.js:7059
+#: admin/js/conditions/index.js:14531
+msgid "Products"
+msgstr ""
+
+#: admin/js/conditions/index.js:5552
+#: admin/js/conditions/index.js:10066
+#: admin/js/conditions/index.js:11936
+#: admin/js/conditions/index.js:14598
+#: admin/js/conditions/index.js:15840
+msgid "Add New"
+msgstr ""
+
+#: admin/js/conditions/index.js:5552
+#: admin/js/conditions/index.js:10066
+#: admin/js/conditions/index.js:11936
+#: admin/js/conditions/index.js:14598
+#: admin/js/conditions/index.js:15840
+msgid "ID"
+msgstr ""
+
+#: admin/js/conditions/index.js:5555
+#: admin/js/conditions/index.js:6132
+#: admin/js/conditions/index.js:10069
+#: admin/js/conditions/index.js:10543
+#: admin/js/conditions/index.js:11939
+#: admin/js/conditions/index.js:12400
+#: admin/js/conditions/index.js:14601
+#: admin/js/conditions/index.js:15110
+#: admin/js/conditions/index.js:15843
+#: admin/js/conditions/index.js:16318
+msgid "Name"
+msgstr ""
+
+#: admin/js/conditions/index.js:5558
+#: admin/js/conditions/index.js:12576
+msgid "Shortcode"
+msgstr ""
+
+#: admin/js/conditions/index.js:5561
+#: admin/js/conditions/index.js:10078
+#: admin/js/conditions/index.js:11948
+#: admin/js/conditions/index.js:14610
+#: admin/js/conditions/index.js:15852
+msgid "Actions"
+msgstr ""
+
+#: admin/js/conditions/index.js:5564
+#: admin/js/conditions/index.js:10110
+#: admin/js/conditions/index.js:11974
+#: admin/js/conditions/index.js:14652
+#: admin/js/conditions/index.js:15884
+msgid "Edit"
+msgstr ""
+
+#: admin/js/conditions/index.js:5567
+#: admin/js/conditions/index.js:10113
+#: admin/js/conditions/index.js:11977
+#: admin/js/conditions/index.js:14655
+#: admin/js/conditions/index.js:15887
+msgid "Duplicate"
+msgstr ""
+
+#: admin/js/conditions/index.js:5570
+#: admin/js/conditions/index.js:6173
+#: admin/js/conditions/index.js:7423
+#: admin/js/conditions/index.js:7865
+#: admin/js/conditions/index.js:10119
+#: admin/js/conditions/index.js:11983
+#: admin/js/conditions/index.js:12683
+#: admin/js/conditions/index.js:14661
+#: admin/js/conditions/index.js:15893
+#: admin/js/conditions/index.js:33132
+msgid "Delete"
+msgstr ""
+
+#: admin/js/conditions/index.js:5573
+#: admin/js/conditions/index.js:6129
+#: admin/js/conditions/index.js:6156
+#: admin/js/conditions/index.js:6159
+#: admin/js/conditions/index.js:10022
+#: admin/js/conditions/index.js:10122
+#: admin/js/conditions/index.js:10540
+#: admin/js/conditions/index.js:10645
+#: admin/js/conditions/index.js:10648
+#: admin/js/conditions/index.js:10651
+#: admin/js/conditions/index.js:11986
+#: admin/js/conditions/index.js:12397
+#: admin/js/conditions/index.js:12655
+#: admin/js/conditions/index.js:12658
+#: admin/js/conditions/index.js:14666
+#: admin/js/conditions/index.js:15107
+#: admin/js/conditions/index.js:15145
+#: admin/js/conditions/index.js:15148
+#: admin/js/conditions/index.js:15151
+#: admin/js/conditions/index.js:15896
+#: admin/js/conditions/index.js:16315
+#: admin/js/conditions/index.js:16380
+#: admin/js/conditions/index.js:16383
+msgid "Info!"
+msgstr ""
+
+#: admin/js/conditions/index.js:5573
+#: admin/js/conditions/index.js:10122
+#: admin/js/conditions/index.js:10645
+#: admin/js/conditions/index.js:10648
+#: admin/js/conditions/index.js:11986
+#: admin/js/conditions/index.js:12652
+#: admin/js/conditions/index.js:12655
+#: admin/js/conditions/index.js:14666
+#: admin/js/conditions/index.js:15148
+#: admin/js/conditions/index.js:15896
+msgid "There is not any item."
+msgstr ""
+
+#: admin/js/conditions/index.js:5607
+#: admin/js/conditions/index.js:6246
+msgid "Data is required."
+msgstr ""
+
+#: admin/js/conditions/index.js:5613
+#: admin/js/conditions/index.js:5670
+#: admin/js/conditions/index.js:5722
+#: admin/js/conditions/index.js:5774
+#: admin/js/conditions/index.js:5825
+msgid "Type is required."
+msgstr ""
+
+#: admin/js/conditions/index.js:5634
+msgid "There was an error on saving the item."
+msgstr ""
+
+#: admin/js/conditions/index.js:5658
+msgid "Data is required to update an item."
+msgstr ""
+
+#: admin/js/conditions/index.js:5664
+msgid "Item ID is required to update it."
+msgstr ""
+
+#: admin/js/conditions/index.js:5716
+msgid "ID is required to delete an item."
+msgstr ""
+
+#: admin/js/conditions/index.js:5743
+msgid "There was an error on deleting the item."
+msgstr ""
+
+#: admin/js/conditions/index.js:5768
+msgid "ID is required to duplicate an item."
+msgstr ""
+
+#: admin/js/conditions/index.js:5795
+#: admin/js/conditions/index.js:5846
+msgid "There was an error on duplicating the item."
+msgstr ""
+
+#: admin/js/conditions/index.js:5819
+msgid "Items is required for reordering."
+msgstr ""
+
+#: admin/js/conditions/index.js:6129
+#: admin/js/conditions/index.js:10540
+#: admin/js/conditions/index.js:12397
+#: admin/js/conditions/index.js:15107
+#: admin/js/conditions/index.js:16315
+#: admin/js/conditions/index.js:32923
+msgid "Cancel"
+msgstr ""
+
+#: admin/js/conditions/index.js:6129
+#: admin/js/conditions/index.js:10540
+#: admin/js/conditions/index.js:12397
+#: admin/js/conditions/index.js:15107
+#: admin/js/conditions/index.js:16315
+msgid "Save"
+msgstr ""
+
+#: admin/js/conditions/index.js:6129
+#: admin/js/conditions/index.js:10540
+#: admin/js/conditions/index.js:12397
+#: admin/js/conditions/index.js:15107
+#: admin/js/conditions/index.js:16315
+msgid "Please save changes."
+msgstr ""
+
+#: admin/js/conditions/index.js:6129
+#: admin/js/conditions/index.js:10022
+#: admin/js/conditions/index.js:10540
+#: admin/js/conditions/index.js:10645
+#: admin/js/conditions/index.js:12397
+#: admin/js/conditions/index.js:12649
+#: admin/js/conditions/index.js:12652
+#: admin/js/conditions/index.js:15107
+#: admin/js/conditions/index.js:16315
+#: admin/js/conditions/index.js:32914
+msgid "Warning!"
+msgstr ""
+
+#: admin/js/conditions/index.js:6129
+#: admin/js/conditions/index.js:10540
+#: admin/js/conditions/index.js:12397
+#: admin/js/conditions/index.js:15107
+#: admin/js/conditions/index.js:16315
+msgid "There are some errors in the form please fix them and save it again."
+msgstr ""
+
+#: admin/js/conditions/index.js:6132
+#: admin/js/conditions/index.js:10543
+#: admin/js/conditions/index.js:12400
+#: admin/js/conditions/index.js:15110
+#: admin/js/conditions/index.js:16318
+msgid "Success!"
+msgstr ""
+
+#: admin/js/conditions/index.js:6132
+#: admin/js/conditions/index.js:10543
+#: admin/js/conditions/index.js:12400
+#: admin/js/conditions/index.js:15110
+#: admin/js/conditions/index.js:16318
+msgid "Saved successfully."
+msgstr ""
+
+#: admin/js/conditions/index.js:6134
+#: admin/js/conditions/index.js:10545
+#: admin/js/conditions/index.js:10603
+#: admin/js/conditions/index.js:12402
+#: admin/js/conditions/index.js:12616
+#: admin/js/conditions/index.js:12633
+#: admin/js/conditions/index.js:15114
+#: admin/js/conditions/index.js:15139
+#: admin/js/conditions/index.js:16322
+#: admin/js/conditions/index.js:16338
+msgid "Field is required."
+msgstr ""
+
+#: admin/js/conditions/index.js:6134
+msgid "Paginate"
+msgstr ""
+
+#: admin/js/conditions/index.js:6134
+msgid "If enabled it will paginate products otherwise it will show all of the products without pagination."
+msgstr ""
+
+#: admin/js/conditions/index.js:6137
+msgid "Include products"
+msgstr ""
+
+#: admin/js/conditions/index.js:6137
+msgid "Products that will be included in products list result."
+msgstr ""
+
+#: admin/js/conditions/index.js:6140
+#: admin/js/conditions/index.js:6149
+msgid "There is not any product"
+msgstr ""
+
+#: admin/js/conditions/index.js:6146
+#: admin/js/conditions/index.js:6156
+#: admin/js/conditions/index.js:10645
+#: admin/js/conditions/index.js:12652
+#: admin/js/conditions/index.js:12695
+msgid "Add"
+msgstr ""
+
+#: admin/js/conditions/index.js:6146
+msgid "Exclude products"
+msgstr ""
+
+#: admin/js/conditions/index.js:6146
+#: admin/js/conditions/index.js:14536
+msgid "Products that will be excluded from results of products list."
+msgstr ""
+
+#: admin/js/conditions/index.js:6156
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:7398
+#: admin/js/conditions/index.js:7872
+#: admin/js/conditions/index.js:10648
+#: admin/js/conditions/index.js:12655
+#: admin/js/conditions/index.js:15148
+#: admin/js/conditions/index.js:16380
+msgid "Date Time"
+msgstr ""
+
+#: admin/js/conditions/index.js:6156
+#: admin/js/conditions/index.js:10648
+#: admin/js/conditions/index.js:12655
+#: admin/js/conditions/index.js:15148
+#: admin/js/conditions/index.js:16380
+msgid "There is not any date time."
+msgstr ""
+
+#: admin/js/conditions/index.js:6159
+#: admin/js/conditions/index.js:10651
+#: admin/js/conditions/index.js:12658
+#: admin/js/conditions/index.js:15151
+#: admin/js/conditions/index.js:16383
+msgid "Conditions"
+msgstr ""
+
+#: admin/js/conditions/index.js:6159
+#: admin/js/conditions/index.js:10651
+#: admin/js/conditions/index.js:12658
+#: admin/js/conditions/index.js:15151
+#: admin/js/conditions/index.js:16383
+msgid "There is not any condition."
+msgstr ""
+
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:7892
+msgid "At least one of"
+msgstr ""
+
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:7892
+msgid "All of"
+msgstr ""
+
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:7892
+msgid "Only"
+msgstr ""
+
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:7892
+msgid "None of"
+msgstr ""
+
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:32085
+msgid "Today"
+msgstr ""
+
+#: admin/js/conditions/index.js:6180
+msgid "This week"
+msgstr ""
+
+#: admin/js/conditions/index.js:6180
+msgid "This month"
+msgstr ""
+
+#: admin/js/conditions/index.js:6180
+msgid "Last month"
+msgstr ""
+
+#: admin/js/conditions/index.js:6180
+msgid "This year"
+msgstr ""
+
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:7398
+#: admin/js/conditions/index.js:7419
+#: admin/js/conditions/index.js:7872
+msgid "Date"
+msgstr ""
+
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:7872
+msgid "Current"
+msgstr ""
+
+#: admin/js/conditions/index.js:6180
+#: admin/js/conditions/index.js:7872
+msgid "Year"
+msgstr ""
+
+#: admin/js/conditions/index.js:6181
+#: admin/js/conditions/index.js:6191
+#: admin/js/conditions/index.js:7872
+#: admin/js/conditions/index.js:7873
+#: admin/js/conditions/index.js:7883
+msgid "After"
+msgstr ""
+
+#: admin/js/conditions/index.js:6186
+#: admin/js/conditions/index.js:6196
+#: admin/js/conditions/index.js:7872
+#: admin/js/conditions/index.js:7878
+#: admin/js/conditions/index.js:7888
+msgid "Before"
+msgstr ""
+
+#: admin/js/conditions/index.js:6200
+#: admin/js/conditions/index.js:7907
+msgid "Meta field key"
+msgstr ""
+
+#: admin/js/conditions/index.js:6200
+#: admin/js/conditions/index.js:7907
+#: admin/js/conditions/index.js:7919
+msgid "Empty"
+msgstr ""
+
+#: admin/js/conditions/index.js:6200
+#: admin/js/conditions/index.js:7907
+#: admin/js/conditions/index.js:7919
+msgid "Is not empty"
+msgstr ""
+
+#: admin/js/conditions/index.js:6200
+#: admin/js/conditions/index.js:7907
+#: admin/js/conditions/index.js:7919
+msgid "Contains"
+msgstr ""
+
+#: admin/js/conditions/index.js:6200
+#: admin/js/conditions/index.js:7907
+#: admin/js/conditions/index.js:7919
+msgid "Does not contain"
+msgstr ""
+
+#: admin/js/conditions/index.js:6200
+#: admin/js/conditions/index.js:7907
+#: admin/js/conditions/index.js:7919
+msgid "Begins with"
+msgstr ""
+
+#: admin/js/conditions/index.js:6200
+#: admin/js/conditions/index.js:7907
+#: admin/js/conditions/index.js:7919
+msgid "Ends with"
+msgstr ""
+
+#: admin/js/conditions/index.js:6200
+#: admin/js/conditions/index.js:6206
+#: admin/js/conditions/index.js:7907
+#: admin/js/conditions/index.js:7913
+msgid "Equal to"
+msgstr ""
+
+#: admin/js/conditions/index.js:6200
+#: admin/js/conditions/index.js:7907
+msgid "Equal to one in comma separated list"
+msgstr ""
+
+#: admin/js/conditions/index.js:6203
+#: admin/js/conditions/index.js:6206
+#: admin/js/conditions/index.js:7910
+#: admin/js/conditions/index.js:7913
+#: admin/js/conditions/index.js:7916
+msgid "Not equal to"
+msgstr ""
+
+#: admin/js/conditions/index.js:6203
+#: admin/js/conditions/index.js:7910
+msgid "Not equal to all in comma separated list"
+msgstr ""
+
+#: admin/js/conditions/index.js:6206
+#: admin/js/conditions/index.js:7913
+msgid "Less than"
+msgstr ""
+
+#: admin/js/conditions/index.js:6206
+#: admin/js/conditions/index.js:7913
+msgid "Less equal to"
+msgstr ""
+
+#: admin/js/conditions/index.js:6206
+#: admin/js/conditions/index.js:7913
+msgid "Greater than"
+msgstr ""
+
+#: admin/js/conditions/index.js:6206
+#: admin/js/conditions/index.js:7913
+msgid "Greater equal to"
+msgstr ""
+
+#: admin/js/conditions/index.js:6206
+#: admin/js/conditions/index.js:7913
+msgid "Is checked"
+msgstr ""
+
+#: admin/js/conditions/index.js:6206
+#: admin/js/conditions/index.js:7913
+msgid "Is not checked"
+msgstr ""
+
+#: admin/js/conditions/index.js:6206
+#: admin/js/conditions/index.js:7913
+msgid "Value"
+msgstr ""
+
+#: admin/js/conditions/index.js:7062
+#: admin/js/conditions/index.js:12507
+msgid "All products"
+msgstr ""
+
+#: admin/js/conditions/index.js:7065
+msgid "Products in list"
+msgstr ""
+
+#: admin/js/conditions/index.js:7068
+msgid "Products not in list"
+msgstr ""
+
+#: admin/js/conditions/index.js:7071
+msgid "Product variations in list"
+msgstr ""
+
+#: admin/js/conditions/index.js:7074
+msgid "Product variations not in list"
+msgstr ""
+
+#: admin/js/conditions/index.js:7077
+msgid "Discounted Products"
+msgstr ""
+
+#: admin/js/conditions/index.js:7080
+msgid "Product attributes"
+msgstr ""
+
+#: admin/js/conditions/index.js:7083
+msgid "Products have tags"
+msgstr ""
+
+#: admin/js/conditions/index.js:7086
+msgid "Featured products"
+msgstr ""
+
+#: admin/js/conditions/index.js:7089
+msgid "On-sale products"
+msgstr ""
+
+#: admin/js/conditions/index.js:7092
+msgid "Top rated products"
+msgstr ""
+
+#: admin/js/conditions/index.js:7095
+msgid "Recently viewed products"
+msgstr ""
+
+#: admin/js/conditions/index.js:7098
+msgid "Products added"
+msgstr ""
+
+#: admin/js/conditions/index.js:7101
+msgid "Top seller products"
+msgstr ""
+
+#: admin/js/conditions/index.js:7104
+msgid "Top earner products"
+msgstr ""
+
+#: admin/js/conditions/index.js:7107
+msgid "Top free products"
+msgstr ""
+
+#: admin/js/conditions/index.js:7110
+msgid "Similar products to customer bought products"
+msgstr ""
+
+#: admin/js/conditions/index.js:7113
+msgid "Similar products to customer cart products"
+msgstr ""
+
+#: admin/js/conditions/index.js:7117
+msgid "Product Properties"
+msgstr ""
+
+#: admin/js/conditions/index.js:7120
+msgid "Product regular price"
+msgstr ""
+
+#: admin/js/conditions/index.js:7123
+msgid "Product display price"
+msgstr ""
+
+#: admin/js/conditions/index.js:7126
+msgid "Product is on sale"
+msgstr ""
+
+#: admin/js/conditions/index.js:7129
+msgid "Product stock quantity"
+msgstr ""
+
+#: admin/js/conditions/index.js:7132
+msgid "Product meta field"
+msgstr ""
+
+#: admin/js/conditions/index.js:7136
+msgid "Products of"
+msgstr ""
+
+#: admin/js/conditions/index.js:7139
+msgid "Categories in list"
+msgstr ""
+
+#: admin/js/conditions/index.js:7142
+msgid "Categories not in list"
+msgstr ""
+
+#: admin/js/conditions/index.js:7157
+#: admin/js/conditions/index.js:9217
+msgid "Product Taxonomies"
+msgstr ""
+
+#: admin/js/conditions/index.js:7378
+#: admin/js/conditions/index.js:7845
+#: admin/js/conditions/index.js:10718
+msgid "OR"
+msgstr ""
+
+#: admin/js/conditions/index.js:7379
+#: admin/js/conditions/index.js:7846
+#: admin/js/conditions/index.js:10724
+#, js-format
+msgid "%s OR New Group"
+msgstr ""
+
+#: admin/js/conditions/index.js:7389
+#: admin/js/conditions/index.js:7856
+#: admin/js/conditions/index.js:10734
+#, js-format
+msgid "%s And New Rule"
+msgstr ""
+
+#: admin/js/conditions/index.js:7391
+#: admin/js/conditions/index.js:7858
+#: admin/js/conditions/index.js:10736
+msgid "Delete Group"
+msgstr ""
+
+#: admin/js/conditions/index.js:7398
+msgid "Specific Date"
+msgstr ""
+
+#: admin/js/conditions/index.js:7398
+msgid "Time"
+msgstr ""
+
+#: admin/js/conditions/index.js:7399
+#: admin/js/conditions/index.js:7409
+msgid "Start"
+msgstr ""
+
+#: admin/js/conditions/index.js:7404
+#: admin/js/conditions/index.js:7414
+msgid "End"
+msgstr ""
+
+#: admin/js/conditions/index.js:7872
+msgid "All time"
+msgstr ""
+
+#: admin/js/conditions/index.js:7872
+msgid "Previous days"
+msgstr ""
+
+#: admin/js/conditions/index.js:7872
+msgid "Previous weeks"
+msgstr ""
+
+#: admin/js/conditions/index.js:7872
+msgid "Previous months"
+msgstr ""
+
+#: admin/js/conditions/index.js:7872
+msgid "Previous years"
+msgstr ""
+
+#: admin/js/conditions/index.js:7892
+msgid "At least number of"
+msgstr ""
+
+#: admin/js/conditions/index.js:7892
+msgid "At least one of any"
+msgstr ""
+
+#: admin/js/conditions/index.js:7895
+msgid "At least one of selected"
+msgstr ""
+
+#: admin/js/conditions/index.js:7898
+msgid "All of selected"
+msgstr ""
+
+#: admin/js/conditions/index.js:7898
+msgid "Only selected"
+msgstr ""
+
+#: admin/js/conditions/index.js:7898
+msgid "None of selected"
+msgstr ""
+
+#: admin/js/conditions/index.js:7898
+msgid "None at all"
+msgstr ""
+
+#: admin/js/conditions/index.js:7898
+msgid "Selected"
+msgstr ""
+
+#: admin/js/conditions/index.js:7898
+msgid "Not selected"
+msgstr ""
+
+#: admin/js/conditions/index.js:7898
+msgid "Match"
+msgstr ""
+
+#: admin/js/conditions/index.js:7898
+msgid "Not match"
+msgstr ""
+
+#: admin/js/conditions/index.js:7898
+msgid "Search by type"
+msgstr ""
+
+#: admin/js/conditions/index.js:7898
+msgid "Search by title"
+msgstr ""
+
+#: admin/js/conditions/index.js:7904
+msgid "e.g. 96969, 969**, [96960 - 96970], SIQQ 1ZZ, TKCA 1ZZ"
+msgstr ""
+
+#: admin/js/conditions/index.js:7913
+msgid "Equal to comma separated list"
+msgstr ""
+
+#: admin/js/conditions/index.js:7916
+msgid "Not equal to comma separated list"
+msgstr ""
+
+#: admin/js/conditions/index.js:7919
+msgid "Comma separated email addresses with (*) support. E.g: john@yahoo.com,*@gmail.com,*.edu"
+msgstr ""
+
+#: admin/js/conditions/index.js:8710
+msgid "Is"
+msgstr ""
+
+#: admin/js/conditions/index.js:8712
+msgid "Are"
+msgstr ""
+
+#: admin/js/conditions/index.js:8849
+msgid "Days ago"
+msgstr ""
+
+#: admin/js/conditions/index.js:8851
+msgid "After days ago"
+msgstr ""
+
+#: admin/js/conditions/index.js:8855
+msgid "Weeks ago"
+msgstr ""
+
+#: admin/js/conditions/index.js:8857
+msgid "After weeks ago"
+msgstr ""
+
+#: admin/js/conditions/index.js:8861
+msgid "Months ago"
+msgstr ""
+
+#: admin/js/conditions/index.js:8863
+msgid "After months ago"
+msgstr ""
+
+#: admin/js/conditions/index.js:8867
+msgid "Years ago"
+msgstr ""
+
+#: admin/js/conditions/index.js:8869
+msgid "After years ago"
+msgstr ""
+
+#: admin/js/conditions/index.js:8875
+msgid "Customer"
+msgstr ""
+
+#: admin/js/conditions/index.js:8878
+msgid "Customers"
+msgstr ""
+
+#: admin/js/conditions/index.js:8881
+msgid "Roles"
+msgstr ""
+
+#: admin/js/conditions/index.js:8884
+msgid "Is logged in"
+msgstr ""
+
+#: admin/js/conditions/index.js:8887
+msgid "User capability"
+msgstr ""
+
+#: admin/js/conditions/index.js:8890
+msgid "User meta"
+msgstr ""
+
+#: admin/js/conditions/index.js:8893
+msgid "Email"
+msgstr ""
+
+#: admin/js/conditions/index.js:8896
+msgid "User usage limit"
+msgstr ""
+
+#: admin/js/conditions/index.js:8900
+msgid "Customer value"
+msgstr ""
+
+#: admin/js/conditions/index.js:8903
+msgid "Money spent"
+msgstr ""
+
+#: admin/js/conditions/index.js:8906
+msgid "Number of orders"
+msgstr ""
+
+#: admin/js/conditions/index.js:8909
+msgid "Last order amount"
+msgstr ""
+
+#: admin/js/conditions/index.js:8912
+msgid "Average money spent per order"
+msgstr ""
+
+#: admin/js/conditions/index.js:8915
+msgid "Last order date"
+msgstr ""
+
+#: admin/js/conditions/index.js:8918
+msgid "Number of products reviews"
+msgstr ""
+
+#: admin/js/conditions/index.js:8922
+msgid "Cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:8925
+msgid "Cart total weight"
+msgstr ""
+
+#: admin/js/conditions/index.js:8928
+msgid "Number of cart items"
+msgstr ""
+
+#: admin/js/conditions/index.js:8931
+msgid "Subtotal including tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:8934
+msgid "Subtotal excluding tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:8937
+msgid "Subtotal including tax excluding coupons"
+msgstr ""
+
+#: admin/js/conditions/index.js:8940
+msgid "Subtotal excluding tax excluding coupons"
+msgstr ""
+
+#: admin/js/conditions/index.js:8943
+msgid "Quantity of cart items"
+msgstr ""
+
+#: admin/js/conditions/index.js:8946
+msgid "Coupons applied"
+msgstr ""
+
+#: admin/js/conditions/index.js:8949
+msgid "Maximum width of cart items"
+msgstr ""
+
+#: admin/js/conditions/index.js:8952
+msgid "Maximum height of cart items"
+msgstr ""
+
+#: admin/js/conditions/index.js:8955
+msgid "Maximum length of cart items"
+msgstr ""
+
+#: admin/js/conditions/index.js:8958
+msgid "Minimum stock quantity of cart items"
+msgstr ""
+
+#: admin/js/conditions/index.js:8962
+msgid "Cart items"
+msgstr ""
+
+#: admin/js/conditions/index.js:8965
+msgid "Products in cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:8968
+msgid "Product variations in cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:8971
+msgid "Featured products in cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:8974
+msgid "Onsale products in cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:8977
+msgid "Product categories in cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:8980
+msgid "Product attributes in cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:8983
+msgid "Product tags in cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:8986
+msgid "Shipping classes in cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:8990
+msgid "Cart items subtotal"
+msgstr ""
+
+#: admin/js/conditions/index.js:8993
+msgid "Subtotal of products include tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:8996
+msgid "Subtotal of products exclude tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:8999
+msgid "Subtotal of variations include tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9002
+msgid "Subtotal of variations exclude tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9005
+msgid "Subtotal of categories include tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9008
+msgid "Subtotal of categories exclude tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9011
+msgid "Subtotal of attributes include tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9014
+msgid "Subtotal of attributes exclude tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9017
+msgid "Subtotal of tags include tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9020
+msgid "Subtotal of tags exclude tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9023
+msgid "Subtotal of regular products include tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9026
+msgid "Subtotal of regular products exclude tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9029
+msgid "Subtotal of onsale products include tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9032
+msgid "Subtotal of onsale products exclude tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9036
+msgid "Cart items quantity"
+msgstr ""
+
+#: admin/js/conditions/index.js:9039
+msgid "Quantity of products"
+msgstr ""
+
+#: admin/js/conditions/index.js:9042
+msgid "Quantity of variations"
+msgstr ""
+
+#: admin/js/conditions/index.js:9045
+msgid "Quantity of categories"
+msgstr ""
+
+#: admin/js/conditions/index.js:9048
+msgid "Quantity of attributes"
+msgstr ""
+
+#: admin/js/conditions/index.js:9051
+msgid "Quantity of tags"
+msgstr ""
+
+#: admin/js/conditions/index.js:9055
+msgid "Purchase history"
+msgstr ""
+
+#: admin/js/conditions/index.js:9058
+msgid "Bought products"
+msgstr ""
+
+#: admin/js/conditions/index.js:9061
+msgid "Bought variations"
+msgstr ""
+
+#: admin/js/conditions/index.js:9064
+msgid "Bought categories"
+msgstr ""
+
+#: admin/js/conditions/index.js:9067
+msgid "Bought product attributes"
+msgstr ""
+
+#: admin/js/conditions/index.js:9070
+msgid "Bought product tags"
+msgstr ""
+
+#: admin/js/conditions/index.js:9073
+msgid "Bought featured products"
+msgstr ""
+
+#: admin/js/conditions/index.js:9076
+msgid "Bought onsale products"
+msgstr ""
+
+#: admin/js/conditions/index.js:9080
+msgid "Purchase history quantity"
+msgstr ""
+
+#: admin/js/conditions/index.js:9083
+msgid "Quantity of bought products"
+msgstr ""
+
+#: admin/js/conditions/index.js:9086
+msgid "Quantity of bought variations"
+msgstr ""
+
+#: admin/js/conditions/index.js:9089
+msgid "Quantity of bought categories"
+msgstr ""
+
+#: admin/js/conditions/index.js:9092
+msgid "Quantity of bought attributes"
+msgstr ""
+
+#: admin/js/conditions/index.js:9095
+msgid "Quantity of bought tags"
+msgstr ""
+
+#: admin/js/conditions/index.js:9099
+msgid "Purchase history amount"
+msgstr ""
+
+#: admin/js/conditions/index.js:9102
+msgid "Amount of bought products"
+msgstr ""
+
+#: admin/js/conditions/index.js:9105
+msgid "Amount of bought variations"
+msgstr ""
+
+#: admin/js/conditions/index.js:9108
+msgid "Amount of bought categories"
+msgstr ""
+
+#: admin/js/conditions/index.js:9111
+msgid "Amount of bought attributes"
+msgstr ""
+
+#: admin/js/conditions/index.js:9114
+msgid "Amount of bought tags"
+msgstr ""
+
+#: admin/js/conditions/index.js:9118
+msgid "Checkout"
+msgstr ""
+
+#: admin/js/conditions/index.js:9121
+msgid "Payment method"
+msgstr ""
+
+#: admin/js/conditions/index.js:9124
+msgid "Shipping method"
+msgstr ""
+
+#: admin/js/conditions/index.js:9128
+msgid "Shipping Address"
+msgstr ""
+
+#: admin/js/conditions/index.js:9131
+msgid "Shipping country"
+msgstr ""
+
+#: admin/js/conditions/index.js:9134
+msgid "Shipping state"
+msgstr ""
+
+#: admin/js/conditions/index.js:9137
+msgid "Shipping city"
+msgstr ""
+
+#: admin/js/conditions/index.js:9140
+msgid "Shipping postcode"
+msgstr ""
+
+#: admin/js/conditions/index.js:9143
+msgid "Shipping zone"
+msgstr ""
+
+#: admin/js/conditions/index.js:9147
+msgid "Shipping package"
+msgstr ""
+
+#: admin/js/conditions/index.js:9150
+msgid "Package total weight"
+msgstr ""
+
+#: admin/js/conditions/index.js:9153
+msgid "Number of package items"
+msgstr ""
+
+#: admin/js/conditions/index.js:9156
+msgid "Quantity of package items"
+msgstr ""
+
+#: admin/js/conditions/index.js:9160
+msgid "Shipping package items"
+msgstr ""
+
+#: admin/js/conditions/index.js:9163
+msgid "Products in package"
+msgstr ""
+
+#: admin/js/conditions/index.js:9166
+msgid "Product variations in package"
+msgstr ""
+
+#: admin/js/conditions/index.js:9169
+msgid "Product categories in package"
+msgstr ""
+
+#: admin/js/conditions/index.js:9172
+msgid "Product attributes in package"
+msgstr ""
+
+#: admin/js/conditions/index.js:9175
+msgid "Product tags in package"
+msgstr ""
+
+#: admin/js/conditions/index.js:9178
+msgid "Shipping classes in package"
+msgstr ""
+
+#: admin/js/conditions/index.js:9188
+msgid "in cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:9192
+msgid "subtotal including tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9196
+msgid "subtotal excluding tax"
+msgstr ""
+
+#: admin/js/conditions/index.js:9200
+msgid "quantity in cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:9204
+msgid "Bought"
+msgstr ""
+
+#: admin/js/conditions/index.js:9208
+msgid "Amount of bought"
+msgstr ""
+
+#: admin/js/conditions/index.js:9212
+msgid "Quantity of bought"
+msgstr ""
+
+#: admin/js/conditions/index.js:10066
+#: admin/js/conditions/index.js:17611
+#: admin/js/conditions/index.js:31101
+#: admin/js/conditions/index.js:31235
+msgid "Discounts"
+msgstr ""
+
+#: admin/js/conditions/index.js:10072
+#: admin/js/conditions/index.js:10551
+#: admin/js/conditions/index.js:11942
+#: admin/js/conditions/index.js:12495
+#: admin/js/conditions/index.js:14604
+#: admin/js/conditions/index.js:15117
+#: admin/js/conditions/index.js:15846
+#: admin/js/conditions/index.js:16325
+msgid "Apply Mode"
+msgstr ""
+
+#: admin/js/conditions/index.js:10075
+#: admin/js/conditions/index.js:10545
+#: admin/js/conditions/index.js:11945
+#: admin/js/conditions/index.js:12402
+#: admin/js/conditions/index.js:14607
+#: admin/js/conditions/index.js:15114
+#: admin/js/conditions/index.js:15849
+#: admin/js/conditions/index.js:16322
+msgid "Status"
+msgstr ""
+
+#: admin/js/conditions/index.js:10093
+#: admin/js/conditions/index.js:10551
+#: admin/js/conditions/index.js:11957
+#: admin/js/conditions/index.js:12495
+#: admin/js/conditions/index.js:14630
+#: admin/js/conditions/index.js:15117
+#: admin/js/conditions/index.js:15867
+#: admin/js/conditions/index.js:16325
+msgid "Non Exclusive"
+msgstr ""
+
+#: admin/js/conditions/index.js:10096
+#: admin/js/conditions/index.js:10551
+#: admin/js/conditions/index.js:11960
+#: admin/js/conditions/index.js:12495
+#: admin/js/conditions/index.js:14633
+#: admin/js/conditions/index.js:15117
+#: admin/js/conditions/index.js:15870
+#: admin/js/conditions/index.js:16325
+msgid "Apply with other applicable rules"
+msgstr ""
+
+#: admin/js/conditions/index.js:10099
+#: admin/js/conditions/index.js:10554
+#: admin/js/conditions/index.js:11963
+#: admin/js/conditions/index.js:12498
+#: admin/js/conditions/index.js:14636
+#: admin/js/conditions/index.js:15120
+#: admin/js/conditions/index.js:15873
+#: admin/js/conditions/index.js:16328
+msgid "Exclusive"
+msgstr ""
+
+#: admin/js/conditions/index.js:10102
+#: admin/js/conditions/index.js:10554
+#: admin/js/conditions/index.js:11966
+#: admin/js/conditions/index.js:12498
+#: admin/js/conditions/index.js:14639
+#: admin/js/conditions/index.js:15120
+#: admin/js/conditions/index.js:15876
+#: admin/js/conditions/index.js:16328
+msgid "Apply this rule and disregard other rules"
+msgstr ""
+
+#: admin/js/conditions/index.js:10105
+#: admin/js/conditions/index.js:10557
+#: admin/js/conditions/index.js:11969
+#: admin/js/conditions/index.js:12501
+#: admin/js/conditions/index.js:14642
+#: admin/js/conditions/index.js:15123
+#: admin/js/conditions/index.js:15879
+#: admin/js/conditions/index.js:16331
+msgid "Apply if other rules are not applicable"
+msgstr ""
+
+#: admin/js/conditions/index.js:10116
+#: admin/js/conditions/index.js:11980
+#: admin/js/conditions/index.js:14658
+#: admin/js/conditions/index.js:15890
+msgid "Analytics"
+msgstr ""
+
+#: admin/js/conditions/index.js:10545
+msgid "Enter a unique name."
+msgstr ""
+
+#: admin/js/conditions/index.js:10545
+#: admin/js/conditions/index.js:15114
+#: admin/js/conditions/index.js:16322
+msgid "Private Note"
+msgstr ""
+
+#: admin/js/conditions/index.js:10545
+#: admin/js/conditions/index.js:12402
+#: admin/js/conditions/index.js:15114
+#: admin/js/conditions/index.js:16322
+msgid "Enable or disable the rule."
+msgstr ""
+
+#: admin/js/conditions/index.js:10548
+msgid "Manual Coupon"
+msgstr ""
+
+#: admin/js/conditions/index.js:10548
+msgid "User should enter the discount name manually to the cart to get the discount."
+msgstr ""
+
+#: admin/js/conditions/index.js:10560
+msgid "Discount Type"
+msgstr ""
+
+#: admin/js/conditions/index.js:10560
+#: admin/js/conditions/index.js:12600
+#: admin/js/conditions/index.js:12639
+#: admin/js/conditions/index.js:12674
+#: admin/js/conditions/index.js:12686
+msgid "Price discount"
+msgstr ""
+
+#: admin/js/conditions/index.js:10560
+#: admin/js/conditions/index.js:12597
+#: admin/js/conditions/index.js:12636
+#: admin/js/conditions/index.js:12671
+#: admin/js/conditions/index.js:12683
+msgid "Percentage discount"
+msgstr ""
+
+#: admin/js/conditions/index.js:10563
+msgid "Fixed price discount"
+msgstr ""
+
+#: admin/js/conditions/index.js:10566
+msgid "Discount Per Item"
+msgstr ""
+
+#: admin/js/conditions/index.js:10569
+msgid "Price discount per item"
+msgstr ""
+
+#: admin/js/conditions/index.js:10572
+msgid "Percentage discount per item"
+msgstr ""
+
+#: admin/js/conditions/index.js:10575
+msgid "Recurring Discount"
+msgstr ""
+
+#: admin/js/conditions/index.js:10578
+msgid "Recurring price discount"
+msgstr ""
+
+#: admin/js/conditions/index.js:10581
+msgid "Recurring percentage discount"
+msgstr ""
+
+#: admin/js/conditions/index.js:10586
+#, js-format
+msgid "%1$sNote:%2$s The %1$sFixed price discount%2$s amount will apply to the whole cart in the backend even if you select specific items."
+msgstr ""
+
+#: admin/js/conditions/index.js:10593
+msgid "Discount Amount"
+msgstr ""
+
+#: admin/js/conditions/index.js:10598
+#, js-format
+msgid "Discount amount can be greater or equal to %d."
+msgstr ""
+
+#: admin/js/conditions/index.js:10603
+#: admin/js/conditions/index.js:12616
+msgid "Please enter a valid value."
+msgstr ""
+
+#: admin/js/conditions/index.js:10606
+#: admin/js/conditions/index.js:12619
+#: admin/js/conditions/index.js:15139
+#: admin/js/conditions/index.js:16374
+msgid "Usage Limit"
+msgstr ""
+
+#: admin/js/conditions/index.js:10609
+#: admin/js/conditions/index.js:12622
+#: admin/js/conditions/index.js:15142
+#: admin/js/conditions/index.js:16377
+msgid "Leave blank for unlimited usage. To set a usage limit for individual users, please refer to the \"User usage limit\" condition in the conditions list."
+msgstr ""
+
+#: admin/js/conditions/index.js:10612
+msgid "Url Coupon"
+msgstr ""
+
+#: admin/js/conditions/index.js:10612
+msgid "Enable url coupon functionality for this coupon."
+msgstr ""
+
+#: admin/js/conditions/index.js:10615
+msgid "Coupon URL"
+msgstr ""
+
+#: admin/js/conditions/index.js:10618
+msgid "Visiting this link will automatically applies the coupon code to the cart."
+msgstr ""
+
+#: admin/js/conditions/index.js:10621
+msgid "Code Override"
+msgstr ""
+
+#: admin/js/conditions/index.js:10624
+msgid "Override the coupon code value in the coupon code URL."
+msgstr ""
+
+#: admin/js/conditions/index.js:10627
+msgid "Leave blank to ignore it."
+msgstr ""
+
+#: admin/js/conditions/index.js:10630
+msgid "Redirect to URL"
+msgstr ""
+
+#: admin/js/conditions/index.js:10633
+msgid "URL coupon redirect URL."
+msgstr ""
+
+#: admin/js/conditions/index.js:10636
+msgid "Custom Success Message"
+msgstr ""
+
+#: admin/js/conditions/index.js:10636
+msgid "Message that will be displayed when coupon applied successfully."
+msgstr ""
+
+#: admin/js/conditions/index.js:10639
+msgid "Leave it blank to use the default message."
+msgstr ""
+
+#: admin/js/conditions/index.js:10642
+msgid "Auto Add Products"
+msgstr ""
+
+#: admin/js/conditions/index.js:10642
+msgid "If the discount is applicable when visiting it then the listed products will be added to the cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:10645
+#: admin/js/conditions/index.js:15145
+msgid "Items"
+msgstr ""
+
+#: admin/js/conditions/index.js:10645
+#: admin/js/conditions/index.js:15145
+msgid "Applies to all items."
+msgstr ""
+
+#: admin/js/conditions/index.js:10645
+#: admin/js/conditions/index.js:12652
+#: admin/js/conditions/index.js:15145
+msgid "Excluded Products"
+msgstr ""
+
+#: admin/js/conditions/index.js:10645
+#: admin/js/conditions/index.js:12652
+#: admin/js/conditions/index.js:15145
+msgid "Exclude products from this rule."
+msgstr ""
+
+#: admin/js/conditions/index.js:10699
+msgid "There was an error on getting coupon code."
+msgstr ""
+
+#: admin/js/conditions/index.js:11936
+#: admin/js/conditions/index.js:12397
+msgid "Pricing"
+msgstr ""
+
+#: admin/js/conditions/index.js:12405
+msgid "Mode"
+msgstr ""
+
+#: admin/js/conditions/index.js:12405
+msgid "Simple"
+msgstr ""
+
+#: admin/js/conditions/index.js:12405
+msgid "Bulk"
+msgstr ""
+
+#: admin/js/conditions/index.js:12405
+msgid "Tiered"
+msgstr ""
+
+#: admin/js/conditions/index.js:12405
+#: admin/js/conditions/index.js:14529
+msgid "Products group"
+msgstr ""
+
+#: admin/js/conditions/index.js:12405
+msgid "Buy x Get x - same product"
+msgstr ""
+
+#: admin/js/conditions/index.js:12408
+msgid "Buy x Get y - different product"
+msgstr ""
+
+#: admin/js/conditions/index.js:12411
+msgid "Exclude products from all rules"
+msgstr ""
+
+#: admin/js/conditions/index.js:12416
+#, js-format
+msgid "%sSimple:%s Just a simple discount that will apply to listed discounted products."
+msgstr ""
+
+#: admin/js/conditions/index.js:12425
+#, js-format
+msgid "%sBulk:%s Adjusts discounted products price based on quantities added to the cart - All units get the highest discount."
+msgstr ""
+
+#: admin/js/conditions/index.js:12434
+#, js-format
+msgid "%sTiered:%s Adjusts discounted products price based on quantities added to the cart - Subsequent units get increasing discount."
+msgstr ""
+
+#: admin/js/conditions/index.js:12443
+#, js-format
+msgid "%sProducts group:%s Adjusts specified products group price."
+msgstr ""
+
+#: admin/js/conditions/index.js:12452
+#, js-format
+msgid "%sPurchase X Receive Y:%s Apply discount to specified number of discounted items when customer adds specified number of listed purchased items to the cart."
+msgstr ""
+
+#: admin/js/conditions/index.js:12461
+#, js-format
+msgid "%sPurchase X Receive Y - same products:%s Same as Purchase X Receive Y but purchased and discounted products are same. Use this mode when purchase and receive products are same."
+msgstr ""
+
+#: admin/js/conditions/index.js:12470
+#, js-format
+msgid "%sExample 1 for Purchase X Receive Y:%s purchase two number of the product to get one free."
+msgstr ""
+
+#: admin/js/conditions/index.js:12479
+#, js-format
+msgid "%sExample 2 for Purchase X Receive Y:%s purchase product X to get %2$s discount on product Y."
+msgstr ""
+
+#: admin/js/conditions/index.js:12488
+#, js-format
+msgid "%sExclude products from all rules:%s excludes selected products from all of pricing rules."
+msgstr ""
+
+#: admin/js/conditions/index.js:12504
+msgid "Quantity Based On"
+msgstr ""
+
+#: admin/js/conditions/index.js:12504
+msgid "Single product"
+msgstr ""
+
+#: admin/js/conditions/index.js:12504
+msgid "Single product variation"
+msgstr ""
+
+#: admin/js/conditions/index.js:12507
+msgid "Cart line item"
+msgstr ""
+
+#: admin/js/conditions/index.js:12507
+msgid "Sum of categories quantities"
+msgstr ""
+
+#: admin/js/conditions/index.js:12510
+msgid "Sum of all products quantities"
+msgstr ""
+
+#: admin/js/conditions/index.js:12515
+#, js-format
+msgid "%sSingle product:%s Quantity is calculated separately for each product."
+msgstr ""
+
+#: admin/js/conditions/index.js:12524
+#, js-format
+msgid "%sSingle product variation:%s Quantity is calculated separately for each product variation, for simple products quantity will calculated based on product."
+msgstr ""
+
+#: admin/js/conditions/index.js:12533
+#, js-format
+msgid "%sCart line item:%s Quantity is calculated separately for each product line in the cart."
+msgstr ""
+
+#: admin/js/conditions/index.js:12542
+#, js-format
+msgid "%sSum of categories quantities:%s Quantity is calculated separately for each category in the cart."
+msgstr ""
+
+#: admin/js/conditions/index.js:12551
+#, js-format
+msgid "%sSum of all products quantities:%s Quantity is calculated based on sum of all quantities in the cart."
+msgstr ""
+
+#: admin/js/conditions/index.js:12558
+msgid "Setting minimum required quantity of the product based on this rule minimum quantity."
+msgstr ""
+
+#: admin/js/conditions/index.js:12561
+msgid "Display Quantity"
+msgstr ""
+
+#: admin/js/conditions/index.js:12561
+msgid "Display quantity column in the quantity table."
+msgstr ""
+
+#: admin/js/conditions/index.js:12564
+msgid "Display Price"
+msgstr ""
+
+#: admin/js/conditions/index.js:12564
+msgid "Display price column in the quantity table."
+msgstr ""
+
+#: admin/js/conditions/index.js:12567
+msgid "Display Discount"
+msgstr ""
+
+#: admin/js/conditions/index.js:12567
+msgid "Display discount column in the quantity table."
+msgstr ""
+
+#: admin/js/conditions/index.js:12570
+msgid "First Discounted Products"
+msgstr ""
+
+#: admin/js/conditions/index.js:12573
+msgid "Expensive Products"
+msgstr ""
+
+#: admin/js/conditions/index.js:12573
+msgid "Chepeast Products"
+msgstr ""
+
+#: admin/js/conditions/index.js:12573
+msgid "If discounts are increasing then using \"Expensive Products\" can help to apply lower discounts on expensive products."
+msgstr ""
+
+#: admin/js/conditions/index.js:12576
+msgid "Message Type"
+msgstr ""
+
+#: admin/js/conditions/index.js:12576
+msgid "Text Message"
+msgstr ""
+
+#: admin/js/conditions/index.js:12579
+msgid "Background color of the message box, leave it empty to use default background color."
+msgstr ""
+
+#: admin/js/conditions/index.js:12582
+msgid "Color of the message in the message box, leave it empty to use default color."
+msgstr ""
+
+#: admin/js/conditions/index.js:12585
+msgid "Buy Message"
+msgstr ""
+
+#: admin/js/conditions/index.js:12585
+msgid "Displayed on the Buy Products page to promote the BOGO deal."
+msgstr ""
+
+#: admin/js/conditions/index.js:12588
+msgid "Message"
+msgstr ""
+
+#: admin/js/conditions/index.js:12588
+msgid "Displayed on the discounted products page."
+msgstr ""
+
+#: admin/js/conditions/index.js:12591
+msgid "Repeat"
+msgstr ""
+
+#: admin/js/conditions/index.js:12591
+msgid "Adjustment Type"
+msgstr ""
+
+#: admin/js/conditions/index.js:12591
+msgid "Fixed discount per item"
+msgstr ""
+
+#: admin/js/conditions/index.js:12594
+msgid "Fixed discount per group"
+msgstr ""
+
+#: admin/js/conditions/index.js:12600
+#: admin/js/conditions/index.js:12680
+#: admin/js/conditions/index.js:12692
+#: admin/js/conditions/index.js:15126
+msgid "Percentage fee"
+msgstr ""
+
+#: admin/js/conditions/index.js:12600
+#: admin/js/conditions/index.js:12683
+#: admin/js/conditions/index.js:12695
+#: admin/js/conditions/index.js:15126
+msgid "Price fee"
+msgstr ""
+
+#: admin/js/conditions/index.js:12600
+msgid "Fixed price per item"
+msgstr ""
+
+#: admin/js/conditions/index.js:12603
+msgid "Fixed price per group"
+msgstr ""
+
+#: admin/js/conditions/index.js:12606
+#: admin/js/conditions/index.js:12642
+#: admin/js/conditions/index.js:12677
+#: admin/js/conditions/index.js:12689
+msgid "Fixed price"
+msgstr ""
+
+#: admin/js/conditions/index.js:12606
+msgid "Adjustment"
+msgstr ""
+
+#: admin/js/conditions/index.js:12611
+#, js-format
+msgid "Discount amount should be greater than %d."
+msgstr ""
+
+#: admin/js/conditions/index.js:12625
+msgid "Quantities"
+msgstr ""
+
+#: admin/js/conditions/index.js:12627
+#, js-format
+msgid "Adjusts discounted products price based on quantities added to the cart.%1$s Set quantities ranges and each range discount amount.%1$s Leave Quantity maximum empty to setting no limit for range."
+msgstr ""
+
+#: admin/js/conditions/index.js:12633
+msgid "Purchase Rule"
+msgstr ""
+
+#: admin/js/conditions/index.js:12633
+msgid "Set purchase and receive quantity and discount amount."
+msgstr ""
+
+#: admin/js/conditions/index.js:12636
+msgid "Purchase"
+msgstr ""
+
+#: admin/js/conditions/index.js:12636
+msgid "Receive"
+msgstr ""
+
+#: admin/js/conditions/index.js:12636
+#: admin/js/conditions/index.js:12671
+msgid "Discount type"
+msgstr ""
+
+#: admin/js/conditions/index.js:12645
+msgid "Purchased Items"
+msgstr ""
+
+#: admin/js/conditions/index.js:12645
+msgid "Buy products list."
+msgstr ""
+
+#: admin/js/conditions/index.js:12649
+msgid "There is not any purchased item."
+msgstr ""
+
+#: admin/js/conditions/index.js:12671
+msgid "Quantity minimum"
+msgstr ""
+
+#: admin/js/conditions/index.js:12671
+msgid "Quantity maximum"
+msgstr ""
+
+#: admin/js/conditions/index.js:12671
+#: admin/js/conditions/index.js:12683
+msgid "Min"
+msgstr ""
+
+#: admin/js/conditions/index.js:12671
+#: admin/js/conditions/index.js:12683
+msgid "Max - No limit"
+msgstr ""
+
+#: admin/js/conditions/index.js:14527
+msgid "Discounted products"
+msgstr ""
+
+#: admin/js/conditions/index.js:14538
+msgid "List of products that will receive this discount."
+msgstr ""
+
+#: admin/js/conditions/index.js:14542
+msgid "Apply this rule again if more than one matching group added to the cart."
+msgstr ""
+
+#: admin/js/conditions/index.js:14544
+msgid "Repeat means that this discount will be applied more than once when possible."
+msgstr ""
+
+#: admin/js/conditions/index.js:14598
+#: admin/js/conditions/index.js:15107
+msgid "Checkout Fees"
+msgstr ""
+
+#: admin/js/conditions/index.js:15126
+msgid "Fee Type"
+msgstr ""
+
+#: admin/js/conditions/index.js:15126
+msgid "Fee Per Item"
+msgstr ""
+
+#: admin/js/conditions/index.js:15126
+msgid "Price fee per item"
+msgstr ""
+
+#: admin/js/conditions/index.js:15129
+msgid "Percentage fee per item"
+msgstr ""
+
+#: admin/js/conditions/index.js:15132
+msgid "Fee Amount"
+msgstr ""
+
+#: admin/js/conditions/index.js:15136
+msgid "Negative fee amount works like a discount."
+msgstr ""
+
+#: admin/js/conditions/index.js:15840
+msgid "Shipping Methods"
+msgstr ""
+
+#: admin/js/conditions/index.js:16315
+msgid "Shipping Method"
+msgstr ""
+
+#: admin/js/conditions/index.js:16334
+msgid "Tax Status"
+msgstr ""
+
+#: admin/js/conditions/index.js:16334
+msgid "Taxable"
+msgstr ""
+
+#: admin/js/conditions/index.js:16334
+msgid "Cost"
+msgstr ""
+
+#: admin/js/conditions/index.js:16338
+msgid "A base shipping cost."
+msgstr ""
+
+#: admin/js/conditions/index.js:16338
+msgid "Cost Per Quantity"
+msgstr ""
+
+#: admin/js/conditions/index.js:16340
+#, js-format
+msgid "Cost for each item quantity in the cart.%1$s Use %2$s a for percentage base amount. e.g: %3$s"
+msgstr ""
+
+#: admin/js/conditions/index.js:16348
+msgid "Cost Per Weight"
+msgstr ""
+
+#: admin/js/conditions/index.js:16350
+#, js-format
+msgid "Cost for each item weight in the cart.%1$s Use %2$s for a percentage base amount. e.g: %3$s"
+msgstr ""
+
+#: admin/js/conditions/index.js:16360
+#, js-format
+msgid "An additional fee.%1$s Use %2$s for a percentage base amount. e.g: %3$s"
+msgstr ""
+
+#: admin/js/conditions/index.js:16368
+msgid "Minimum Fee"
+msgstr ""
+
+#: admin/js/conditions/index.js:16368
+msgid "A minimum fee amount. Useful when using percentage fee."
+msgstr ""
+
+#: admin/js/conditions/index.js:16371
+msgid "Maximum Fee"
+msgstr ""
+
+#: admin/js/conditions/index.js:16371
+msgid "A maximum fee amount. Useful when using percentage fee."
+msgstr ""
+
+#: admin/js/conditions/index.js:17020
+msgid "Buy Now"
+msgstr ""
+
+#: admin/js/conditions/index.js:17172
+msgid "Analytics Dashboard"
+msgstr ""
+
+#: admin/js/conditions/index.js:17175
+msgid "Comprehensive overview of the rules performance"
+msgstr ""
+
+#: admin/js/conditions/index.js:17188
+msgid "Start Date"
+msgstr ""
+
+#: admin/js/conditions/index.js:17194
+msgid "End Date"
+msgstr ""
+
+#: admin/js/conditions/index.js:17199
+msgid "Filter by Rule"
+msgstr ""
+
+#: admin/js/conditions/index.js:17199
+msgid "Search..."
+msgstr ""
+
+#: admin/js/conditions/index.js:17228
+#: admin/js/conditions/index.js:17280
+#: admin/js/conditions/index.js:17332
+msgid "Start or end dates are required."
+msgstr ""
+
+#: admin/js/conditions/index.js:17255
+msgid "There was an error on getting analytics totals."
+msgstr ""
+
+#: admin/js/conditions/index.js:17307
+msgid "There was an error on getting analytics chart data."
+msgstr ""
+
+#: admin/js/conditions/index.js:17362
+msgid "There was an error on getting best performing rules."
+msgstr ""
+
+#: admin/js/conditions/index.js:17405
+msgid "There was an error on getting rules."
+msgstr ""
+
+#: admin/js/conditions/index.js:17608
+msgid "Analytics Trend"
+msgstr ""
+
+#: admin/js/conditions/index.js:17608
+msgid "Select metric to visualize"
+msgstr ""
+
+#: admin/js/conditions/index.js:17611
+#: admin/js/conditions/index.js:31106
+msgid "Revenue"
+msgstr ""
+
+#: admin/js/conditions/index.js:17611
+#: admin/js/conditions/index.js:31111
+#: admin/js/conditions/index.js:32137
+msgid "Orders"
+msgstr ""
+
+#: admin/js/conditions/index.js:17611
+#: admin/js/conditions/index.js:31116
+#: admin/js/conditions/index.js:31226
+#: admin/js/conditions/index.js:32182
+msgid "Impressions"
+msgstr ""
+
+#: admin/js/conditions/index.js:17611
+#: admin/js/conditions/index.js:32149
+msgid "Conversion Rate"
+msgstr ""
+
+#: admin/js/conditions/index.js:17611
+#: admin/js/conditions/index.js:31121
+#: admin/js/conditions/index.js:32199
+msgid "Rejections"
+msgstr ""
+
+#: admin/js/conditions/index.js:17611
+msgid "All Metrics"
+msgstr ""
+
+#: admin/js/conditions/index.js:31126
+msgid "Conversion Rate (%)"
+msgstr ""
+
+#: admin/js/conditions/index.js:31217
+msgid "Best Performing Campaigns"
+msgstr ""
+
+#: admin/js/conditions/index.js:31220
+msgid "Performance metrics for marketing campaigns"
+msgstr ""
+
+#: admin/js/conditions/index.js:31223
+msgid "Campaign"
+msgstr ""
+
+#: admin/js/conditions/index.js:31229
+msgid "Conversions"
+msgstr ""
+
+#: admin/js/conditions/index.js:31232
+msgid "Conv. Rate"
+msgstr ""
+
+#: admin/js/conditions/index.js:31238
+#: admin/js/conditions/index.js:32176
+msgid "Fees"
+msgstr ""
+
+#: admin/js/conditions/index.js:31238
+#: admin/js/conditions/index.js:32165
+msgid "Shipping Discounts"
+msgstr ""
+
+#: admin/js/conditions/index.js:31241
+#: admin/js/conditions/index.js:32170
+msgid "Free Shippings"
+msgstr ""
+
+#: admin/js/conditions/index.js:31253
+msgid "Next"
+msgstr ""
+
+#: admin/js/conditions/index.js:31253
+msgid "Prev"
+msgstr ""
+
+#: admin/js/conditions/index.js:31253
+msgid "There is no data available."
+msgstr ""
+
+#: admin/js/conditions/index.js:31263
+msgid "Page"
+msgstr ""
+
+#: admin/js/conditions/index.js:31263
+msgid "of"
+msgstr ""
+
+#: admin/js/conditions/index.js:32088
+msgid "Last 7 Days"
+msgstr ""
+
+#: admin/js/conditions/index.js:32091
+msgid "This Month"
+msgstr ""
+
+#: admin/js/conditions/index.js:32094
+msgid "Last Month"
+msgstr ""
+
+#: admin/js/conditions/index.js:32097
+msgid "This Year"
+msgstr ""
+
+#: admin/js/conditions/index.js:32100
+msgid "Last Year"
+msgstr ""
+
+#: admin/js/conditions/index.js:32103
+msgid "Custom"
+msgstr ""
+
+#: admin/js/conditions/index.js:32125
+msgid "Total Sales"
+msgstr ""
+
+#: admin/js/conditions/index.js:32126
+msgid "Total sales made by rules/rule"
+msgstr ""
+
+#: admin/js/conditions/index.js:32131
+msgid "Net Sales"
+msgstr ""
+
+#: admin/js/conditions/index.js:32132
+msgid "Net sales made by rules/rule"
+msgstr ""
+
+#: admin/js/conditions/index.js:32138
+msgid "Orders placed with rules/rule"
+msgstr ""
+
+#: admin/js/conditions/index.js:32143
+msgid "Average Order Value"
+msgstr ""
+
+#: admin/js/conditions/index.js:32144
+msgid "Average order value made by rules/rule"
+msgstr ""
+
+#: admin/js/conditions/index.js:32160
+msgid "Items Discounted"
+msgstr ""
+
+#: admin/js/conditions/index.js:32187
+msgid "Add to Cart"
+msgstr ""
+
+#: admin/js/conditions/index.js:32188
+msgid "Rules/Rule applied to the cart count"
+msgstr ""
+
+#: admin/js/conditions/index.js:32193
+msgid "Checkouts"
+msgstr ""
+
+#: admin/js/conditions/index.js:32194
+msgid "Rules/Rule applied to the checkout count"
+msgstr ""
+
+#: admin/js/conditions/index.js:32328
+msgid "Please set a start and end date."
+msgstr ""
+
+#: admin/js/conditions/index.js:32464
+msgid "Have an Idea?"
+msgstr ""
+
+#: admin/js/conditions/index.js:32464
+msgid "5-Star Review"
+msgstr ""
+
+#: admin/js/conditions/index.js:32756
+msgid "Close"
+msgstr ""
+
+#: admin/js/conditions/index.js:32917
+msgid "Are you sure to delete?"
+msgstr ""
+
+#: admin/js/conditions/index.js:33088
+#: admin/js/conditions/index.js:33337
+msgid "Product"
+msgstr ""
+
+#: admin/js/conditions/index.js:33088
+#: admin/js/conditions/index.js:33337
+msgid "Product Variation"
+msgstr ""
+
+#: admin/js/conditions/index.js:33091
+msgid "Select a product"
+msgstr ""
+
+#: admin/js/conditions/index.js:33104
+msgid "Percentage Discount"
+msgstr ""
+
+#: admin/js/conditions/index.js:33107
+msgid "Price Discount"
+msgstr ""
+
+#: admin/js/conditions/index.js:33110
+msgid "Fixed Price"
+msgstr ""
+
+#: admin/js/conditions/index.js:33113
+msgid "Product main price"
+msgstr ""
+
+#: admin/js/conditions/index.js:33129
+msgid "Is it removable from the cart?"
+msgstr ""
+
+#: admin/js/conditions/index.js:33420
+msgid "Download Free"
+msgstr ""
+
+#: admin/js/conditions/index.js:33420
+msgid "Buy Pro"
+msgstr ""
+
+#: admin/js/review/index.js:214
+msgid "There was an error on applying review."
+msgstr ""
+
+#: admin/js/review/index.js:316
+#, js-format
+msgid "We hope you're enjoying %1$s! %3$s Could you please do us a BIG favor and give it a %2$s to help us spread the word and boost our motivation?%4$s %5$sShare your feature requests%6$s with the review, We always check them and try our best."
+msgstr ""
+
+#: admin/js/review/index.js:331
+msgid "OK, you deserve it!"
+msgstr ""
+
+#: admin/js/review/index.js:345
+msgid "I already did"
+msgstr ""
+
+#: admin/js/review/index.js:361
+#: admin/js/review/index.js:391
+#: admin/js/review/index.js:395
+msgid "Maybe Later"
+msgstr ""
+
+#: admin/js/review/index.js:374
+msgid "I need help"
+msgstr ""
+
+#: admin/js/review/index.js:388
+msgid "Never show again"
+msgstr ""

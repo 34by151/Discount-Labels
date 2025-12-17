@@ -3,7 +3,7 @@
  * Snippet Name: ArtInMetal Header Discount Message
  * Description: Display active discount messages in the site header based on pricing rules
  * Author: Custom Development
- * Version: 1.0.0
+ * Version: 1.1.0
  *
  * Instructions:
  * 1. Copy this entire code
@@ -25,10 +25,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Display discount message in header
  *
- * Hook: astra_header_after (Change this if needed)
- * Alternative hooks: astra_masthead_content, wp_body_open, astra_body_top
+ * Hook: wp_body_open (Consistent across all pages)
+ * Alternative hooks: astra_header_after, astra_body_top, astra_masthead_content
  */
-add_action( 'astra_header_after', 'aim_display_header_discount_message', 10 );
+add_action( 'wp_body_open', 'aim_display_header_discount_message', 10 );
 
 function aim_display_header_discount_message() {
     // Only run on frontend, not admin
@@ -41,26 +41,24 @@ function aim_display_header_discount_message() {
         return;
     }
 
-    // Check if user is logged in and has excluded roles
+    // Check if user is dealer role - dealers see NO messages
+    $current_user_roles = array();
     if ( is_user_logged_in() ) {
         $current_user = wp_get_current_user();
 
         if ( ! empty( $current_user->roles ) ) {
             // Get user roles (convert to lowercase for case-insensitive matching)
-            $user_roles = array_map( 'strtolower', $current_user->roles );
+            $current_user_roles = array_map( 'strtolower', $current_user->roles );
 
-            // Exclude dealer and vip roles (case insensitive)
-            $excluded_roles = array( 'dealer', 'vip' );
-
-            // If user has any excluded role, don't show message
-            if ( ! empty( array_intersect( $user_roles, $excluded_roles ) ) ) {
+            // If user is dealer, don't show any messages
+            if ( in_array( 'dealer', $current_user_roles ) ) {
                 return;
             }
         }
     }
 
-    // Get the active discount message
-    $message = aim_get_active_discount_message();
+    // Get the active discount message (pass user roles for VIP handling)
+    $message = aim_get_active_discount_message( $current_user_roles );
 
     // Display message if available
     if ( ! empty( $message ) ) {
@@ -75,9 +73,15 @@ function aim_display_header_discount_message() {
  *
  * Priority: 20% > 15% > 10%
  *
+ * Role Rules:
+ * - Dealer: No messages (handled before calling this function)
+ * - VIP: Can see 20% and 15% messages, but NOT 10%
+ * - Others: Can see all messages
+ *
+ * @param array $user_roles Current user's roles (lowercase)
  * @return string|null The discount message or null if none active
  */
-function aim_get_active_discount_message() {
+function aim_get_active_discount_message( $user_roles = array() ) {
     try {
         // Get all active pricing rules
         $pricings = WCCS_Conditions_Provider::get_pricings( array(
@@ -107,8 +111,16 @@ function aim_get_active_discount_message() {
             'Sale 10%' => '10% Discount on all ArtInMetal products Store Wide',
         );
 
+        // Check if user is VIP (VIP users should not see 10% discount)
+        $is_vip = in_array( 'vip', $user_roles );
+
         // Check each discount in priority order
         foreach ( $discount_priorities as $discount_name => $message ) {
+            // Skip 10% discount for VIP users
+            if ( $is_vip && $discount_name === 'Sale 10%' ) {
+                continue;
+            }
+
             foreach ( $pricings as $pricing ) {
                 // Check if this is the discount we're looking for
                 if ( strcasecmp( trim( $pricing->name ), trim( $discount_name ) ) !== 0 ) {

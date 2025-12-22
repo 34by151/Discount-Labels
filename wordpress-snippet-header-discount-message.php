@@ -3,7 +3,7 @@
  * Snippet Name: ArtInMetal Header Discount Message
  * Description: Display active discount messages in the site header based on pricing rules
  * Author: Custom Development
- * Version: 1.2.0
+ * Version: 1.2.1
  *
  * Instructions:
  * 1. Copy this entire code
@@ -195,22 +195,48 @@ function aim_get_earliest_end_date( $date_times ) {
     $earliest_timestamp = null;
 
     // Loop through all date/time conditions
-    foreach ( $date_times as $date_time ) {
-        if ( empty( $date_time ) || ! is_array( $date_time ) ) {
+    foreach ( $date_times as $date_time_wrapper ) {
+        if ( empty( $date_time_wrapper ) || ! is_array( $date_time_wrapper ) ) {
             continue;
         }
 
-        // Check if there's an end date
-        if ( ! empty( $date_time['end']['time'] ) ) {
-            $end_date_string = $date_time['end']['time'];
+        // Handle nested array structure - the plugin wraps date_time entries in another array
+        // Check if this is a wrapper array containing date objects
+        if ( isset( $date_time_wrapper[0] ) && is_array( $date_time_wrapper[0] ) ) {
+            // This is a nested array, process each inner entry
+            foreach ( $date_time_wrapper as $date_time ) {
+                if ( empty( $date_time ) || ! is_array( $date_time ) ) {
+                    continue;
+                }
 
-            // Convert to timestamp
-            $timestamp = strtotime( $end_date_string );
+                // Check if there's an end date
+                if ( ! empty( $date_time['end']['time'] ) ) {
+                    $end_date_string = $date_time['end']['time'];
 
-            if ( $timestamp !== false ) {
-                // Keep track of the earliest end date
-                if ( $earliest_timestamp === null || $timestamp < $earliest_timestamp ) {
-                    $earliest_timestamp = $timestamp;
+                    // Convert to timestamp
+                    $timestamp = strtotime( $end_date_string );
+
+                    if ( $timestamp !== false ) {
+                        // Keep track of the earliest end date
+                        if ( $earliest_timestamp === null || $timestamp < $earliest_timestamp ) {
+                            $earliest_timestamp = $timestamp;
+                        }
+                    }
+                }
+            }
+        } else {
+            // Direct structure (not nested), check for end date directly
+            if ( ! empty( $date_time_wrapper['end']['time'] ) ) {
+                $end_date_string = $date_time_wrapper['end']['time'];
+
+                // Convert to timestamp
+                $timestamp = strtotime( $end_date_string );
+
+                if ( $timestamp !== false ) {
+                    // Keep track of the earliest end date
+                    if ( $earliest_timestamp === null || $timestamp < $earliest_timestamp ) {
+                        $earliest_timestamp = $timestamp;
+                    }
                 }
             }
         }

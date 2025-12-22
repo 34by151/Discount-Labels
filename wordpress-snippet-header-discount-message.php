@@ -3,7 +3,7 @@
  * Snippet Name: ArtInMetal Header Discount Message
  * Description: Display active discount messages in the site header based on pricing rules
  * Author: Custom Development
- * Version: 1.1.0
+ * Version: 1.2.0
  *
  * Instructions:
  * 1. Copy this entire code
@@ -155,6 +155,15 @@ function aim_get_active_discount_message( $user_roles = array() ) {
                 }
 
                 // If we reach here, this discount is valid and active
+
+                // Get the end date if available
+                $end_date = aim_get_earliest_end_date( $pricing->date_time );
+
+                // Append end date to message if it exists
+                if ( ! empty( $end_date ) ) {
+                    $message .= ' - Ends ' . $end_date;
+                }
+
                 // Return immediately (priority order ensures highest discount wins)
                 return $message;
             }
@@ -169,6 +178,50 @@ function aim_get_active_discount_message( $user_roles = array() ) {
     }
 
     // No active discounts found
+    return null;
+}
+
+/**
+ * Extract and format the earliest end date from pricing rule date_time array
+ *
+ * @param array $date_times Array of date/time conditions from pricing rule
+ * @return string|null Formatted end date (e.g., "December 31, 2025") or null if none
+ */
+function aim_get_earliest_end_date( $date_times ) {
+    if ( empty( $date_times ) || ! is_array( $date_times ) ) {
+        return null;
+    }
+
+    $earliest_timestamp = null;
+
+    // Loop through all date/time conditions
+    foreach ( $date_times as $date_time ) {
+        if ( empty( $date_time ) || ! is_array( $date_time ) ) {
+            continue;
+        }
+
+        // Check if there's an end date
+        if ( ! empty( $date_time['end']['time'] ) ) {
+            $end_date_string = $date_time['end']['time'];
+
+            // Convert to timestamp
+            $timestamp = strtotime( $end_date_string );
+
+            if ( $timestamp !== false ) {
+                // Keep track of the earliest end date
+                if ( $earliest_timestamp === null || $timestamp < $earliest_timestamp ) {
+                    $earliest_timestamp = $timestamp;
+                }
+            }
+        }
+    }
+
+    // If we found an end date, format it
+    if ( $earliest_timestamp !== null ) {
+        // Format as "December 31, 2025"
+        return date_i18n( 'F j, Y', $earliest_timestamp );
+    }
+
     return null;
 }
 

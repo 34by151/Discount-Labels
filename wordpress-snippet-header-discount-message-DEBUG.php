@@ -1,20 +1,9 @@
 <?php
 /**
- * Snippet Name: ArtInMetal Header Discount Message
- * Description: Display active discount messages in the site header based on pricing rules
- * Author: Custom Development
- * Version: 1.2.1
+ * DEBUG VERSION - ArtInMetal Header Discount Message
+ * This version includes debugging output to help troubleshoot
  *
- * Instructions:
- * 1. Copy this entire code
- * 2. Go to WordPress Admin > Code Snippets > Add New
- * 3. Paste the code
- * 4. Set "Run snippet everywhere" or "Only run on site front-end"
- * 5. Activate the snippet
- *
- * Requirements:
- * - Discount Rules and Dynamic Pricing for WooCommerce plugin must be active
- * - Astra theme (or change the hook on line 34)
+ * TEMPORARY: Use this to diagnose issues, then switch back to regular version
  */
 
 // Exit if accessed directly
@@ -24,13 +13,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Display discount message in header
- *
- * Hook: wp_body_open (Consistent across all pages)
- * Alternative hooks: astra_header_after, astra_body_top, astra_masthead_content
  */
-add_action( 'wp_body_open', 'aim_display_header_discount_message', 10 );
+add_action( 'wp_body_open', 'aim_display_header_discount_message_debug', 10 );
 
-function aim_display_header_discount_message() {
+function aim_display_header_discount_message_debug() {
     // Only run on frontend, not admin
     if ( is_admin() ) {
         return;
@@ -38,6 +24,7 @@ function aim_display_header_discount_message() {
 
     // Check if discount plugin is active
     if ( ! function_exists( 'WCCS' ) || ! class_exists( 'WCCS_Conditions_Provider' ) ) {
+        echo '<!-- DEBUG: Discount plugin not active -->';
         return;
     }
 
@@ -50,49 +37,59 @@ function aim_display_header_discount_message() {
             // Get user roles (convert to lowercase for case-insensitive matching)
             $current_user_roles = array_map( 'strtolower', $current_user->roles );
 
+            echo '<!-- DEBUG: User roles: ' . implode( ', ', $current_user_roles ) . ' -->';
+
             // If user is dealer, don't show any messages
             if ( in_array( 'dealer', $current_user_roles ) ) {
+                echo '<!-- DEBUG: User is dealer, no message shown -->';
                 return;
             }
         }
+    } else {
+        echo '<!-- DEBUG: User not logged in -->';
     }
 
     // Get the active discount message (pass user roles for VIP handling)
-    $message = aim_get_active_discount_message( $current_user_roles );
+    $result = aim_get_active_discount_message_debug( $current_user_roles );
+
+    // Display debug info
+    echo '<!-- DEBUG: Message result: ' . ( ! empty( $result['message'] ) ? $result['message'] : 'NULL' ) . ' -->';
+    echo '<!-- DEBUG: End date found: ' . ( ! empty( $result['end_date'] ) ? $result['end_date'] : 'NONE' ) . ' -->';
+    echo '<!-- DEBUG: Date time data: ' . print_r( $result['date_time_raw'], true ) . ' -->';
 
     // Display message if available
-    if ( ! empty( $message ) ) {
+    if ( ! empty( $result['message'] ) ) {
         echo '<div class="aim-header-discount-message">';
-        echo '<p class="aim-discount-text">' . esc_html( $message ) . '</p>';
+        echo '<p class="aim-discount-text">' . esc_html( $result['message'] ) . '</p>';
         echo '</div>';
+    } else {
+        echo '<!-- DEBUG: No message to display -->';
     }
 }
 
 /**
- * Get the active discount message based on pricing rules
- *
- * Priority: 20% > 15% > 10%
- *
- * Role Rules:
- * - Dealer: No messages (handled before calling this function)
- * - VIP: Can see 20% and 15% messages, but NOT 10%
- * - Others: Can see all messages
- *
- * @param array $user_roles Current user's roles (lowercase)
- * @return string|null The discount message or null if none active
+ * Get the active discount message with debug info
  */
-function aim_get_active_discount_message( $user_roles = array() ) {
+function aim_get_active_discount_message_debug( $user_roles = array() ) {
+    $debug_result = array(
+        'message' => null,
+        'end_date' => null,
+        'date_time_raw' => null,
+    );
+
     try {
         // Get all active pricing rules
         $pricings = WCCS_Conditions_Provider::get_pricings( array(
-            'status'  => 1,      // Only active rules
-            'number'  => -1,     // Get all
+            'status'  => 1,
+            'number'  => -1,
             'orderby' => 'ordering',
             'order'   => 'ASC'
         ) );
 
+        echo '<!-- DEBUG: Found ' . count( $pricings ) . ' pricing rules -->';
+
         if ( empty( $pricings ) ) {
-            return null;
+            return $debug_result;
         }
 
         // Initialize pricing handler with validators
@@ -111,13 +108,17 @@ function aim_get_active_discount_message( $user_roles = array() ) {
             'Sale 10%' => '10% Discount on all ArtInMetal products Store Wide',
         );
 
-        // Check if user is VIP (VIP users should not see 10% discount)
+        // Check if user is VIP
         $is_vip = in_array( 'vip', $user_roles );
+        echo '<!-- DEBUG: Is VIP: ' . ( $is_vip ? 'YES' : 'NO' ) . ' -->';
 
         // Check each discount in priority order
         foreach ( $discount_priorities as $discount_name => $message ) {
+            echo '<!-- DEBUG: Checking for "' . $discount_name . '" -->';
+
             // Skip 10% discount for VIP users
             if ( $is_vip && $discount_name === 'Sale 10%' ) {
+                echo '<!-- DEBUG: Skipping 10% for VIP user -->';
                 continue;
             }
 
@@ -127,127 +128,128 @@ function aim_get_active_discount_message( $user_roles = array() ) {
                     continue;
                 }
 
+                echo '<!-- DEBUG: Found pricing rule: "' . $pricing->name . '" (ID: ' . $pricing->id . ') -->';
+
                 // Validate the pricing rule is truly active
 
                 // 1. Check usage limit if exists
                 if ( ! empty( $pricing->usage_limit ) && class_exists( 'WCCS_Usage_Validator' ) ) {
                     if ( ! WCCS_Usage_Validator::check_rule_usage_limit( $pricing ) ) {
-                        continue; // Usage limit reached
+                        echo '<!-- DEBUG: Usage limit reached -->';
+                        continue;
                     }
                 }
 
                 // 2. Validate date/time conditions
                 if ( ! empty( $pricing->date_time ) ) {
+                    echo '<!-- DEBUG: Date/time data exists: ' . json_encode( $pricing->date_time ) . ' -->';
+
                     $match_mode = isset( $pricing->date_times_match_mode ) ? $pricing->date_times_match_mode : 'one';
 
                     if ( ! $date_time_validator->is_valid_date_times( $pricing->date_time, $match_mode ) ) {
-                        continue; // Not within valid date/time range
+                        echo '<!-- DEBUG: Date/time validation failed -->';
+                        continue;
                     }
+
+                    echo '<!-- DEBUG: Date/time validation passed -->';
+                } else {
+                    echo '<!-- DEBUG: No date/time conditions set -->';
                 }
 
-                // 3. Validate conditions (user role, cart contents, etc.)
+                // 3. Validate conditions
                 if ( ! empty( $pricing->conditions ) ) {
                     $conditions_match_mode = isset( $pricing->conditions_match_mode ) ? $pricing->conditions_match_mode : 'all';
 
                     if ( ! $condition_validator->is_valid_conditions( $pricing, $conditions_match_mode ) ) {
-                        continue; // Conditions not met
+                        echo '<!-- DEBUG: Conditions validation failed -->';
+                        continue;
                     }
+
+                    echo '<!-- DEBUG: Conditions validation passed -->';
                 }
 
                 // If we reach here, this discount is valid and active
+                echo '<!-- DEBUG: Discount is valid and active! -->';
 
                 // Get the end date if available
-                $end_date = aim_get_earliest_end_date( $pricing->date_time );
+                $end_date = aim_get_earliest_end_date_debug( $pricing->date_time );
+
+                echo '<!-- DEBUG: Extracted end date: ' . ( $end_date ? $end_date : 'NONE' ) . ' -->';
 
                 // Append end date to message if it exists
                 if ( ! empty( $end_date ) ) {
                     $message .= ' - Ends ' . $end_date;
                 }
 
-                // Return immediately (priority order ensures highest discount wins)
-                return $message;
+                $debug_result['message'] = $message;
+                $debug_result['end_date'] = $end_date;
+                $debug_result['date_time_raw'] = $pricing->date_time;
+
+                return $debug_result;
             }
         }
 
     } catch ( Exception $e ) {
-        // Silently fail - don't break the site if something goes wrong
+        echo '<!-- DEBUG: Exception: ' . $e->getMessage() . ' -->';
         if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
             error_log( 'AIM Header Discount Message Error: ' . $e->getMessage() );
         }
-        return null;
     }
 
-    // No active discounts found
-    return null;
+    return $debug_result;
 }
 
 /**
- * Extract and format the earliest end date from pricing rule date_time array
- *
- * @param array $date_times Array of date/time conditions from pricing rule
- * @return string|null Formatted end date (e.g., "December 31, 2025") or null if none
+ * Extract and format the earliest end date - DEBUG VERSION
  */
-function aim_get_earliest_end_date( $date_times ) {
+function aim_get_earliest_end_date_debug( $date_times ) {
     if ( empty( $date_times ) || ! is_array( $date_times ) ) {
+        echo '<!-- DEBUG END DATE: date_times is empty or not array -->';
         return null;
     }
+
+    echo '<!-- DEBUG END DATE: Processing ' . count( $date_times ) . ' date/time entries -->';
 
     $earliest_timestamp = null;
 
     // Loop through all date/time conditions
-    foreach ( $date_times as $date_time_wrapper ) {
-        if ( empty( $date_time_wrapper ) || ! is_array( $date_time_wrapper ) ) {
+    foreach ( $date_times as $index => $date_time ) {
+        if ( empty( $date_time ) || ! is_array( $date_time ) ) {
+            echo '<!-- DEBUG END DATE: Entry ' . $index . ' is empty or not array -->';
             continue;
         }
 
-        // Handle nested array structure - the plugin wraps date_time entries in another array
-        // Check if this is a wrapper array containing date objects
-        if ( isset( $date_time_wrapper[0] ) && is_array( $date_time_wrapper[0] ) ) {
-            // This is a nested array, process each inner entry
-            foreach ( $date_time_wrapper as $date_time ) {
-                if ( empty( $date_time ) || ! is_array( $date_time ) ) {
-                    continue;
-                }
+        echo '<!-- DEBUG END DATE: Entry ' . $index . ' structure: ' . json_encode( $date_time ) . ' -->';
 
-                // Check if there's an end date
-                if ( ! empty( $date_time['end']['time'] ) ) {
-                    $end_date_string = $date_time['end']['time'];
+        // Check if there's an end date
+        if ( ! empty( $date_time['end']['time'] ) ) {
+            $end_date_string = $date_time['end']['time'];
+            echo '<!-- DEBUG END DATE: Found end time string: ' . $end_date_string . ' -->';
 
-                    // Convert to timestamp
-                    $timestamp = strtotime( $end_date_string );
+            // Convert to timestamp
+            $timestamp = strtotime( $end_date_string );
+            echo '<!-- DEBUG END DATE: Converted to timestamp: ' . $timestamp . ' -->';
 
-                    if ( $timestamp !== false ) {
-                        // Keep track of the earliest end date
-                        if ( $earliest_timestamp === null || $timestamp < $earliest_timestamp ) {
-                            $earliest_timestamp = $timestamp;
-                        }
-                    }
+            if ( $timestamp !== false ) {
+                // Keep track of the earliest end date
+                if ( $earliest_timestamp === null || $timestamp < $earliest_timestamp ) {
+                    $earliest_timestamp = $timestamp;
+                    echo '<!-- DEBUG END DATE: New earliest timestamp: ' . $earliest_timestamp . ' -->';
                 }
             }
         } else {
-            // Direct structure (not nested), check for end date directly
-            if ( ! empty( $date_time_wrapper['end']['time'] ) ) {
-                $end_date_string = $date_time_wrapper['end']['time'];
-
-                // Convert to timestamp
-                $timestamp = strtotime( $end_date_string );
-
-                if ( $timestamp !== false ) {
-                    // Keep track of the earliest end date
-                    if ( $earliest_timestamp === null || $timestamp < $earliest_timestamp ) {
-                        $earliest_timestamp = $timestamp;
-                    }
-                }
-            }
+            echo '<!-- DEBUG END DATE: Entry ' . $index . ' has no end.time value -->';
         }
     }
 
     // If we found an end date, format it
     if ( $earliest_timestamp !== null ) {
-        // Format as "December 31, 2025"
-        return date_i18n( 'F j, Y', $earliest_timestamp );
+        $formatted = date_i18n( 'F j, Y', $earliest_timestamp );
+        echo '<!-- DEBUG END DATE: Final formatted date: ' . $formatted . ' -->';
+        return $formatted;
     }
 
+    echo '<!-- DEBUG END DATE: No end date found in any entry -->';
     return null;
 }
 
@@ -257,12 +259,10 @@ function aim_get_earliest_end_date( $date_times ) {
 add_action( 'wp_head', 'aim_header_discount_message_styles', 100 );
 
 function aim_header_discount_message_styles() {
-    // Only output CSS on frontend
     if ( is_admin() ) {
         return;
     }
 
-    // Check if discount plugin is active
     if ( ! function_exists( 'WCCS' ) ) {
         return;
     }

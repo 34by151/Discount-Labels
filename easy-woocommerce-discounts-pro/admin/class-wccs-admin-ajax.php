@@ -119,6 +119,10 @@ class WCCS_Admin_Ajax {
 				$meta_data['exclude_items'] = ! empty( $_POST['exclude_items'] ) ? map_deep( $_POST['exclude_items'], 'sanitize_text_field' ) : array();
 				$meta_data['manual'] = ! empty( $_POST['manual'] ) ? absint( $_POST['manual'] ) : 0;
 				$meta_data['usage_limit'] = ! empty( $_POST['usage_limit'] ) ? absint( $_POST['usage_limit'] ) : '';
+
+				if ( in_array( $meta_data['discount_type'], array( 'cart_subtotal_including_tax', 'cart_subtotal_excluding_tax', 'products_subtotal' ) ) ) {
+					$meta_data['ranges'] = ! empty( $_POST['ranges'] ) ? map_deep( $_POST['ranges'], 'sanitize_text_field' ) : array();
+				}
 			} // Checkout Fee condition meta data.
 			elseif ( 'checkout-fee' === $type ) {
 				$meta_data['private_note'] = ! empty( $_POST['private_note'] ) ? sanitize_text_field( $_POST['private_note'] ) : '';

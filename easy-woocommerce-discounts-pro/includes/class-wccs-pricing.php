@@ -16,11 +16,19 @@ class WCCS_Pricing {
 
 	public $rules_filter;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param array                                 $pricings
+	 * @param WCCS_Pricing_Condition_Validator|null $condition_validator
+	 * @param WCCS_Date_Time_Validator|null         $date_time_validator
+	 * @param WCCS_Rules_Filter|null                $rules_filter
+	 */
 	public function __construct(
 		array $pricings,
-		WCCS_Pricing_Condition_Validator $condition_validator = null,
-		WCCS_Date_Time_Validator $date_time_validator = null,
-		WCCS_Rules_Filter $rules_filter = null
+		$condition_validator = null,
+		$date_time_validator = null,
+		$rules_filter = null
 	) {
 		$wccs = WCCS();
 

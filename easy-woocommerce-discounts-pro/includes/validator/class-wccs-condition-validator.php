@@ -14,11 +14,19 @@ class WCCS_Condition_Validator {
 
 	protected $date_time;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param WP_User|null          $customer
+	 * @param WCCS_Products|null    $products
+	 * @param WCCS_Cart|null        $cart
+	 * @param WCCS_Date_Time|null   $date_time
+	 */
 	public function __construct(
 		$customer = null,
-		WCCS_Products $products = null,
-		WCCS_Cart $cart = null,
-		WCCS_Date_Time $date_time = null
+		$products = null,
+		$cart = null,
+		$date_time = null
 	) {
 		$wccs            = WCCS();
 		$this->customer  = ! is_null( $customer ) ? new WCCS_Customer( $customer ) : new WCCS_Customer( wp_get_current_user() );

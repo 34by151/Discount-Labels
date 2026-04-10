@@ -107,7 +107,7 @@ class WCCS_Product_Helpers {
 		}
 
 		$args = wp_parse_args( $args, array(
-			'qty'   => 1,
+			'qty' => 1,
 			'price' => $product->get_price(),
 		) );
 
@@ -264,11 +264,11 @@ class WCCS_Product_Helpers {
 	 * @return array
 	 */
 	public function get_related_products( $product_id, $limit = 5, $exclude_ids = array() ) {
-		$product_id     = absint( $product_id );
-		$exclude_ids    = array_map( 'absint', array_merge( array( 0, $product_id ), $exclude_ids ) );
+		$product_id = absint( $product_id );
+		$exclude_ids = array_map( 'absint', array_merge( array( 0, $product_id ), $exclude_ids ) );
 		$transient_name = 'wccs_related_' . $product_id;
-		$related_posts  = get_transient( $transient_name );
-		$limit          = $limit > 0 ? $limit : 0;
+		$related_posts = get_transient( $transient_name );
+		$limit = $limit > 0 ? $limit : 0;
 
 		if ( false === $related_posts || ( $limit && count( $related_posts ) < $limit ) ) {
 			$cats_array = apply_filters( 'woocommerce_conditions_product_related_posts_relate_by_category', true, $product_id ) ? apply_filters( 'woocommerce_conditions_get_related_product_cat_terms', $this->wc_get_product_term_ids( $product_id, 'product_cat' ), $product_id ) : array();
@@ -279,7 +279,7 @@ class WCCS_Product_Helpers {
 				$related_posts = array();
 			} else {
 				if ( WCCS_Helpers::wc_version_check() ) {
-					$data_store    = WC_Data_Store::load( 'product' );
+					$data_store = WC_Data_Store::load( 'product' );
 					$related_posts = $data_store->get_related_products( $cats_array, $tags_array, $exclude_ids, ( $limit > 0 ? $limit + 10 : 9999999 ), $product_id );
 				} else {
 					global $wpdb;
@@ -421,7 +421,7 @@ class WCCS_Product_Helpers {
 
 		$args = wp_parse_args(
 			$args, array(
-				'qty'   => 1,
+				'qty' => 1,
 				'price' => '',
 			)
 		);
@@ -466,7 +466,7 @@ class WCCS_Product_Helpers {
 
 		$args = wp_parse_args(
 			$args, array(
-				'qty'   => 1,
+				'qty' => 1,
 				'price' => '',
 			)
 		);
@@ -493,14 +493,14 @@ class WCCS_Product_Helpers {
 			$product = wc_get_product( $product );
 		}
 
-		if ( ! $product || 'variable' !== $product->get_type() ) {
+		if ( ! $product || ! $product->is_type( 'variable' ) ) {
 			return array();
 		}
 
 		// Disable plugin price replacer hooks to get variations main price.
 		WCCS()->WCCS_Product_Price_Replace->disable_hooks();
 		add_filter( 'woocommerce_show_variation_price', '__return_false', 100 );
-		$variations = $product->get_available_variations();
+		$variations = $product->get_available_variations( 'objects' );
 		// Enable plugin price replacer hooks.
 		WCCS()->WCCS_Product_Price_Replace->enable_hooks();
 		remove_filter( 'woocommerce_show_variation_price', '__return_false', 100 );
@@ -564,9 +564,9 @@ class WCCS_Product_Helpers {
 		}
 
 		if ( $product->is_type( 'variable' ) ) {
-			$prices         = $product->get_variation_prices();
+			$prices = $product->get_variation_prices();
 			$max_percentage = 0;
-			foreach( $prices['price'] as $key => $price ) {
+			foreach ( $prices['price'] as $key => $price ) {
 				// Only on sale variations
 				if ( $prices['regular_price'][ $key ] > $price ) {
 					$percentage = ( floatval( $prices['regular_price'][ $key ] ) - floatval( $price ) ) / floatval( $prices['regular_price'][ $key ] ) * 100;
@@ -580,7 +580,7 @@ class WCCS_Product_Helpers {
 			}
 		} else {
 			$regular_price = $product->get_regular_price();
-			$sale_price    = $product->get_sale_price();
+			$sale_price = $product->get_sale_price();
 			if ( '' !== $sale_price && $sale_price < $regular_price ) {
 				return ( floatval( $regular_price ) - floatval( $sale_price ) ) / floatval( $regular_price ) * 100;
 			}
@@ -595,9 +595,7 @@ class WCCS_Product_Helpers {
 			return false;
 		}
 
-		$type = $product->get_type();
-
-		return 'variable' === $type || false !== strpos( $type, 'variable' );
+		return $product->is_type( 'variable' );
 	}
 
 	public function is_variation_product( $product ) {
@@ -606,9 +604,7 @@ class WCCS_Product_Helpers {
 			return false;
 		}
 
-		$type = $product->get_type();
-
-		return 'variation' === $type || false !== strpos( $type, 'variation' );
+		return $product->is_type( 'variation' );
 	}
 
 }

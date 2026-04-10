@@ -52,7 +52,17 @@ class WCCS_Public_Cart_Item_Pricing {
 
 	public $product;
 
-	public function __construct( $cart_item_id, $cart_item, WCCS_Pricing $pricing, $apply_method = '', $cart = null, WCCS_Cart_Pricing_Cache $pricing_cache = null ) {
+	/**
+	 * Constructor.
+	 *
+	 * @param string                       $cart_item_id
+	 * @param array                        $cart_item
+	 * @param WCCS_Pricing                 $pricing
+	 * @param string                       $apply_method
+	 * @param WCCS_Cart|null               $cart
+	 * @param WCCS_Cart_Pricing_Cache|null $pricing_cache
+	 */
+	public function __construct( $cart_item_id, $cart_item, WCCS_Pricing $pricing, $apply_method = '', $cart = null, $pricing_cache = null ) {
 		$this->item = $cart_item;
 		$this->pricing = $pricing;
 		$this->apply_method = ! empty( $apply_method ) ? $apply_method : WCCS()->settings->get_setting( 'product_pricing_discount_apply_method', 'sum' );

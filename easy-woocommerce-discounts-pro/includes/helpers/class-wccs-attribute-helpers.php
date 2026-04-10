@@ -28,15 +28,15 @@ class WCCS_Attribute_Helpers {
 		}
 
 		$args = wp_parse_args( $args, array(
-			'separator'          => '/',
-			'nicename'           => false,
-			'pad_counts'         => 1,
-			'show_count'         => 1,
-			'hierarchical'       => 1,
-			'hide_empty'         => 0,
+			'separator' => '/',
+			'nicename' => false,
+			'pad_counts' => 1,
+			'show_count' => 1,
+			'hierarchical' => 1,
+			'hide_empty' => 0,
 			'show_uncategorized' => 0,
-			'orderby'            => 'name',
-			'menu_order'         => false,
+			'orderby' => 'name',
+			'menu_order' => false,
 		) );
 
 		$attributes = array();
@@ -48,10 +48,10 @@ class WCCS_Attribute_Helpers {
 
 			foreach ( $terms as $term ) {
 				$attributes[] = (object) array(
-					'id'       => absint( $term->term_id ),
-					'text'     => ( ! empty( $attribute->attribute_label ) ? sanitize_text_field( $attribute->attribute_label ) : sanitize_text_field( $attribute->attribute_name ) ) . ': ' . rtrim( WCCS_Helpers::get_term_hierarchy_name( $term->term_id, $taxonomy, $args['separator'], $args['nicename'] ), $args['separator'] ),
-					'slug'     => sanitize_text_field( $term->slug ),
-					'name'     => sanitize_text_field( $term->name ),
+					'id' => absint( $term->term_id ),
+					'text' => ( ! empty( $attribute->attribute_label ) ? sanitize_text_field( $attribute->attribute_label ) : sanitize_text_field( $attribute->attribute_name ) ) . ': ' . rtrim( WCCS_Helpers::get_term_hierarchy_name( $term->term_id, $taxonomy, $args['separator'], $args['nicename'] ), $args['separator'] ),
+					'slug' => sanitize_text_field( $term->slug ),
+					'name' => sanitize_text_field( $term->name ),
 					'taxonomy' => sanitize_text_field( $taxonomy ),
 				);
 			}
@@ -80,9 +80,9 @@ class WCCS_Attribute_Helpers {
 			return array();
 		}
 
-		$is_variable          = WCCS()->product_helpers->is_variable_product( $product );
-		$is_variation         = WCCS()->product_helpers->is_variation_product( $product );
-		$attributes           = $this->get_product_raw_attributes( $product );
+		$is_variable = $product->is_type( 'variable' );
+		$is_variation = $product->is_type( 'variation' );
+		$attributes = $this->get_product_raw_attributes( $product );
 		$variation_attributes = $is_variable ? $product->get_variation_attributes() : array();
 		if ( $is_variation ) {
 			$parent = wc_get_product( $product->get_parent_id() );
@@ -159,19 +159,19 @@ class WCCS_Attribute_Helpers {
 			return array();
 		}
 
-		if ( isset( $this->simple_attributes[ $product->get_id() ] ) ) {
-			return $this->simple_attributes[ $product->get_id() ];
+		if ( isset( $this->simple_attributes[ $product->get_id()] ) ) {
+			return $this->simple_attributes[ $product->get_id()];
 		}
 
 		$attributes = $this->get_product_raw_attributes( $product );
 
 		if ( empty( $attributes ) ) {
-			$this->simple_attributes[ $product->get_id() ] = array();
+			$this->simple_attributes[ $product->get_id()] = array();
 			return array();
 		}
 
-		$is_variable  = WCCS()->product_helpers->is_variable_product( $product );
-		$is_variation = WCCS()->product_helpers->is_variation_product( $product );
+		$is_variable = $product->is_type( 'variable' );
+		$is_variation = $product->is_type( 'variation' );
 
 		$attribute_ids = array();
 		foreach ( $attributes as $attribute ) {
@@ -188,7 +188,7 @@ class WCCS_Attribute_Helpers {
 			}
 		}
 
-		$this->simple_attributes[ $product->get_id() ] = $attribute_ids;
+		$this->simple_attributes[ $product->get_id()] = $attribute_ids;
 
 		return $attribute_ids;
 	}
@@ -199,8 +199,8 @@ class WCCS_Attribute_Helpers {
 			return array();
 		}
 
-		$is_variation = WCCS()->product_helpers->is_variation_product( $product );
-		$attributes   = ! $is_variation ? $product->get_attributes() : array();
+		$is_variation = $product->is_type( 'variation' );
+		$attributes = ! $is_variation ? $product->get_attributes() : array();
 		if ( $is_variation ) {
 			$parent = wc_get_product( $product->get_parent_id() );
 			if ( ! $parent ) {

@@ -250,7 +250,7 @@ class WCCS_Cart {
 	public function get_regular_products_subtotal( $include_tax = true ) {
 		$subtotal = $this->get_items_subtotal(
 			array(
-				'item'  => 'onsale_products',
+				'item' => 'onsale_products',
 				'limit' => -1,
 			),
 			$include_tax
@@ -261,7 +261,7 @@ class WCCS_Cart {
 	public function get_onsale_products_subtotal( $include_tax = true ) {
 		$subtotal = $this->get_items_subtotal(
 			array(
-				'item'  => 'regular_products',
+				'item' => 'regular_products',
 				'limit' => -1,
 			),
 			$include_tax
@@ -298,6 +298,30 @@ class WCCS_Cart {
 		return apply_filters( 'wccs_cart_' . __FUNCTION__, (float) $subtotal, $items, $include_tax, $exclude_excluded_products );
 	}
 
+	/**
+	 * Get given cart items subtotal.
+	 * 
+	 * @param array $cart_items
+	 * @param boolean $include_tax
+	 * 
+	 * @return float
+	 */
+	public function get_cart_items_subtotal( $cart_items, $include_tax = true ) {
+		if ( empty( $cart_items ) ) {
+			return 0;
+		}
+
+		$subtotal = 0;
+		foreach ( $cart_items as $cart_item ) {
+			$subtotal += $include_tax ?
+				apply_filters( 'wccs_cart_item_line_subtotal', $cart_item['line_subtotal'], $cart_item ) +
+				apply_filters( 'wccs_cart_item_line_subtotal_tax', $cart_item['line_subtotal_tax'], $cart_item ) :
+				apply_filters( 'wccs_cart_item_line_subtotal', $cart_item['line_subtotal'], $cart_item );
+		}
+
+		return apply_filters( 'wccs_cart_get_cart_items_subtotal', (float) $subtotal, $cart_items, $include_tax );
+	}
+
 	public function filter_cart_items(
 		array $items,
 		$exclude_excluded_products = false,
@@ -319,10 +343,10 @@ class WCCS_Cart {
 				continue;
 			}
 
-			$product   = $cart_item['data'];
+			$product = $cart_item['data'];
 			$variation = (int) $cart_item['variation_id'];
 			if ( 0 < $variation ) {
-				$product   = (int) $cart_item['product_id'];
+				$product = (int) $cart_item['product_id'];
 				$variation = $cart_item['data'];
 			}
 
@@ -428,7 +452,7 @@ class WCCS_Cart {
 			return array();
 		}
 
-		$pricing          = WCCS()->pricing;
+		$pricing = WCCS()->pricing;
 		$valid_cart_items = array();
 
 		if ( array( 'all_products' ) === $include || array( 'all_categories' ) === $include ) {
@@ -503,7 +527,7 @@ class WCCS_Cart {
 	 */
 	public function get_cart_quantities_based_on(
 		$quantity_based_on = 'single_product',
-		array $cart_items = null,
+		$cart_items = null,
 		$sort = '',
 		$order = 'desc',
 		$include_hierarchy = false
@@ -526,7 +550,7 @@ class WCCS_Cart {
 		$cart_quantities = array();
 
 		switch ( $quantity_based_on ) {
-			case 'single_product' :
+			case 'single_product':
 				foreach ( $cart_items as $cart_item_key => $cart_item ) {
 					if ( ! isset( $cart_quantities[ $cart_item['product_id'] ] ) ) {
 						$cart_quantities[ $cart_item['product_id'] ] = array(
@@ -540,7 +564,7 @@ class WCCS_Cart {
 				}
 				break;
 
-			case 'single_product_variation' :
+			case 'single_product_variation':
 				foreach ( $cart_items as $cart_item_key => $cart_item ) {
 					if ( ! empty( $cart_item['variation_id'] ) ) {
 						if ( ! isset( $cart_quantities[ $cart_item['variation_id'] ] ) ) {
@@ -566,7 +590,7 @@ class WCCS_Cart {
 				}
 				break;
 
-			case 'cart_line_item' :
+			case 'cart_line_item':
 				foreach ( $cart_items as $cart_item_key => $cart_item ) {
 					if ( ! isset( $cart_quantities[ $cart_item_key ] ) ) {
 						$cart_quantities[ $cart_item_key ] = array(
@@ -580,7 +604,7 @@ class WCCS_Cart {
 				}
 				break;
 
-			case 'category' :
+			case 'category':
 				foreach ( $cart_items as $cart_item_key => $cart_item ) {
 					$categories = array_unique( $include_hierarchy ? wc_get_product_cat_ids( $cart_item['product_id'] ) : wc_get_product_term_ids( $cart_item['product_id'], 'product_cat' ) );
 					if ( ! empty( $categories ) ) {
@@ -599,7 +623,7 @@ class WCCS_Cart {
 				}
 				break;
 
-			case 'attribute' :
+			case 'attribute':
 				foreach ( $cart_items as $cart_item_key => $cart_item ) {
 					$simple_attributes = WCCS()->WCCS_Attribute_Helpers->get_product_simple_attributes( $cart_item['data'] );
 					if ( ! empty( $simple_attributes ) ) {
@@ -638,7 +662,7 @@ class WCCS_Cart {
 				}
 				break;
 
-			case 'tag' :
+			case 'tag':
 				foreach ( $cart_items as $cart_item_key => $cart_item ) {
 					$tags = array_unique( WCCS()->product_helpers->wc_get_product_term_ids( $cart_item['product_id'], 'product_tag' ) );
 					if ( ! empty( $tags ) ) {
@@ -657,7 +681,7 @@ class WCCS_Cart {
 				}
 				break;
 
-			case 'all_products' :
+			case 'all_products':
 				foreach ( $cart_items as $cart_item_key => $cart_item ) {
 					if ( ! isset( $cart_quantities['all_products'] ) ) {
 						$cart_quantities['all_products'] = array(
@@ -671,7 +695,7 @@ class WCCS_Cart {
 				}
 				break;
 
-			default :
+			default:
 				// Quantity based on product custom taxonomies.
 				if ( false !== strpos( $quantity_based_on, 'taxonomy_' ) ) {
 					$taxonomy = sanitize_text_field( str_replace( 'taxonomy_', '', $quantity_based_on ) );

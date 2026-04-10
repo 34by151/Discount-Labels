@@ -10,7 +10,13 @@ class WCCS_Product_Validator {
 
 	protected $date_time;
 
-	public function __construct( $customer = null, WCCS_Date_Time $date_time = null ) {
+	/**
+	 * Constructor.
+	 *
+	 * @param WP_User|null          $customer
+	 * @param WCCS_Date_Time|null   $date_time
+	 */
+	public function __construct( $customer = null, $date_time = null ) {
 		$this->customer  = ! is_null( $customer ) ? new WCCS_Customer( $customer ) : new WCCS_Customer( wp_get_current_user() );
 		$this->date_time = ! is_null( $date_time ) ? $date_time : new WCCS_Date_Time();
 	}

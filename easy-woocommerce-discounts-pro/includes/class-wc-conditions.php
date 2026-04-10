@@ -138,14 +138,14 @@ final class WC_Conditions {
 			self::$instance->load_dependencies();
 
 			self::$instance->plugin_name = 'easy-woocommerce-discounts-pro';
-			self::$instance->version     = WCCS_VERSION;
+			self::$instance->version = WCCS_VERSION;
 
 			self::$instance->custom_props = new WCCS_Custom_Props();
-			self::$instance->loader       = new WCCS_Loader();
+			self::$instance->loader = new WCCS_Loader();
 
 			self::$instance->define_services();
 
-			self::$instance->admin  = new WCCS_Admin( self::$instance->plugin_name, self::$instance->version, self::$instance->loader, self::$instance->services );
+			self::$instance->admin = new WCCS_Admin( self::$instance->plugin_name, self::$instance->version, self::$instance->loader, self::$instance->services );
 			self::$instance->public = new WCCS_Public( self::$instance->plugin_name, self::$instance->version, self::$instance->loader, self::$instance->services );
 
 			self::$instance->set_locale();
@@ -341,7 +341,8 @@ final class WC_Conditions {
 		/**
 		 * The class responsible for cart discount.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wccs-cart-discount.php';
+		require_once dirname( __FILE__ ) . '/class-wccs-cart-discount.php';
+		require_once dirname( __FILE__ ) . '/class-wccs-order-total-discount.php';
 
 		/**
 		 * The class responsible for pricing.
@@ -639,7 +640,7 @@ final class WC_Conditions {
 	public function wpmu_drop_tables( $tables, $blog_id ) {
 		switch_to_blog( $blog_id );
 
-		$conditions_db     = new WCCS_DB_Conditions();
+		$conditions_db = new WCCS_DB_Conditions();
 		$condition_meta_db = new WCCS_DB_Condition_Meta();
 
 		if ( $conditions_db->installed() ) {
@@ -666,14 +667,14 @@ final class WC_Conditions {
 		global $wpdb;
 
 		$post_title = $wp_query->get( 'wccs_post_title' );
-		$post_id    = $wp_query->get( 'wccs_post_id' );
+		$post_id = $wp_query->get( 'wccs_post_id' );
 
 		if ( $post_title ) {
-			$post_title = $wpdb->posts . '.post_title LIKE \'%' . esc_sql( $wpdb->esc_like( $post_title ) ) . '%\'';
+			$post_title = esc_sql( $wpdb->posts ) . '.post_title LIKE \'%' . esc_sql( $wpdb->esc_like( $post_title ) ) . '%\'';
 		}
 
 		if ( $post_id ) {
-			$post_id = $wpdb->posts . '.ID LIKE \'' . esc_sql( $wpdb->esc_like( $post_id ) ) . '%\'';
+			$post_id = esc_sql( $wpdb->posts ) . '.ID LIKE \'' . esc_sql( $wpdb->esc_like( $post_id ) ) . '%\'';
 		}
 
 		if ( $post_title && $post_id ) {
@@ -717,7 +718,7 @@ final class WC_Conditions {
 	 * @return void
 	 */
 	public function hpos_support() {
-		if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+		if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class) ) {
 			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', WCCS_PLUGIN_FILE, true );
 		}
 	}
@@ -765,13 +766,13 @@ final class WC_Conditions {
 	 */
 	public function is_request( $type ) {
 		switch ( $type ) {
-			case 'admin' :
+			case 'admin':
 				return is_admin();
-			case 'ajax' :
+			case 'ajax':
 				return defined( 'DOING_AJAX' );
-			case 'cron' :
+			case 'cron':
 				return defined( 'DOING_CRON' );
-			case 'frontend' :
+			case 'frontend':
 				return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
 		}
 	}

@@ -102,7 +102,7 @@ __webpack_require__.d(__webpack_exports__, "getRoutes", function() { return /* b
 __webpack_require__.d(__webpack_exports__, "getTabs", function() { return /* binding */ src_getTabs; });
 
 // EXTERNAL MODULE: external "Vue"
-var external_Vue_ = __webpack_require__(4);
+var external_Vue_ = __webpack_require__(5);
 var external_Vue_default = /*#__PURE__*/__webpack_require__.n(external_Vue_);
 
 // EXTERNAL MODULE: external "Vuex"
@@ -194,7 +194,7 @@ var src_getTabs = function getTabs() {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /***/ (function(module, exports) {
 
 (function() { module.exports = this["Vue"]; }());

@@ -59,6 +59,7 @@
 		this.getVariationRegularPrice = this.getVariationRegularPrice.bind(
 			this
 		);
+		this.getProductId = this.getProductId.bind( this );
 		this.tracks = this.tracks.bind( this );
 
 		this.init();
@@ -174,6 +175,10 @@
 	 * @return void
 	 */
 	ProductPricing.prototype.onFoundVariation = function ( event, variation ) {
+		if ( variation && variation.variation_id && variation.price_html ) {
+			this.prices[ variation.variation_id ] = variation.price_html;
+		}
+
 		// Bulk pricing table.
 		if ( this.$bulkTables.length ) {
 			this.$bulkTables.hide();
@@ -197,7 +202,11 @@
 				this.$parentTable.show();
 				this.$parentTableTitle.show();
 			}
-			this.changePrice();
+
+			var that = this;
+			setTimeout( function () {
+				that.changePrice();
+			}, 500 );
 		}
 
 		// Purchase pricing messages.
@@ -280,10 +289,7 @@
 	ProductPricing.prototype.livePricing = function () {
 		var productId = $( 'input[name="variation_id"' ).val();
 		if ( ! productId ) {
-			productId = $( 'button[name="add-to-cart"]' ).val();
-			productId = productId
-				? productId
-				: $( 'input[name="add-to-cart"' ).val();
+			productId = this.getProductId();
 		}
 
 		if ( this.changedPrice ) {
@@ -618,10 +624,7 @@
 			return;
 		}
 
-		var productId = $( 'button[name="add-to-cart"]' ).val();
-		productId = productId
-			? productId
-			: $( 'input[name="add-to-cart"' ).val();
+		var productId = this.getProductId();
 		var variationId = $( 'input[name="variation_id"' ).val();
 
 		if ( 0 < productId ) {
@@ -658,8 +661,9 @@
 		);
 		if ( ! $table.length ) {
 			if ( isVariation ) {
+				this.setVariationPrice( defaultPrice, productId );
 				if ( variationPriceUpdate ) {
-					this.setProductPrice( defaultPrice, productId );
+					this.setProductPrice( defaultPrice, productId, true );
 				}
 			} else {
 				this.setProductPrice( defaultPrice, productId );
@@ -672,7 +676,7 @@
 			if ( isVariation ) {
 				this.setVariationPrice( defaultPrice, productId );
 				if ( variationPriceUpdate ) {
-					this.setProductPrice( defaultPrice, productId );
+					this.setProductPrice( defaultPrice, productId, true );
 				}
 			} else {
 				this.setProductPrice( defaultPrice, productId );
@@ -701,7 +705,7 @@
 			var price = $td ? $td.html() : defaultPrice;
 			this.setVariationPrice( price, productId );
 			if ( variationPriceUpdate ) {
-				this.setProductPrice( price, productId );
+				this.setProductPrice( price, productId, true );
 			}
 		} else {
 			var price = $td ? $td.html() : defaultPrice;
@@ -711,17 +715,52 @@
 		return true;
 	};
 
-	ProductPricing.prototype.setProductPrice = function ( price, productId ) {
+	ProductPricing.prototype.setProductPrice = function (
+		price,
+		productId,
+		isVariation = false
+	) {
+		if ( price && -1 !== price.indexOf( 'class="price"' ) ) {
+			price =
+				$( '<div>' + price + '</div>' )
+					.find( '.price' )
+					.html() || price;
+		}
+
 		if ( ! /<del/.test( price ) ) {
-			var regularPrice = this.getProductRegularPrice( productId );
-			if ( regularPrice && regularPrice != price ) {
-				price =
-					'<del aria-hidden="true">' +
-					regularPrice +
-					'</del> <ins>' +
-					price +
-					'</ins>';
+			if ( isVariation ) {
+				var regularPrice = this.getVariationRegularPrice( productId );
+			} else {
+				var regularPrice = this.getProductRegularPrice( productId );
 			}
+
+			if (
+				regularPrice &&
+				-1 !== regularPrice.indexOf( 'class="price"' )
+			) {
+				regularPrice =
+					$( '<div>' + regularPrice + '</div>' )
+						.find( '.price' )
+						.html() || regularPrice;
+			}
+
+			if ( regularPrice && regularPrice != price ) {
+				var regularPriceValue = this.getPriceValue( regularPrice );
+				var priceValue = this.getPriceValue( price );
+
+				if ( priceValue <= regularPriceValue ) {
+					price =
+						'<del aria-hidden="true">' +
+						regularPrice +
+						'</del> <ins>' +
+						price +
+						'</ins>';
+				}
+			}
+		}
+
+		if ( -1 === price.indexOf( 'class="price"' ) ) {
+			price = '<span class="price">' + price + '</span>';
 		}
 
 		$( '.product .price, .product .wc-block-components-product-price' )
@@ -730,19 +769,55 @@
 	};
 
 	ProductPricing.prototype.setVariationPrice = function ( price, productId ) {
+		if ( price && -1 !== price.indexOf( 'class="price"' ) ) {
+			price =
+				$( '<div>' + price + '</div>' )
+					.find( '.price' )
+					.html() || price;
+		}
+
 		if ( ! /<del/.test( price ) ) {
 			var regularPrice = this.getVariationRegularPrice( productId );
+
+			if (
+				regularPrice &&
+				-1 !== regularPrice.indexOf( 'class="price"' )
+			) {
+				regularPrice =
+					$( '<div>' + regularPrice + '</div>' )
+						.find( '.price' )
+						.html() || regularPrice;
+			}
+
 			if ( regularPrice && regularPrice != price ) {
-				price =
-					'<del aria-hidden="true">' +
-					regularPrice +
-					'</del> <ins>' +
-					price +
-					'</ins>';
+				var regularPriceValue = this.getPriceValue( regularPrice );
+				var priceValue = this.getPriceValue( price );
+
+				if ( priceValue <= regularPriceValue ) {
+					price =
+						'<del aria-hidden="true">' +
+						regularPrice +
+						'</del> <ins>' +
+						price +
+						'</ins>';
+				}
 			}
 		}
 
-		$( '.woocommerce-variation .price' ).first().html( price );
+		var $price = $(
+			'.woocommerce-variation .price, .single_variation .price'
+		).first();
+		if ( $price.length ) {
+			$price.html( price );
+		} else {
+			if ( -1 === price.indexOf( 'class="price"' ) ) {
+				price = '<span class="price">' + price + '</span>';
+			}
+
+			$( '.product .price, .product .wc-block-components-product-price' )
+				.first()
+				.html( price );
+		}
 	};
 
 	ProductPricing.prototype.getProductPrice = function ( productId ) {
@@ -785,9 +860,11 @@
 			return this.prices[ variationId ];
 		}
 
-		var $price = $( '.woocommerce-variation .price' ).first();
+		var $price = $(
+			'.woocommerce-variation .price, .single_variation .price'
+		).first();
 		if ( ! $price || ! $price.length ) {
-			return false;
+			return this.getProductPrice( this.getProductId() );
 		}
 
 		this.prices[ variationId ] = $price.html();
@@ -807,6 +884,32 @@
 		return match ? match[ 1 ] : price;
 	};
 
+	/**
+	 * Get numeric value of the price.
+	 *
+	 * @param   {string} price Price HTML/string.
+	 *
+	 * @returns {number}
+	 */
+	ProductPricing.prototype.getPriceValue = function ( price ) {
+		if ( ! price ) {
+			return 0;
+		}
+
+		var $div = $( '<div>' + price + '</div>' );
+		$div.find( '.screen-reader-text' ).remove();
+
+		var text = $div.text();
+		var match = text.split( /[–-]/ )[ 0 ].replace( /[^\d]/g, '' );
+
+		return match ? parseInt( match, 10 ) : 0;
+	};
+
+	ProductPricing.prototype.getProductId = function () {
+		var productId = $( 'button[name="add-to-cart"]' ).val();
+		return productId ? productId : $( 'input[name="add-to-cart"' ).val();
+	};
+
 	ProductPricing.prototype.tracks = function () {
 		if (
 			'undefined' === typeof wccs_product_pricing_params.analytics ||
@@ -815,10 +918,7 @@
 			return;
 		}
 
-		var productId = $( 'button[name="add-to-cart"]' ).val();
-		productId = productId
-			? productId
-			: $( 'input[name="add-to-cart"' ).val();
+		var productId = this.getProductId();
 
 		if (
 			! productId &&
@@ -865,5 +965,11 @@
 
 	$( function () {
 		$().wccs_get_product_pricing();
+	} );
+
+	// Porto theme skeleton compatibility.
+	$( document ).on( 'skeleton-loaded', '.skeleton-loading', function () {
+		var productPricing = Singleton.getInstance();
+		productPricing.init();
 	} );
 } )( jQuery );

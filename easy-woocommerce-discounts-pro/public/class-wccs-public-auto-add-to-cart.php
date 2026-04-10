@@ -1,14 +1,14 @@
 <?php
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 class WCCS_Public_Auto_Add_To_Cart {
 
-	const CART_ITEM_ID            = '_wccs_auto_added_product';
-	const CART_ITEM_RULE          = '_wccs_auto_added_product_rule';
-	const CART_ITEM_MAIN_PRICE    = '_wccs_auto_added_product_main_price';
+	const CART_ITEM_ID = '_wccs_auto_added_product';
+	const CART_ITEM_RULE = '_wccs_auto_added_product_rule';
+	const CART_ITEM_MAIN_PRICE = '_wccs_auto_added_product_main_price';
 	const CART_ITEM_APPLIED_RULES = '_wccs_applied_rules';
 
 	public $add_or_remove_cart_item = false;
@@ -19,10 +19,10 @@ class WCCS_Public_Auto_Add_To_Cart {
 
 	protected $do_remove_products = false;
 
-    public function __construct( WCCS_Loader $loader ) {
-        $this->loader = $loader;
+	public function __construct( WCCS_Loader $loader ) {
+		$this->loader = $loader;
 
-        // Automatically add free products to the cart for purchase x receive y pricing rules.
+		// Automatically add free products to the cart for purchase x receive y pricing rules.
 		if ( (int) WCCS()->settings->get_setting( 'auto_add_free_to_cart', 1 ) ) {
 			$this->loader->add_action( 'woocommerce_after_calculate_totals', $this, 'add_products', 9999 );
 			$this->loader->add_action( 'woocommerce_after_calculate_totals', $this, 'remove_products', 9999 );
@@ -40,7 +40,7 @@ class WCCS_Public_Auto_Add_To_Cart {
 			$this->loader->add_filter( 'woocommerce_cart_item_class', $this, 'cart_item_class', 10, 2 );
 			$this->loader->add_filter( 'woocommerce_order_item_class', $this, 'cart_item_class', 10, 2 );
 		}
-    }
+	}
 
 	public function get_auto_added_cart_items() {
 		return $this->auto_added_cart_items;
@@ -51,14 +51,14 @@ class WCCS_Public_Auto_Add_To_Cart {
 			return;
 		}
 
-		$cart          = $cart && is_a( $cart, 'WC_Cart' ) ? $cart : WC()->cart;
+		$cart = $cart && is_a( $cart, 'WC_Cart' ) ? $cart : WC()->cart;
 		$cart_contents = $cart->get_cart();
 		if ( empty( $cart_contents ) ) {
 			return;
 		}
 
 		$this->auto_added_cart_items = array();
-		$this->do_remove_products    = true;
+		$this->do_remove_products = true;
 
 		$rules = WCCS()->pricing->get_purchase_pricings( 'auto' );
 		if ( empty( $rules ) ) {
@@ -77,7 +77,7 @@ class WCCS_Public_Auto_Add_To_Cart {
 
 			$purchase_quantities_group = WCCS()->cart->get_items_quantities(
 				$pricing['purchased_items'],
-				( ! empty( $pricing['quantity_based_on'] ) ? $pricing['quantity_based_on'] :  'all_products' ),
+				( ! empty( $pricing['quantity_based_on'] ) ? $pricing['quantity_based_on'] : 'all_products' ),
 				true,
 				'price',
 				'desc',
@@ -103,7 +103,7 @@ class WCCS_Public_Auto_Add_To_Cart {
 			return;
 		}
 
-		$cart          = $cart && is_a( $cart, 'WC_Cart' ) ? $cart : WC()->cart;
+		$cart = $cart && is_a( $cart, 'WC_Cart' ) ? $cart : WC()->cart;
 		$cart_contents = $cart->get_cart();
 		if ( empty( $cart_contents ) ) {
 			return;
@@ -129,8 +129,7 @@ class WCCS_Public_Auto_Add_To_Cart {
 			return false;
 		}
 
-		$type = $product->get_type();
-		if ( ! WCCS_Helpers::is_allowed_auto_add_product_type( $type ) ) {
+		if ( ! WCCS_Helpers::is_allowed_auto_add_product_type( $product->get_type() ) ) {
 			return false;
 		}
 
@@ -162,7 +161,7 @@ class WCCS_Public_Auto_Add_To_Cart {
 
 		// Checking variation product attributes.
 		$attributes = array();
-		if ( 'variation' === $type ) {
+		if ( $product->is_type( 'variation' ) ) {
 			// Variation attributes should not be empty.
 			$attributes = $product->get_variation_attributes();
 			if ( ! empty( $attributes ) && in_array( '', $attributes ) ) {
@@ -171,13 +170,13 @@ class WCCS_Public_Auto_Add_To_Cart {
 		}
 
 		// Quantity of the product that should be add to the cart.
-        $receive = (int) $pricing['purchase']['receive'];
-        /**
-         * Do not do repeat when $do_same is false because it causes issue in the cart
-         * when cart item quantity change by user inside the cart.
-         */
+		$receive = (int) $pricing['purchase']['receive'];
+		/**
+		 * Do not do repeat when $do_same is false because it causes issue in the cart
+		 * when cart item quantity change by user inside the cart.
+		 */
 		if ( 'true' === $pricing['repeat'] ) {
-            $receive = $receive * floor( $purchase_quantity / (int) $pricing['purchase']['purchase'] );
+			$receive = $receive * floor( $purchase_quantity / (int) $pricing['purchase']['purchase'] );
 		}
 
 		if ( ! $product->has_enough_stock( (int) $receive ) ) {
@@ -194,23 +193,23 @@ class WCCS_Public_Auto_Add_To_Cart {
 			return false;
 		}
 
-		$product_id   = 'variation' !== $type ? $product->get_id() : WCCS()->product_helpers->get_parent_id( $product );
-		$variation_id = 'variation' === $type ? $product->get_id() : 0;
+		$product_id = $product->is_type( 'variation' ) ? $product->get_parent_id() : $product->get_id();
+		$variation_id = $product->is_type( 'variation' ) ? $product->get_id() : 0;
 
 		$cart_item_data = apply_filters( 'woocommerce_add_cart_item_data', array(
-			self::CART_ITEM_ID            => 1,
-			self::CART_ITEM_RULE          => (int) $pricing['id'],
+			self::CART_ITEM_ID => 1,
+			self::CART_ITEM_RULE => (int) $pricing['id'],
 			self::CART_ITEM_APPLIED_RULES => [ [
-				'id'          => (int) $pricing['id'],
-				'name'        => ! empty( $pricing['name'] ) ? $pricing['name'] : '',
+				'id' => (int) $pricing['id'],
+				'name' => ! empty( $pricing['name'] ) ? $pricing['name'] : '',
 				'description' => ! empty( $pricing['description'] ) ? $pricing['description'] : '',
-				'type'        => 'auto_add_product',
-				'apply_mode'  => ! empty( $pricing['apply_mode'] ) ? $pricing['apply_mode'] : '',
+				'type' => 'auto_add_product',
+				'apply_mode' => ! empty( $pricing['apply_mode'] ) ? $pricing['apply_mode'] : '',
 			] ],
 		), $product_id, $variation_id, $receive );
 
 		// Generate a ID based on product ID, variation ID, variation data, and other cart item data.
-		$cart_id   = $cart->generate_cart_id( $product_id, $variation_id, $attributes, $cart_item_data );
+		$cart_id = $cart->generate_cart_id( $product_id, $variation_id, $attributes, $cart_item_data );
 		$cart_item = $cart->get_cart_item( $cart_id );
 		// Does item already exists in the cart.
 		if ( ! empty( $cart_item ) ) {
@@ -239,7 +238,8 @@ class WCCS_Public_Auto_Add_To_Cart {
 				$this->add_auto_added_product_cart_item_key( $cart_item_key );
 				return $cart_item_key;
 			}
-		} catch ( \Exception $e ) {}
+		} catch (\Exception $e) {
+		}
 
 		return false;
 	}
@@ -262,16 +262,16 @@ class WCCS_Public_Auto_Add_To_Cart {
 
 			if ( ! WCCS()->WCCS_Product_Validator->is_valid_product( $pricing['items'], $cart_item['product_id'], $cart_item['variation_id'], ( ! empty( $cart_item['variation'] ) ? $cart_item['variation'] : array() ), $cart_item ) ) {
 				continue;
-			} 
-			
+			}
+
 			if ( ! empty( $pricing['exclude_items'] ) && WCCS()->WCCS_Product_Validator->is_valid_product( $pricing['exclude_items'], $cart_item['product_id'], $cart_item['variation_id'], ( ! empty( $cart_item['variation'] ) ? $cart_item['variation'] : array() ), $cart_item ) ) {
 				continue;
 			}
 
-			$get = $this->calculate_bogo( 
-				$cart_item['quantity'], 
-				(float) $pricing['purchase']['purchase'], 
-				(float) $pricing['purchase']['receive'], 
+			$get = $this->calculate_bogo(
+				$cart_item['quantity'],
+				(float) $pricing['purchase']['purchase'],
+				(float) $pricing['purchase']['receive'],
 				'true' === $pricing['repeat']
 			);
 
@@ -327,19 +327,19 @@ class WCCS_Public_Auto_Add_To_Cart {
 			}
 
 			$cart_item_data = apply_filters( 'woocommerce_add_cart_item_data', array(
-				self::CART_ITEM_ID            => 1,
-				self::CART_ITEM_RULE          => (int) $pricing['id'],
+				self::CART_ITEM_ID => 1,
+				self::CART_ITEM_RULE => (int) $pricing['id'],
 				self::CART_ITEM_APPLIED_RULES => [ [
-					'id'          => (int) $pricing['id'],
-					'name'        => ! empty( $pricing['name'] ) ? $pricing['name'] : '',
+					'id' => (int) $pricing['id'],
+					'name' => ! empty( $pricing['name'] ) ? $pricing['name'] : '',
 					'description' => ! empty( $pricing['description'] ) ? $pricing['description'] : '',
-					'type'        => 'auto_add_product',
-					'apply_mode'  => ! empty( $pricing['apply_mode'] ) ? $pricing['apply_mode'] : '',
+					'type' => 'auto_add_product',
+					'apply_mode' => ! empty( $pricing['apply_mode'] ) ? $pricing['apply_mode'] : '',
 				] ],
 			), $cart_item['product_id'], $cart_item['variation_id'], $quantity );
 
 			// Generate a ID based on product ID, variation ID, variation data, and other cart item data.
-			$cart_id     = $cart->generate_cart_id( $cart_item['product_id'], $cart_item['variation_id'], $cart_item['variation'], $cart_item_data );
+			$cart_id = $cart->generate_cart_id( $cart_item['product_id'], $cart_item['variation_id'], $cart_item['variation'], $cart_item_data );
 			$g_cart_item = $cart->get_cart_item( $cart_id );
 			// Does item already exists in the cart.
 			if ( ! empty( $g_cart_item ) ) {
@@ -367,7 +367,7 @@ class WCCS_Public_Auto_Add_To_Cart {
 				$this->add_auto_added_product_cart_item_key( $cart_item_key );
 				return $cart_item_key;
 			}
-		} catch ( Exception $e ) {
+		} catch (Exception $e) {
 			if ( is_cart() ) {
 				if ( ! empty( $e->getMessage() ) ) {
 					wc_add_notice( $e->getMessage(), 'error' );
@@ -381,14 +381,14 @@ class WCCS_Public_Auto_Add_To_Cart {
 			return 0;
 		}
 
-		$bogoGroups = floor( (float) $quantity / (float) $buy );
+		$bogo_groups = floor( (float) $quantity / (float) $buy );
 
 		// If repeat is false, allow only one group
-		if ( ! $repeat && $bogoGroups > 1 ) {
-			$bogoGroups = 1;
+		if ( ! $repeat && $bogo_groups > 1 ) {
+			$bogo_groups = 1;
 		}
 
-		return $bogoGroups * (float) $get;
+		return $bogo_groups * (float) $get;
 	}
 
 	protected function should_add_products() {

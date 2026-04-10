@@ -15,7 +15,7 @@ class WCCS_Admin_Select_Data_Provider {
 		$data = array();
 		foreach ( $users as $user ) {
 			$data[] = (object) array(
-				'id'   => $user->ID,
+				'id' => $user->ID,
 				'text' => $user->user_nicename,
 			);
 		}
@@ -37,7 +37,7 @@ class WCCS_Admin_Select_Data_Provider {
 		$data = array();
 		foreach ( $roles as $key => $value ) {
 			$data[] = (object) array(
-				'id'   => $key,
+				'id' => $key,
 				'text' => $value,
 			);
 		}
@@ -48,7 +48,7 @@ class WCCS_Admin_Select_Data_Provider {
 	public static function get_coupons( array $args = array() ) {
 		$data = array();
 
-		$coupon_ids   = [];
+		$coupon_ids = [];
 		$discount_ids = [];
 		if ( ! empty( $args['include'] ) ) {
 			foreach ( $args['include'] as $id ) {
@@ -69,7 +69,7 @@ class WCCS_Admin_Select_Data_Provider {
 			if ( ! empty( $coupons ) ) {
 				foreach ( $coupons as $coupon ) {
 					$data[] = (object) array(
-						'id'   => $coupon->ID,
+						'id' => $coupon->ID,
 						'text' => $coupon->post_title,
 					);
 				}
@@ -93,26 +93,26 @@ class WCCS_Admin_Select_Data_Provider {
 		$discounts = [];
 		if ( ! empty( $args['s'] ) ) {
 			$discounts = WCCS()->conditions->get_conditions( [
-				'type'    => 'cart-discount',
-				'number'  => -1,
+				'type' => 'cart-discount',
+				'number' => -1,
 				'orderby' => 'ordering',
-				'order'   => 'ASC',
-				'name'    => $args['s'],
+				'order' => 'ASC',
+				'name' => $args['s'],
 			] );
 		} elseif ( ! empty( $args['include'] ) ) {
 			$discounts = WCCS()->conditions->get_conditions( [
-				'type'    => 'cart-discount',
-				'number'  => -1,
+				'type' => 'cart-discount',
+				'number' => -1,
 				'orderby' => 'ordering',
-				'order'   => 'ASC',	
-				'id'      => $args['include'],
+				'order' => 'ASC',
+				'id' => $args['include'],
 			] );
 		}
 
-		$discounts = array_map( function( $discount ) use ( $args ) {
+		$discounts = array_map( function ( $discount ) use ( $args ) {
 			return (object) [
-				'id'   => $args['prefix'] . absint( $discount->id ),
-				'text' =>  html_entity_decode( $discount->name ) . ' - ' . __( 'Cart discount', 'easy-woocommerce-discounts' ),
+				'id' => $args['prefix'] . absint( $discount->id ),
+				'text' => html_entity_decode( $discount->name ) . ' - ' . __( 'Cart discount', 'easy-woocommerce-discounts' ),
 			];
 		}, $discounts );
 
@@ -132,7 +132,7 @@ class WCCS_Admin_Select_Data_Provider {
 		$data = array();
 		foreach ( $coupons as $coupon ) {
 			$data[] = (object) array(
-				'id'   => $coupon->id,
+				'id' => $coupon->id,
 				'text' => html_entity_decode( $coupon->name ),
 			);
 		}
@@ -142,11 +142,11 @@ class WCCS_Admin_Select_Data_Provider {
 
 	public static function get_rules( array $args = [] ) {
 		$args = array_merge( [
-			'number'  => 20,
+			'number' => 20,
 			'orderby' => 'ordering',
-			'order'   => 'ASC',
+			'order' => 'ASC',
 		], $args );
-		
+
 		$conditions = WCCS()->conditions->get_conditions( $args );
 		if ( empty( $conditions ) ) {
 			return [];
@@ -155,7 +155,7 @@ class WCCS_Admin_Select_Data_Provider {
 		$data = array();
 		foreach ( $conditions as $condition ) {
 			$data[] = (object) array(
-				'id'   => $condition->id,
+				'id' => $condition->id,
 				'text' => html_entity_decode( $condition->name ),
 			);
 		}
@@ -172,7 +172,7 @@ class WCCS_Admin_Select_Data_Provider {
 		$data = array();
 		foreach ( $capabilities as $capability ) {
 			$data[] = (object) array(
-				'id'   => $capability,
+				'id' => $capability,
 				'text' => $capability,
 			);
 		}
@@ -200,7 +200,7 @@ class WCCS_Admin_Select_Data_Provider {
 
 	public static function get_products( array $args = array() ) {
 		$args = wp_parse_args( $args, array( 'limit' => -1 ) );
-		if ( empty( $args['include'] ) && empty( $args['post_id']  ) ) {
+		if ( empty( $args['include'] ) && empty( $args['post_id'] ) ) {
 			return array();
 		}
 
@@ -227,12 +227,12 @@ class WCCS_Admin_Select_Data_Provider {
 
 		$products = array_filter( $products );
 
-		return ! empty( $products ) ? static::prepare_product_select( $products, array( 'variation' ) ) : array();
+		return ! empty( $products ) ? static::prepare_product_select( $products, array( 'variation', 'subscription_variation' ) ) : array();
 	}
 
 	public static function get_variations( array $args = array() ) {
 		$args = wp_parse_args( $args, array( 'type' => 'variation', 'limit' => -1 ) );
-		if ( empty( $args['include'] ) && empty( $args['post_id']  ) ) {
+		if ( empty( $args['include'] ) && empty( $args['post_id'] ) ) {
 			return array();
 		}
 
@@ -241,7 +241,7 @@ class WCCS_Admin_Select_Data_Provider {
 			return array();
 		}
 
-		return static::prepare_product_select( $products, array( 'variation' ) );
+		return static::prepare_product_select( $products, array( 'variation', 'subscription_variation' ) );
 	}
 
 	public static function get_product_attributes( array $args = array() ) {
@@ -261,7 +261,7 @@ class WCCS_Admin_Select_Data_Provider {
 			if ( empty( $attribute->id ) || empty( $attribute->taxonomy ) ) {
 				continue;
 			}
-			$attribute->id = sanitize_text_field( $attribute->taxonomy )  . ',' . absint( $attribute->id );
+			$attribute->id = sanitize_text_field( $attribute->taxonomy ) . ',' . absint( $attribute->id );
 		}
 
 		return $attributes;
@@ -271,7 +271,7 @@ class WCCS_Admin_Select_Data_Provider {
 		$data = array();
 		foreach ( WC()->countries->countries as $code => $label ) {
 			$data[] = (object) array(
-				'id'   => $code,
+				'id' => $code,
 				'text' => html_entity_decode( $label ),
 			);
 		}
@@ -286,13 +286,13 @@ class WCCS_Admin_Select_Data_Provider {
 			if ( $states ) {
 				foreach ( $states as $state_code => $state_label ) {
 					$data[] = (object) array(
-						'id'   => $code . ':' . $state_code,
+						'id' => $code . ':' . $state_code,
 						'text' => html_entity_decode( $label ) . ' - ' . html_entity_decode( $state_label ),
 					);
 				}
 			} else {
 				$data[] = (object) array(
-					'id'   => $code,
+					'id' => $code,
 					'text' => html_entity_decode( $label ),
 				);
 			}
@@ -310,7 +310,7 @@ class WCCS_Admin_Select_Data_Provider {
 		$data = array();
 		foreach ( $zones as $zone ) {
 			$data[] = (object) array(
-				'id'   => $zone['id'],
+				'id' => $zone['id'],
 				'text' => html_entity_decode( $zone['zone_name'] ),
 			);
 		}
@@ -337,20 +337,20 @@ class WCCS_Admin_Select_Data_Provider {
 			if ( ! empty( $args['name'] ) ) {
 				if ( false !== strpos( strtolower( $shipping_method->method_title ), strtolower( trim( $args['name'] ) ) ) ) {
 					$data[] = (object) array(
-						'id'   => $id,
+						'id' => $id,
 						'text' => html_entity_decode( $shipping_method->method_title ),
 					);
 				}
 			} elseif ( ! empty( $args['id'] ) ) {
 				if ( in_array( $id, $args['id'] ) ) {
 					$data[] = (object) array(
-						'id'   => $id,
+						'id' => $id,
 						'text' => html_entity_decode( $shipping_method->method_title ),
 					);
 				}
 			} else {
 				$data[] = (object) array(
-					'id'   => $id,
+					'id' => $id,
 					'text' => html_entity_decode( $shipping_method->method_title ),
 				);
 			}
@@ -367,24 +367,24 @@ class WCCS_Admin_Select_Data_Provider {
 	public static function get_shipping_methods_by_title( array $args = array() ) {
 		$args = array_merge( array( 'context' => 'admin' ), $args );
 
-		$zones   = array();
-		$zone    = new WC_Shipping_Zone( 0 );
+		$zones = array();
+		$zone = new WC_Shipping_Zone( 0 );
 		$methods = $zone->get_shipping_methods( false, $args['context'] );
 		if ( ! empty( $methods ) ) {
-			$zones[ $zone->get_id() ] = array(
-				'name'    => $zone->get_zone_name(),
+			$zones[ $zone->get_id()] = array(
+				'name' => $zone->get_zone_name(),
 				'methods' => $methods,
 			);
 		}
 
 		$data_store = WC_Data_Store::load( 'shipping-zone' );
-		$raw_zones  = $data_store->get_zones();
+		$raw_zones = $data_store->get_zones();
 		foreach ( $raw_zones as $raw_zone ) {
-			$zone    = new WC_Shipping_Zone( $raw_zone );
+			$zone = new WC_Shipping_Zone( $raw_zone );
 			$methods = $zone->get_shipping_methods( false, $args['context'] );
 			if ( ! empty( $methods ) ) {
-				$zones[ $zone->get_id() ] = array(
-					'name'    => $zone->get_zone_name(),
+				$zones[ $zone->get_id()] = array(
+					'name' => $zone->get_zone_name(),
 					'methods' => $methods,
 				);
 			}
@@ -396,20 +396,20 @@ class WCCS_Admin_Select_Data_Provider {
 				if ( ! empty( $args['name'] ) ) {
 					if ( false !== strpos( strtolower( $shipping_method->title ), strtolower( trim( $args['name'] ) ) ) ) {
 						$shipping_methods[] = (object) array(
-							'id'   => $shipping_method->id . ':' . $shipping_method->instance_id,
+							'id' => $shipping_method->id . ':' . $shipping_method->instance_id,
 							'text' => html_entity_decode( $data['name'] . ':' . $shipping_method->title ),
 						);
 					}
 				} elseif ( ! empty( $args['id'] ) ) {
 					if ( in_array( $shipping_method->id . ':' . $shipping_method->instance_id, $args['id'] ) ) {
 						$shipping_methods[] = (object) array(
-							'id'   => $shipping_method->id . ':' . $shipping_method->instance_id,
+							'id' => $shipping_method->id . ':' . $shipping_method->instance_id,
 							'text' => html_entity_decode( $data['name'] . ':' . $shipping_method->title ),
 						);
 					}
 				} else {
 					$shipping_methods[] = (object) array(
-						'id'   => $shipping_method->id . ':' . $shipping_method->instance_id,
+						'id' => $shipping_method->id . ':' . $shipping_method->instance_id,
 						'text' => html_entity_decode( $data['name'] . ':' . $shipping_method->title ),
 					);
 				}
@@ -443,7 +443,7 @@ class WCCS_Admin_Select_Data_Provider {
 			$data = array();
 			foreach ( $shipping_methods as $shipping_method ) {
 				$data[] = (object) array(
-					'id'   => 'dynamic_shipping:' . $shipping_method->id,
+					'id' => 'dynamic_shipping:' . $shipping_method->id,
 					'text' => html_entity_decode( $shipping_method->name ),
 				);
 			}
@@ -457,7 +457,7 @@ class WCCS_Admin_Select_Data_Provider {
 		$data = array();
 		foreach ( WC()->shipping->get_shipping_classes() as $shipping_class ) {
 			$data[] = (object) array(
-				'id'   => $shipping_class->term_id,
+				'id' => $shipping_class->term_id,
 				'text' => html_entity_decode( $shipping_class->name ),
 			);
 		}
@@ -472,7 +472,7 @@ class WCCS_Admin_Select_Data_Provider {
 			$custom_title = $gateway->get_title();
 
 			$data[] = (object) array(
-				'id'   => $gateway->id,
+				'id' => $gateway->id,
 				'text' => html_entity_decode( wp_kses_post( $method_title ) ) . ( $method_title !== $custom_title ? ' - ' . html_entity_decode( wp_kses_post( $custom_title ) ) : '' ),
 			);
 		}
@@ -505,7 +505,7 @@ class WCCS_Admin_Select_Data_Provider {
 				$identifier = '#' . $product->get_id();
 			}
 
-			if ( 'variation' === $product->get_type() ) {
+			if ( $product->is_type( 'variation' ) ) {
 				$formatted_variation_list = wc_get_formatted_variation( $product, true );
 				$text = sprintf( '%2$s (%1$s)', $identifier, $product->get_title() ) . ' ' . $formatted_variation_list;
 			} else {
@@ -513,7 +513,7 @@ class WCCS_Admin_Select_Data_Provider {
 			}
 
 			$products_select[ $id ] = (object) array(
-				'id'   => $product->get_id(),
+				'id' => $product->get_id(),
 				'text' => $text,
 			);
 		}

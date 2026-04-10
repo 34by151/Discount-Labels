@@ -5,7 +5,7 @@ Tags: woocommerce, woocommerce discounts, woocommerce pricing deals, woocommerce
 Requires at least: 4.4.2
 Tested up to: 6.9
 Requires PHP: 5.6.0
-Stable tag: 9.2.1
+Stable tag: 9.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -260,6 +260,27 @@ Just install the plugin pro version and create a purchase rule easily and we hav
 7. WooCommerce Checkout Fee - Charge £20.00 fee when weight is greater than a specific wheight.
 
 == Changelog ==
+
+= 9.5.0 - 09-04-2026 =
+* New: Added order total coupon rules.
+* New: Added products subtotal coupon rules.
+* Update: Verified compatibility with WooCommerce 10.6.2
+
+= 9.4.1 - 26-02-2026 =
+* Fix: Fixed quantity based on field in bulk pricing for variations templates.
+* Fix: Use product->is_type method to better support variation and variable products.
+* Update: Verified compatibility with WooCommerce 10.5.2
+
+= 9.4.0 - 16-02-2026 =
+* New: Performance improvement on get_available_variatoins for variable products.
+* Fix: Fixed issues on some of pre-built templates configurations.
+* Fix: Fixed issues on updating variable/variation product prices with bulk pricing rules.
+* Update: Verified compatibility with WooCommerce 10.5.1
+
+= 9.3.0 - 27-01-2026 =
+* New: Added "Add from Template" button for the rules in the admin side to create rules quickly & easily with just a few edits.
+* Fix: Added a compatibility for the Porto theme skeleton feature for bulk pricing rules table.
+* Update: Verified compatibility with WooCommerce 10.4.3
 
 = 9.2.1 - 08-12-2025 =
 * Update: Verified compatibility with WordPress 6.9

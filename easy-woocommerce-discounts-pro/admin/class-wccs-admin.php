@@ -73,9 +73,9 @@ class WCCS_Admin {
 	 */
 	public function __construct( $plugin_name, $version, WCCS_Loader $loader, WCCS_Service_Manager $services ) {
 		$this->plugin_name = $plugin_name;
-		$this->version     = $version;
-		$this->loader      = $loader;
-		$this->services    = $services;
+		$this->version = $version;
+		$this->loader = $loader;
+		$this->services = $services;
 
 		$this->load_dependencies();
 		$this->update_checker();
@@ -148,6 +148,30 @@ class WCCS_Admin {
 		WCCS()->WCCS_Clear_Cache->enable_hooks();
 
 		$this->loader->add_action( 'in_plugin_update_message-easy-woocommerce-discounts-pro/easy-woocommerce-discounts.php', $this, 'in_plugin_update_message' );
+		add_filter( 'plugin_action_links', [ $this, 'plugin_action_links' ], 10, 2 );
+	}
+
+	/**
+	 * Plugin action links
+	 * This function adds additional links below the plugin in admin plugins page.
+	 *
+	 * @since  1.0.0
+	 *
+	 * @param  array  $links    The array having default links for the plugin.
+	 * @param  string $file     The name of the plugin file.
+	 *
+	 * @return array  $links    Plugin default links and specific links.
+	 */
+	public function plugin_action_links( $links, $file ) {
+		if ( false === strpos( $file, 'easy-woocommerce-discounts.php' ) ) {
+			return $links;
+		}
+
+		$extra = [
+			'<a href="' . admin_url( 'admin.php?page=wccs-settings' ) . '">' . esc_html__( 'Settings', 'easy-woocommerce-discounts' ) . '</a>',
+		];
+
+		return array_merge( $links, $extra );
 	}
 
 	/**
@@ -163,7 +187,7 @@ class WCCS_Admin {
 			WCCS_PLUGIN_FILE,
 			'easy-woocommerce-discounts-pro'
 		);
-		$update_checker->addQueryArgFilter( array( &$this, 'filter_update_checks' ) );
+		$update_checker->addQueryArgFilter( array(&$this, 'filter_update_checks' ) );
 	}
 
 	/**
@@ -195,7 +219,7 @@ class WCCS_Admin {
 	public function in_plugin_update_message() {
 		$license = WCCS()->settings->get_setting( 'license_key', '' );
 		if ( empty( $license ) ) {
-			$url      = esc_url( admin_url( 'admin.php?page=wccs-settings&tab=licenses' ) );
+			$url = esc_url( admin_url( 'admin.php?page=wccs-settings&tab=licenses' ) );
 			$redirect = sprintf( '<a href="%s" target="_blank">%s</a>', $url, __( 'settings', 'easy-woocommerce-discounts' ) );
 
 			echo sprintf( ' ' . __( 'To receive automatic updates, license activation is required. Please visit %s to activate your plugin.', 'easy-woocommerce-discounts' ), $redirect );

@@ -22,7 +22,14 @@ class WCCS_Checkout_Fee {
 
 	public $rules_filter;
 
-	public function __construct( array $fees, WCCS_Cart $cart = null, $apply_method = null ) {
+	/**
+	 * Constructor.
+	 *
+	 * @param array          $fees
+	 * @param WCCS_Cart|null $cart
+	 * @param string|null    $apply_method
+	 */
+	public function __construct( array $fees, $cart = null, $apply_method = null ) {
 		$this->fees = $fees;
 		$this->cart = null === $cart ? new WCCS_Cart() : $cart;
 		$this->apply_method = null === $apply_method ? WCCS()->settings->get_setting( 'checkout_fee_apply_method', 'all' ) : $apply_method;

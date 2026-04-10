@@ -12,7 +12,12 @@ class WCCS_Product_Price_Cache extends WCCS_Abstract_Cache {
 
     protected $product_pricing;
 
-    public function __construct( WCCS_Pricing $pricing = null ) {
+    /**
+     * Constructor.
+     *
+     * @param WCCS_Pricing|null $pricing
+     */
+    public function __construct( $pricing = null ) {
         $this->pricing = null === $pricing ? WCCS()->pricing : $pricing;
         parent::__construct( 'wccs_product_price_', 'wccs_product_price' );
     }

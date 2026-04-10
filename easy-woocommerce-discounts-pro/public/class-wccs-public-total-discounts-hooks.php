@@ -10,7 +10,13 @@ class WCCS_Public_Total_Discounts_Hooks extends WCCS_Public_Controller {
 
     protected $loader;
 
-    public function __construct( WCCS_Loader $loader, WCCS_Total_Discounts $total_discounts = null ) {
+    /**
+     * Constructor.
+     *
+     * @param WCCS_Loader               $loader
+     * @param WCCS_Total_Discounts|null $total_discounts
+     */
+    public function __construct( WCCS_Loader $loader, $total_discounts = null ) {
         $this->loader          = $loader;
         $this->total_discounts = null !== $total_discounts ? $total_discounts : new WCCS_Total_Discounts(); 
         $this->total_discounts_hooks();

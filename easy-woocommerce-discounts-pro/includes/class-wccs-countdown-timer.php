@@ -8,7 +8,12 @@ class WCCS_Countdown_Timer {
 
     protected $date_time_validator;
 
-    public function __construct( WCCS_Date_Time_Validator $date_time_validator = null ) {
+    /**
+     * Constructor.
+     *
+     * @param WCCS_Date_Time_Validator|null $date_time_validator
+     */
+    public function __construct( $date_time_validator = null ) {
         $this->date_time_validator = null !== $date_time_validator ? $date_time_validator : WCCS()->WCCS_Date_Time_Validator;
     }
 

@@ -22,7 +22,14 @@ class WCCS_Cart_Discount {
 
 	const DISCOUNT_SUFFIX = 'wccs_cart_discount_';
 
-	public function __construct( array $discounts, WCCS_Cart $cart = null, $apply_method = null ) {
+	/**
+	 * Constructor.
+	 *
+	 * @param array          $discounts
+	 * @param WCCS_Cart|null $cart
+	 * @param string|null    $apply_method
+	 */
+	public function __construct( array $discounts, $cart = null, $apply_method = null ) {
 		$wccs = WCCS();
 
 		$this->discounts = $discounts;
@@ -89,6 +96,19 @@ class WCCS_Cart_Discount {
 
 			if ( ! $this->condition_validator->is_valid_conditions( $discount, isset( $discount->conditions_match_mode ) ? $discount->conditions_match_mode : 'all' ) ) {
 				continue;
+			}
+
+			$discount = clone $discount;
+
+			// Handle order total discount.
+			if ( WCCS_Order_Total_Discount::is_order_total_discount( $discount ) ) {
+				$order_discount = WCCS_Order_Total_Discount::get_discount( $discount );
+				if ( ! $order_discount ) {
+					continue;
+				}
+
+				$discount->discount_type = $order_discount['discount_type'];
+				$discount->discount_amount = $order_discount['discount'];
 			}
 
 			// Handle manual discounts

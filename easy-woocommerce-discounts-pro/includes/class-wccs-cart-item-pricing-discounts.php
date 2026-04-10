@@ -1,43 +1,52 @@
 <?php
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 class WCCS_Cart_Item_Pricing_Discounts {
 
-    public $item_id;
+	public $item_id;
 
 	public $item;
 
 	public $product_id;
 
-    public $variation_id;
+	public $variation_id;
 
-    protected $cart;
+	protected $cart;
 
-    protected $pricing;
+	protected $pricing;
 
-    protected $pricings;
+	protected $pricings;
 
-    protected $pricing_cache;
+	protected $pricing_cache;
 
-    public function __construct( $cart_item_id, $cart_item, WCCS_Pricing $pricing, $cart = null, WCCS_Cart_Pricing_Cache $pricing_cache = null ) {
-        $this->item_id               = $cart_item_id;
-		$this->item                  = $cart_item;
-        $this->pricing               = $pricing;
-        $this->pricings              = $this->pricing->get_pricings();
-        $this->product_id            = $cart_item['product_id'];
-        $this->variation_id          = $cart_item['variation_id'];
-        $this->cart                  = null !== $cart ? $cart : WCCS()->cart;
-        $this->pricing_cache         = $pricing_cache;
-    }
+	/**
+	 * Constructor.
+	 *
+	 * @param string                        $cart_item_id
+	 * @param array                         $cart_item
+	 * @param WCCS_Pricing                  $pricing
+	 * @param WCCS_Cart|null                $cart
+	 * @param WCCS_Cart_Pricing_Cache|null  $pricing_cache
+	 */
+	public function __construct( $cart_item_id, $cart_item, WCCS_Pricing $pricing, $cart = null, $pricing_cache = null ) {
+		$this->item_id = $cart_item_id;
+		$this->item = $cart_item;
+		$this->pricing = $pricing;
+		$this->pricings = $this->pricing->get_pricings();
+		$this->product_id = $cart_item['product_id'];
+		$this->variation_id = $cart_item['variation_id'];
+		$this->cart = null !== $cart ? $cart : WCCS()->cart;
+		$this->pricing_cache = $pricing_cache;
+	}
 
-    public function get_discounts() {
-        $discounts = $this->get_simple_discounts()
-            + $this->get_bulk_discounts()
-            + $this->get_tiered_discounts()
-            + $this->get_purchase_discounts()
+	public function get_discounts() {
+		$discounts = $this->get_simple_discounts()
+			+ $this->get_bulk_discounts()
+			+ $this->get_tiered_discounts()
+			+ $this->get_purchase_discounts()
 			+ $this->get_products_group_discounts();
 
 		if ( ! empty( $discounts ) ) {
@@ -50,9 +59,9 @@ class WCCS_Cart_Item_Pricing_Discounts {
 
 	public function get_pricings() {
 		$pricings = $this->get_simple_pricings()
-            + $this->get_bulk_pricings()
-            + $this->get_tiered_pricings()
-            + $this->get_purchase_pricings()
+			+ $this->get_bulk_pricings()
+			+ $this->get_tiered_pricings()
+			+ $this->get_purchase_pricings()
 			+ $this->get_products_group_pricings();
 
 		if ( ! empty( $pricings ) ) {
@@ -63,14 +72,14 @@ class WCCS_Cart_Item_Pricing_Discounts {
 		return $pricings;
 	}
 
-    public function get_simple_discounts() {
+	public function get_simple_discounts() {
 		if ( ! apply_filters( 'wccs_cart_item_simple_discounts', true, $this->item, $this ) ) {
 			return [];
 		}
 
 		if ( empty( $this->pricings ) || empty( $this->pricings['simple'] ) ) {
 			return apply_filters( 'wccs_cart_item_pricing_simple_discounts', array() );
-        }
+		}
 
 		$discounts = array();
 		foreach ( $this->pricings['simple'] as $pricing_id => $pricing ) {
@@ -83,18 +92,18 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			}
 
 			$discounts[ $pricing_id ] = array(
-				'id'                    => $pricing_id,
-				'name'                  => $pricing['name'],
-				'description'           => $pricing['description'],
-				'mode'                  => $pricing['mode'],
-				'apply_mode'            => $pricing['apply_mode'],
-				'order'                 => (int) $pricing['order'],
-				'discount'              => (float) $pricing['discount'],
-				'discount_type'         => $pricing['discount_type'],
-				'date_time'             => $pricing['date_time'],
+				'id' => $pricing_id,
+				'name' => $pricing['name'],
+				'description' => $pricing['description'],
+				'mode' => $pricing['mode'],
+				'apply_mode' => $pricing['apply_mode'],
+				'order' => (int) $pricing['order'],
+				'discount' => (float) $pricing['discount'],
+				'discount_type' => $pricing['discount_type'],
+				'date_time' => $pricing['date_time'],
 				'date_times_match_mode' => $pricing['date_times_match_mode'],
 			);
-        }
+		}
 
 		return apply_filters( 'wccs_cart_item_pricing_simple_discounts', $discounts );
 	}
@@ -106,7 +115,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 
 		if ( empty( $this->pricings ) || empty( $this->pricings['simple'] ) ) {
 			return apply_filters( 'wccs_cart_item_pricing_simple_pricings', array() );
-        }
+		}
 
 		$pricings = array();
 		foreach ( $this->pricings['simple'] as $pricing_id => $pricing ) {
@@ -119,28 +128,28 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			}
 
 			$pricings[ $pricing_id ] = array(
-				'id'                    => $pricing_id,
-				'name'                  => $pricing['name'],
-				'description'           => $pricing['description'],
-				'mode'                  => $pricing['mode'],
-				'apply_mode'            => $pricing['apply_mode'],
-				'order'                 => (int) $pricing['order'],
-				'date_time'             => $pricing['date_time'],
+				'id' => $pricing_id,
+				'name' => $pricing['name'],
+				'description' => $pricing['description'],
+				'mode' => $pricing['mode'],
+				'apply_mode' => $pricing['apply_mode'],
+				'order' => (int) $pricing['order'],
+				'date_time' => $pricing['date_time'],
 				'date_times_match_mode' => $pricing['date_times_match_mode'],
 			);
-        }
+		}
 
 		return apply_filters( 'wccs_cart_item_pricing_simple_pricings', $pricings );
-    }
+	}
 
-    public function get_bulk_discounts() {
+	public function get_bulk_discounts() {
 		if ( ! apply_filters( 'wccs_cart_item_bulk_discounts', true, $this->item, $this ) ) {
 			return [];
 		}
 
 		if ( empty( $this->pricings ) || empty( $this->pricings['bulk'] ) ) {
 			return apply_filters( 'wccs_cart_item_pricing_bulk_discounts', array() );
-        }
+		}
 
 		$discounts = array();
 		foreach ( $this->pricings['bulk'] as $pricing_id => $pricing ) {
@@ -184,7 +193,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			} elseif ( 'category' === $pricing['quantity_based_on'] ) {
 				// Filter product categories based on pricing items.
 				$product_categories = WCCS()->product_helpers->get_product_categories( $this->product_id, $pricing['items'] );
-				$max_cat_quantity   = 0;
+				$max_cat_quantity = 0;
 				foreach ( $product_categories as $product_category ) {
 					if ( isset( $items_quantities[ $product_category ] ) && $max_cat_quantity <= $items_quantities[ $product_category ]['count'] ) {
 						$max_cat_quantity = $items_quantities[ $product_category ]['count'];
@@ -201,22 +210,22 @@ class WCCS_Cart_Item_Pricing_Discounts {
 				foreach ( $pricing['quantities'] as $quantity ) {
 					if ( intval( $quantity['min'] ) <= $item_quantity && ( '' === $quantity['max'] || intval( $quantity['max'] ) >= $item_quantity ) ) {
 						$discounts[ $pricing_id ] = array(
-							'id'                    => $pricing_id,
-							'name'                  => $pricing['name'],
-							'description'           => $pricing['description'],
-							'mode'                  => $pricing['mode'],
-							'apply_mode'            => $pricing['apply_mode'],
-							'order'                 => (int) $pricing['order'],
-							'discount'              => (float) $quantity['discount'],
-							'discount_type'         => $quantity['discount_type'],
-							'date_time'             => $pricing['date_time'],
+							'id' => $pricing_id,
+							'name' => $pricing['name'],
+							'description' => $pricing['description'],
+							'mode' => $pricing['mode'],
+							'apply_mode' => $pricing['apply_mode'],
+							'order' => (int) $pricing['order'],
+							'discount' => (float) $quantity['discount'],
+							'discount_type' => $quantity['discount_type'],
+							'date_time' => $pricing['date_time'],
 							'date_times_match_mode' => $pricing['date_times_match_mode'],
 						);
 						break;
 					}
 				}
 			}
-        }
+		}
 
 		return apply_filters( 'wccs_cart_item_pricing_bulk_discounts', $discounts );
 	}
@@ -228,7 +237,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 
 		if ( empty( $this->pricings ) || empty( $this->pricings['bulk'] ) ) {
 			return apply_filters( 'wccs_cart_item_pricing_bulk_pricings', array() );
-        }
+		}
 
 		$pricings = array();
 		foreach ( $this->pricings['bulk'] as $pricing_id => $pricing ) {
@@ -241,13 +250,13 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			}
 
 			$pricings[ $pricing_id ] = array(
-				'id'                    => $pricing_id,
-				'name'                  => $pricing['name'],
-				'description'           => $pricing['description'],
-				'mode'                  => $pricing['mode'],
-				'apply_mode'            => $pricing['apply_mode'],
-				'order'                 => (int) $pricing['order'],
-				'date_time'             => $pricing['date_time'],
+				'id' => $pricing_id,
+				'name' => $pricing['name'],
+				'description' => $pricing['description'],
+				'mode' => $pricing['mode'],
+				'apply_mode' => $pricing['apply_mode'],
+				'order' => (int) $pricing['order'],
+				'date_time' => $pricing['date_time'],
 				'date_times_match_mode' => $pricing['date_times_match_mode'],
 			);
 		}
@@ -255,14 +264,14 @@ class WCCS_Cart_Item_Pricing_Discounts {
 		return apply_filters( 'wccs_cart_item_pricing_bulk_pricings', $pricings );
 	}
 
-    public function get_tiered_discounts() {
+	public function get_tiered_discounts() {
 		if ( ! apply_filters( 'wccs_cart_item_tiered_discounts', true, $this->item, $this ) ) {
 			return [];
 		}
 
 		if ( empty( $this->pricings ) || empty( $this->pricings['tiered'] ) ) {
 			return apply_filters( 'wccs_cart_item_pricing_tiered_discounts', array() );
-        }
+		}
 
 		$discounts = array();
 		foreach ( $this->pricings['tiered'] as $pricing_id => $pricing ) {
@@ -272,16 +281,16 @@ class WCCS_Cart_Item_Pricing_Discounts {
 				continue;
 			} elseif ( ! empty( $pricing['exclude_items'] ) && WCCS()->WCCS_Product_Validator->is_valid_product( $pricing['exclude_items'], $this->product_id, $this->variation_id, ( ! empty( $this->item['variation'] ) ? $this->item['variation'] : array() ), $this->item ) ) {
 				continue;
-            }
+			}
 
-            $cart_items = $this->cart->sort_cart_items(
-                $this->cart->filter_cart_items( $pricing['items'], true, array(), true ),
-                'price',
-                ( isset( $pricing['reorder'] ) && in_array( strtolower( $pricing['reorder'] ), array( 'asc', 'desc' ) ) ? strtolower( $pricing['reorder'] ) : 'asc' )
-            );
-            if ( empty( $cart_items ) ) {
-                continue;
-            }
+			$cart_items = $this->cart->sort_cart_items(
+				$this->cart->filter_cart_items( $pricing['items'], true, array(), true ),
+				'price',
+				( isset( $pricing['reorder'] ) && in_array( strtolower( $pricing['reorder'] ), array( 'asc', 'desc' ) ) ? strtolower( $pricing['reorder'] ) : 'asc' )
+			);
+			if ( empty( $cart_items ) ) {
+				continue;
+			}
 
 			$items_quantities = $this->cart->get_cart_quantities_based_on( $pricing['quantity_based_on'], $cart_items );
 			if ( empty( $items_quantities ) ) {
@@ -289,7 +298,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			}
 
 			$group_quantity = 0;
-			$group_key      = false;
+			$group_key = false;
 
 			if ( 'single_product' === $pricing['quantity_based_on'] ) {
 				if ( isset( $items_quantities[ $this->product_id ] ) ) {
@@ -312,7 +321,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			} elseif ( 'category' === $pricing['quantity_based_on'] ) {
 				// Filter product categories based on pricing items.
 				$product_categories = WCCS()->product_helpers->get_product_categories( $this->product_id, $pricing['items'] );
-				$max_cat_quantity   = 0;
+				$max_cat_quantity = 0;
 				foreach ( $product_categories as $product_category ) {
 					if ( isset( $items_quantities[ $product_category ] ) && $max_cat_quantity <= $items_quantities[ $product_category ]['count'] ) {
 						$max_cat_quantity = $items_quantities[ $product_category ]['count'];
@@ -334,10 +343,10 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			$items_quantities = $items_quantities[ $group_key ]['items'];
 
 			$quantity_from = 0;
-			$quantity_to   = 0;
+			$quantity_to = 0;
 			foreach ( $items_quantities as $cart_item_key => $line_item_quantity ) {
 				$quantity_from = $quantity_to + 1;
-				$quantity_to   += $line_item_quantity;
+				$quantity_to += $line_item_quantity;
 
 				if ( $cart_item_key != $this->item_id ) {
 					continue;
@@ -351,18 +360,18 @@ class WCCS_Cart_Item_Pricing_Discounts {
 					if ( '' !== $quantity['min'] && intval( $quantity['min'] ) <= $quantity_to ) {
 						if ( ! isset( $discounts[ $pricing_id ] ) ) {
 							$discounts[ $pricing_id ] = array(
-								'id'                    => $pricing_id,
-								'name'                  => $pricing['name'],
-								'description'           => $pricing['description'],
-								'mode'                  => $pricing['mode'],
-								'apply_mode'            => $pricing['apply_mode'],
-								'order'                 => (int) $pricing['order'],
-								'quantity'              => $line_item_quantity,
-								'quantity_to'           => $quantity_to,
-								'quantity_from'         => $quantity_from,
-								'quantities'            => array(),
-								'discount_type'         => $quantity['discount_type'],
-								'date_time'             => $pricing['date_time'],
+								'id' => $pricing_id,
+								'name' => $pricing['name'],
+								'description' => $pricing['description'],
+								'mode' => $pricing['mode'],
+								'apply_mode' => $pricing['apply_mode'],
+								'order' => (int) $pricing['order'],
+								'quantity' => $line_item_quantity,
+								'quantity_to' => $quantity_to,
+								'quantity_from' => $quantity_from,
+								'quantities' => array(),
+								'discount_type' => $quantity['discount_type'],
+								'date_time' => $pricing['date_time'],
 								'date_times_match_mode' => $pricing['date_times_match_mode'],
 							);
 						}
@@ -379,7 +388,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 
 				break;
 			}
-        }
+		}
 
 		return apply_filters( 'wccs_cart_item_pricing_tiered_discounts', $discounts );
 	}
@@ -391,7 +400,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 
 		if ( empty( $this->pricings ) || empty( $this->pricings['tiered'] ) ) {
 			return apply_filters( 'wccs_cart_item_pricing_tiered_pricings', array() );
-        }
+		}
 
 		$pricings = array();
 		foreach ( $this->pricings['tiered'] as $pricing_id => $pricing ) {
@@ -404,13 +413,13 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			}
 
 			$pricings[ $pricing_id ] = array(
-				'id'                    => $pricing_id,
-				'name'                  => $pricing['name'],
-				'description'           => $pricing['description'],
-				'mode'                  => $pricing['mode'],
-				'apply_mode'            => $pricing['apply_mode'],
-				'order'                 => (int) $pricing['order'],
-				'date_time'             => $pricing['date_time'],
+				'id' => $pricing_id,
+				'name' => $pricing['name'],
+				'description' => $pricing['description'],
+				'mode' => $pricing['mode'],
+				'apply_mode' => $pricing['apply_mode'],
+				'order' => (int) $pricing['order'],
+				'date_time' => $pricing['date_time'],
 				'date_times_match_mode' => $pricing['date_times_match_mode'],
 			);
 		}
@@ -418,14 +427,14 @@ class WCCS_Cart_Item_Pricing_Discounts {
 		return apply_filters( 'wccs_cart_item_pricing_tiered_pricings', $pricings );
 	}
 
-    public function get_purchase_discounts() {
+	public function get_purchase_discounts() {
 		if ( ! apply_filters( 'wccs_cart_item_purchase_discounts', true, $this->item, $this ) ) {
 			return [];
 		}
 
 		if ( empty( $this->pricings ) || empty( $this->pricings['purchase'] ) ) {
 			return apply_filters( 'wccs_cart_item_pricing_purchase_discounts', array() );
-        }
+		}
 
 		$rules = $this->pricings['purchase'];
 		if ( (int) WCCS()->settings->get_setting( 'auto_add_free_to_cart', 1 ) ) {
@@ -442,8 +451,8 @@ class WCCS_Cart_Item_Pricing_Discounts {
 		foreach ( $rules as $pricing_id => $pricing ) {
 			if ( ! WCCS()->WCCS_Product_Validator->is_valid_product( $pricing['items'], $this->product_id, $this->variation_id, ( ! empty( $this->item['variation'] ) ? $this->item['variation'] : array() ), $this->item ) ) {
 				continue;
-			} 
-			
+			}
+
 			if ( ! empty( $pricing['exclude_items'] ) && WCCS()->WCCS_Product_Validator->is_valid_product( $pricing['exclude_items'], $this->product_id, $this->variation_id, ( ! empty( $this->item['variation'] ) ? $this->item['variation'] : array() ), $this->item ) ) {
 				continue;
 			}
@@ -457,8 +466,8 @@ class WCCS_Cart_Item_Pricing_Discounts {
 				}
 
 				if ( ! empty( $bogo['consumed'] ) ) {
-					$consumed_quantities[ $this->item_id ] = isset( $consumed_quantities[ $this->item_id ] ) ? 
-						$consumed_quantities[ $this->item_id ] + $bogo['consumed'] : $bogo['consumed']; 
+					$consumed_quantities[ $this->item_id ] = isset( $consumed_quantities[ $this->item_id ] ) ?
+						$consumed_quantities[ $this->item_id ] + $bogo['consumed'] : $bogo['consumed'];
 				}
 
 				if ( ! empty( $bogo['get'] ) ) {
@@ -468,7 +477,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 				// Checking if this pricing rule already cached?
 				if ( isset( $applied_pricings[ $pricing_id ] ) ) {
 					if ( isset( $applied_pricings[ $pricing_id ]['receive_items'][ $this->item_id ] ) ) {
-						$discounts[ $pricing_id ]                     = $applied_pricings[ $pricing_id ];
+						$discounts[ $pricing_id ] = $applied_pricings[ $pricing_id ];
 						$discounts[ $pricing_id ]['receive_quantity'] = $applied_pricings[ $pricing_id ]['receive_items'][ $this->item_id ];
 					}
 					continue;
@@ -477,7 +486,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 				// Get items quantities group sorted by price in descending or highest prices first.
 				$purchase_quantities_group = $this->cart->get_items_quantities(
 					$pricing['purchased_items'],
-					( ! empty( $pricing['quantity_based_on'] ) ? $pricing['quantity_based_on'] :  'all_products' ),
+					( ! empty( $pricing['quantity_based_on'] ) ? $pricing['quantity_based_on'] : 'all_products' ),
 					true,
 					'price',
 					'desc',
@@ -515,17 +524,17 @@ class WCCS_Cart_Item_Pricing_Discounts {
 
 			if ( ! empty( $receive_items[ $this->item_id ] ) ) {
 				$discount_content = array(
-					'id'                    => $pricing_id,
-					'name'                  => $pricing['name'],
-					'description'           => $pricing['description'],
-					'mode'                  => $pricing['mode'],
-					'apply_mode'            => $pricing['apply_mode'],
-					'order'                 => (int) $pricing['order'],
-					'discount'              => (float) $pricing['purchase']['discount'],
-					'discount_type'         => $pricing['purchase']['discount_type'],
-					'receive_quantity'      => $receive_items[ $this->item_id ],
-					'receive_items'         => $receive_items,
-					'date_time'             => $pricing['date_time'],
+					'id' => $pricing_id,
+					'name' => $pricing['name'],
+					'description' => $pricing['description'],
+					'mode' => $pricing['mode'],
+					'apply_mode' => $pricing['apply_mode'],
+					'order' => (int) $pricing['order'],
+					'discount' => (float) $pricing['purchase']['discount'],
+					'discount_type' => $pricing['purchase']['discount_type'],
+					'receive_quantity' => $receive_items[ $this->item_id ],
+					'receive_items' => $receive_items,
+					'date_time' => $pricing['date_time'],
 					'date_times_match_mode' => $pricing['date_times_match_mode'],
 				);
 
@@ -535,7 +544,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 					$this->pricing_cache->add_applied_pricing( $pricing_id, $discount_content );
 				}
 			}
-        }
+		}
 
 		return apply_filters( 'wccs_cart_item_pricing_purchase_discounts', $discounts );
 	}
@@ -564,7 +573,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			}
 		}
 
-		$items                    = $group['items'];
+		$items = $group['items'];
 		$receive_items_quantities = array();
 		if ( ! $same_items ) {
 			// Get receive items quantities with lowest price items first.
@@ -577,7 +586,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			 * Append receive items to the end of items if they are exists in the items.
 			 * The receive items will be calculated at the end.
 			 */
-			$items     = array();
+			$items = array();
 			$end_items = array();
 			foreach ( $group['items'] as $key => $value ) {
 				if ( isset( $receive_items_quantities[ $key ] ) ) {
@@ -601,7 +610,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 	 * @param array   $consumed_quantities      Consumed quantities
 	 * @param array   $receive_items_quantities Get or Receive items quantities
 	 *
-	 * @return void
+	 * @return array
 	 */
 	protected function retrieve_purchase_receive_quantities(
 		$pricing,
@@ -610,7 +619,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 		&$consumed_quantities,
 		$receive_items_quantities
 	) {
-		$quantities               = array( 'purchase' => array(), 'receive' => array() );
+		$quantities = array( 'purchase' => array(), 'receive' => array() );
 		$temp_consumed_quantities = $consumed_quantities;
 		while ( $purchase_quantities = $this->find_purchase_quantities( $items, (int) $pricing['purchase']['purchase'], $temp_consumed_quantities ) ) {
 			$temp_consumed_quantities = $consumed_quantities;
@@ -620,7 +629,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			}
 
 			$receive_quantitites = $this->find_purchase_quantities(
-				// group['items'] is in highest prices first order and reversed for lowest prices first order.
+					// group['items'] is in highest prices first order and reversed for lowest prices first order.
 				( $same_items ? array_reverse( $items, true ) : $receive_items_quantities ),
 				(int) $pricing['purchase']['receive'],
 				$temp_consumed_quantities,
@@ -749,20 +758,20 @@ class WCCS_Cart_Item_Pricing_Discounts {
 
 		$group_size = $buy + $get;
 
-		$bogoGroups = floor( $quantity / $group_size );
-		$consumed   = $bogoGroups * $group_size;
+		$bogo_groups = floor( $quantity / $group_size );
+		$consumed = $bogo_groups * $group_size;
 
 		if (
-			1 < $bogoGroups &&
+			1 < $bogo_groups &&
 			( ! isset( $pricing['repeat'] ) || 'true' !== $pricing['repeat'] )
 		) {
-			$bogoGroups = 1;
-        	$consumed   = $group_size;
+			$bogo_groups = 1;
+			$consumed = $group_size;
 		}
 
-		return [ 
+		return [
 			'consumed' => $consumed,
-			'get'      => $bogoGroups * $get, 
+			'get' => $bogo_groups * $get,
 		];
 	}
 
@@ -773,7 +782,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 
 		if ( empty( $this->pricings ) || empty( $this->pricings['purchase'] ) ) {
 			return apply_filters( 'wccs_cart_item_pricing_purchase_pricings', array() );
-        }
+		}
 
 		$pricings = array();
 		foreach ( $this->pricings['purchase'] as $pricing_id => $pricing ) {
@@ -784,13 +793,13 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			}
 
 			$pricings[ $pricing_id ] = array(
-				'id'                    => $pricing_id,
-				'name'                  => $pricing['name'],
-				'description'           => $pricing['description'],
-				'mode'                  => $pricing['mode'],
-				'apply_mode'            => $pricing['apply_mode'],
-				'order'                 => (int) $pricing['order'],
-				'date_time'             => $pricing['date_time'],
+				'id' => $pricing_id,
+				'name' => $pricing['name'],
+				'description' => $pricing['description'],
+				'mode' => $pricing['mode'],
+				'apply_mode' => $pricing['apply_mode'],
+				'order' => (int) $pricing['order'],
+				'date_time' => $pricing['date_time'],
 				'date_times_match_mode' => $pricing['date_times_match_mode'],
 			);
 		}
@@ -798,24 +807,24 @@ class WCCS_Cart_Item_Pricing_Discounts {
 		return apply_filters( 'wccs_cart_item_pricing_purchase_pricings', $pricings );
 	}
 
-    public function get_products_group_discounts() {
+	public function get_products_group_discounts() {
 		if ( ! apply_filters( 'wccs_cart_item_products_group_discounts', true, $this->item, $this ) ) {
 			return [];
 		}
 
 		if ( empty( $this->pricings ) || empty( $this->pricings['products_group'] ) ) {
 			return apply_filters( 'wccs_cart_item_pricing_products_group_discounts', array() );
-        }
+		}
 
 		$consumed_quantities = array();
-		$discounts           = array();
+		$discounts = array();
 		foreach ( $this->pricings['products_group'] as $pricing_id => $pricing ) {
 			if ( empty( $pricing['groups'] ) ) {
 				continue;
 			}
 
 			// Checking is this product exists in products_group groups.
-			$in_group       = array();
+			$in_group = array();
 			$group_quantity = 0;
 			foreach ( $pricing['groups'] as $group ) {
 				$group_quantity += $group['quantity'];
@@ -846,27 +855,27 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			if ( ! empty( $receive_items ) ) {
 				foreach ( $receive_items as $item_id => $item ) {
 					$consumed_quantities[ $item_id ] = ! empty( $consumed_quantities[ $item_id ] ) ?
-						$consumed_quantities[ $item_id ] + $item[ 'receive_quantity' ] : $item[ 'receive_quantity' ];
+						$consumed_quantities[ $item_id ] + $item['receive_quantity'] : $item['receive_quantity'];
 				}
 			}
 
 			if ( isset( $receive_items[ $this->item_id ] ) ) {
 				$discounts[ $pricing_id ] = array(
-					'id'                    => $pricing_id,
-					'name'                  => $pricing['name'],
-					'description'           => $pricing['description'],
-					'mode'                  => $pricing['mode'],
-					'apply_mode'            => $pricing['apply_mode'],
-					'order'                 => (int) $pricing['order'],
-					'discount'              => (float) $pricing['discount'],
-					'discount_type'         => $pricing['discount_type'],
-					'receive_quantity'      => $receive_items[ $this->item_id ]['receive_quantity'],
-					'group_quantity'        => $group_quantity,
-					'date_time'             => $pricing['date_time'],
+					'id' => $pricing_id,
+					'name' => $pricing['name'],
+					'description' => $pricing['description'],
+					'mode' => $pricing['mode'],
+					'apply_mode' => $pricing['apply_mode'],
+					'order' => (int) $pricing['order'],
+					'discount' => (float) $pricing['discount'],
+					'discount_type' => $pricing['discount_type'],
+					'receive_quantity' => $receive_items[ $this->item_id ]['receive_quantity'],
+					'group_quantity' => $group_quantity,
+					'date_time' => $pricing['date_time'],
 					'date_times_match_mode' => $pricing['date_times_match_mode'],
 				);
 			}
-        }
+		}
 
 		return apply_filters( 'wccs_cart_item_pricing_products_group_discounts', $discounts );
 	}
@@ -878,7 +887,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 
 		if ( empty( $this->pricings ) || empty( $this->pricings['products_group'] ) ) {
 			return apply_filters( 'wccs_cart_item_pricing_products_group_pricings', array() );
-        }
+		}
 
 		$pricings = array();
 		foreach ( $this->pricings['products_group'] as $pricing_id => $pricing ) {
@@ -900,13 +909,13 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			}
 
 			$pricings[ $pricing_id ] = array(
-				'id'                    => $pricing_id,
-				'name'                  => $pricing['name'],
-				'description'           => $pricing['description'],
-				'mode'                  => $pricing['mode'],
-				'apply_mode'            => $pricing['apply_mode'],
-				'order'                 => (int) $pricing['order'],
-				'date_time'             => $pricing['date_time'],
+				'id' => $pricing_id,
+				'name' => $pricing['name'],
+				'description' => $pricing['description'],
+				'mode' => $pricing['mode'],
+				'apply_mode' => $pricing['apply_mode'],
+				'order' => (int) $pricing['order'],
+				'date_time' => $pricing['date_time'],
 				'date_times_match_mode' => $pricing['date_times_match_mode'],
 			);
 		}
@@ -914,7 +923,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 		return apply_filters( 'wccs_cart_item_pricing_products_group_pricings', $pricings );
 	}
 
-    protected function get_items_receive_quantity(
+	protected function get_items_receive_quantity(
 		array $items,
 		array $exclude_items,
 		$quantity,
@@ -925,16 +934,16 @@ class WCCS_Cart_Item_Pricing_Discounts {
 			return array();
 		}
 
-        $cart_items = $this->cart->sort_cart_items(
-            $this->cart->filter_cart_items( $items, true, $exclude_items, true ),
-            'price',
-            'asc'
-        );
+		$cart_items = $this->cart->sort_cart_items(
+			$this->cart->filter_cart_items( $items, true, $exclude_items, true ),
+			'price',
+			'asc'
+		);
 		if ( empty( $cart_items ) ) {
 			return array();
 		}
 
-		$ret_items     = array();
+		$ret_items = array();
 		$grouped_items = array();
 
 		if ( 'single_product' === $quantity_based_on ) {
@@ -952,7 +961,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 		} elseif ( 'cart_line_item' === $quantity_based_on ) {
 			foreach ( $cart_items as $item_id => $item ) {
 				$item['receive_quantity'] = $quantity >= $item['quantity'] ? $item['quantity'] : $quantity;
-				$ret_items[ $item_id ]    = $item;
+				$ret_items[ $item_id ] = $item;
 			}
 		} elseif ( 'category' === $quantity_based_on ) {
 			foreach ( $cart_items as $cart_item_key => $cart_item ) {
@@ -979,7 +988,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 				}
 
 				$item['receive_quantity'] = $qty >= $item['quantity'] ? $item['quantity'] : $qty;
-				$ret_items[ $item_id ]    = $item;
+				$ret_items[ $item_id ] = $item;
 
 				$qty -= $item['quantity'];
 			}
@@ -1001,7 +1010,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 						}
 					} else {
 						$item['receive_quantity'] = $qty >= $item['quantity'] ? $item['quantity'] : $qty;
-						$ret_items[ $item_id ]    = $item;
+						$ret_items[ $item_id ] = $item;
 					}
 
 					$qty -= $item['quantity'];
@@ -1069,7 +1078,7 @@ class WCCS_Cart_Item_Pricing_Discounts {
 
 					// Filter product categories based on group items.
 					$product_categories = WCCS()->product_helpers->get_product_categories( $this->product_id, $group['items'] );
-					$max_groups         = 0;
+					$max_groups = 0;
 					foreach ( $product_categories as $product_category ) {
 						if ( isset( $items_quantities[ $product_category ] ) ) {
 							if ( ! empty( $allowed_categories ) ) {
